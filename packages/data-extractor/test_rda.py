@@ -1,4 +1,5 @@
 """Self-check: build synthetic v2.2 archives (plain, compressed+encrypted memres) and read them back."""
+
 import struct
 import sys
 import tempfile
@@ -18,8 +19,12 @@ def build(blocks):
     out = bytearray(rda.MAGIC.ljust(rda.HEADER_SIZE, b"\0") + b"\0" * 8)
     prev_hdr_pos = rda.HEADER_SIZE  # where to patch the "next" pointer
     for flags, files in blocks:
-        enc = lambda b: zlib.compress(b) if flags & rda.F_COMPRESSED else b  # noqa: E731
-        enc2 = lambda b: rda.crypt(enc(b)) if flags & rda.F_ENCRYPTED else enc(b)  # noqa: E731
+        enc = lambda b: (
+            zlib.compress(b) if flags & rda.F_COMPRESSED else b
+        )  # noqa: E731
+        enc2 = lambda b: (
+            rda.crypt(enc(b)) if flags & rda.F_ENCRYPTED else enc(b)
+        )  # noqa: E731
         directory = b""
         if flags & rda.F_MEMRESIDENT:
             blob, off = b"", 0
@@ -48,17 +53,43 @@ def build(blocks):
 
 with tempfile.TemporaryDirectory() as tmp:
     d = Path(tmp)
-    (d / "config.rda").write_bytes(build([
-        (0, {"data/base/config/export/assets.xml": b"<base/>", "data/ui/x/icon_content/a.dds": b"DDS"}),
-        (rda.F_COMPRESSED | rda.F_ENCRYPTED | rda.F_MEMRESIDENT, {"data/base/config/gui/texts_english.xml": b"<t>hi</t>"}),
-    ]))
-    (d / "zz_patchfiles_01.rda").write_bytes(build([
-        (rda.F_COMPRESSED | rda.F_ENCRYPTED, {"data/base/config/export/assets.xml": b"<patched/>"}),
-    ]))
+    (d / "config.rda").write_bytes(
+        build(
+            [
+                (
+                    0,
+                    {
+                        "data/base/config/export/assets.xml": b"<base/>",
+                        "data/ui/x/icon_content/a.dds": b"DDS",
+                    },
+                ),
+                (
+                    rda.F_COMPRESSED | rda.F_ENCRYPTED | rda.F_MEMRESIDENT,
+                    {"data/base/config/gui/texts_english.xml": b"<t>hi</t>"},
+                ),
+            ]
+        )
+    )
+    (d / "zz_patchfiles_01.rda").write_bytes(
+        build(
+            [
+                (
+                    rda.F_COMPRESSED | rda.F_ENCRYPTED,
+                    {"data/base/config/export/assets.xml": b"<patched/>"},
+                ),
+            ]
+        )
+    )
     with rda.Layered(d) as layered:
         assert layered.files["data/base/config/export/assets.xml"].read() == b"<patched/>"
-        assert layered.files["data/base/config/export/assets.xml"].rda.path.name == "zz_patchfiles_01.rda"
-        assert layered.files["data/base/config/gui/texts_english.xml"].read() == b"<t>hi</t>"
+        assert (
+            layered.files["data/base/config/export/assets.xml"].rda.path.name
+            == "zz_patchfiles_01.rda"
+        )
+        assert (
+            layered.files["data/base/config/gui/texts_english.xml"].read()
+            == b"<t>hi</t>"
+        )
         assert [n for n, _ in layered.select(rda.DEFAULT_FILTER)] == sorted(layered.files)
         assert rda.crypt(rda.crypt(b"roundtrip!")) == b"roundtrip!"
     assert all(archive.f.closed for archive in layered.rdas)

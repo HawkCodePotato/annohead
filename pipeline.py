@@ -284,7 +284,15 @@ def validate_sqlite(path: Path, required_tables: tuple[str, ...] = ()) -> None:
 def validate(run_regressions: bool = True) -> None:
     validate_sqlite(
         SITE_DB,
-        required_tables=("building", "factory", "product", "residence_need", "item", "effect", "text"),
+        required_tables=(
+            "building",
+            "factory",
+            "product",
+            "residence_need",
+            "item",
+            "effect",
+            "translation",
+        ),
     )
     if run_regressions:
         run(TRANSFORMER / "check_site.py", SITE_DB)

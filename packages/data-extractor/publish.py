@@ -4,6 +4,7 @@
 Usage: python3 publish.py <extracted_dir> <source.sqlite> <cdn_dir>
 Then:  rclone sync <cdn_dir> <R2_REMOTE>   (see package.json "publish")
 """
+
 import os
 import re
 import sqlite3
@@ -22,14 +23,21 @@ def key(icon_path: str) -> str:
 
 def source_file(extracted: Path, icon_path: str):
     p = icon_path.replace("\\", "/")
-    cand = extracted / (re.sub(r"^data/ui/fhd/", "data/ui/4k/", p).rsplit(".", 1)[0] + "_0.dds")
+    cand = extracted / (
+        re.sub(r"^data/ui/fhd/", "data/ui/4k/", p).rsplit(".", 1)[0] + "_0.dds"
+    )
     return cand if cand.exists() else None
 
 
 def main(extracted, source_db, out):
     extracted, out = Path(extracted), Path(out)
     out.mkdir(parents=True, exist_ok=True)
-    icons = {r[0] for r in sqlite3.connect(source_db).execute("select distinct icon from assets where icon is not null")}
+    icons = {
+        r[0]
+        for r in sqlite3.connect(source_db).execute(
+            "select distinct icon from assets where icon is not null"
+        )
+    }
     done = skipped = missing = 0
     for icon in sorted(icons):
         src = source_file(extracted, icon)
@@ -47,7 +55,9 @@ def main(extracted, source_db, out):
             im.save(dst, "PNG", optimize=True)
         done += 1
     total = sum(f.stat().st_size for f in out.rglob("*.png")) / 1e6
-    print(f"resized={done} unchanged={skipped} no_source={missing} files={len(list(out.rglob('*.png')))} size={total:.1f}MB -> {out}")
+    print(
+        f"resized={done} unchanged={skipped} no_source={missing} files={len(list(out.rglob('*.png')))} size={total:.1f}MB -> {out}"
+    )
 
 
 if __name__ == "__main__":

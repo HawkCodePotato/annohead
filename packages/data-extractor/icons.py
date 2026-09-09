@@ -2,6 +2,7 @@
 
 Usage: python3 icons.py <extracted_dir> <out_dir>
 """
+
 import collections
 import struct
 import sys
@@ -26,7 +27,11 @@ for dds in src.rglob("*.dds"):
         # DX10 header: dxgiFormat is uint32 at byte 128
         with open(dds, "rb") as f:
             hdr = f.read(148)
-        fmt = struct.unpack_from("<I", hdr, 128)[0] if hdr[84:88] == b"DX10" else hdr[84:88]
+        fmt = (
+            struct.unpack_from("<I", hdr, 128)[0]
+            if hdr[84:88] == b"DX10"
+            else hdr[84:88]
+        )
         failed[f"{fmt}: {type(ex).__name__}: {ex}"].append(str(dds.relative_to(src)))
         stats["failed"] += 1
 print(dict(stats))

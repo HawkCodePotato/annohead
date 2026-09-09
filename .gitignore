@@ -8,6 +8,4 @@ __pycache__
 annohead.local.json
 # game data + extracted output never go in git
 data/*
-
-# the one generated artifact the site deploys with
-!data/anno.sqlite
+# the site DB lives in packages/db/anno.sqlite (tracked)

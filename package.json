@@ -6,19 +6,24 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "python pipeline.py build",
+    "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
     "extract": "python pipeline.py extract",
     "data:extract": "python pipeline.py extract",
     "data:build": "python pipeline.py build",
     "data:validate": "python pipeline.py validate",
     "data:refresh": "python pipeline.py refresh",
     "test": "python packages/data-extractor/test_rda.py && python packages/data-transformer/test_assets.py && python packages/data-transformer/test_transform.py && python packages/data-transformer/check_site.py data/anno.sqlite",
-    "test:data": "python packages/data-extractor/test_rda.py && python packages/data-transformer/test_assets.py && python packages/data-transformer/test_transform.py && python packages/data-transformer/check_site.py data/anno.sqlite"
+    "test:data": "python packages/data-extractor/test_rda.py && python packages/data-transformer/test_assets.py && python packages/data-transformer/test_transform.py && python packages/data-transformer/check_site.py data/anno.sqlite",
+    "lint": "ultracite fix",
+    "prepare": "husky"
   },
   "devDependencies": {
-    "turbo": "^2"
+    "@biomejs/biome": "2.5.12",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.5.0",
+    "turbo": "^2",
+    "ultracite": "7.11.1"
   },
   "packageManager": "bun@1.4.0"
 }

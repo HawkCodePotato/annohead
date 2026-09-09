@@ -1,4 +1,5 @@
 """Self-check for the resolver: property defaults, template defaults, base-asset inheritance, list rules."""
+
 import sys
 import tempfile
 from pathlib import Path
@@ -30,10 +31,21 @@ with tempfile.TemporaryDirectory() as tmp:
     (cfg / "gui/texts_english.xml").write_text(TEXTS)
     A = Assets(tmp)
     base, der = A.obj("1000")["values"], A.obj("1001")["values"]
-    assert base["Item"] == {"Rarity": "Epic", "Niche": "Finance"}, base["Item"]  # asset > template > property default
-    assert base["Cost"]["Costs"] == [{"Ingredient": "1", "Amount": "5", "Weight": "1"}], base["Cost"]  # replace + container default
-    assert base["Snd"]["L"] == [{"S": "a", "X": "1"}, {"S": "b"}], base["Snd"]  # InheritedIndex merge + append
-    assert der["Item"] == {"Rarity": "Epic", "Niche": "Culture"} and A.obj("1001")["template"] == "Thing"
+    assert base["Item"] == {"Rarity": "Epic", "Niche": "Finance"}, base[
+        "Item"
+    ]  # asset > template > property default
+    assert base["Cost"]["Costs"] == [
+        {"Ingredient": "1", "Amount": "5", "Weight": "1"}
+    ], base[
+        "Cost"
+    ]  # replace + container default
+    assert base["Snd"]["L"] == [{"S": "a", "X": "1"}, {"S": "b"}], base[
+        "Snd"
+    ]  # InheritedIndex merge + append
+    assert (
+        der["Item"] == {"Rarity": "Epic", "Niche": "Culture"}
+        and A.obj("1001")["template"] == "Thing"
+    )
     assert A.texts["-5"]["english"] == "Hello"
     assert A.refs("1001") == []
 print("ok")

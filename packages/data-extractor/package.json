@@ -4,6 +4,7 @@
   "scripts": {
     "extract": "python ../../pipeline.py extract",
     "test": "python test_rda.py",
-    "publish": "python ../../pipeline.py build --icons"
+    "icons": "python ../../pipeline.py build --icons",
+    "publish": "python3 publish.py ../../data/extracted ../../data/source.sqlite ../../data/cdn && rclone sync ../../data/cdn \"${R2_REMOTE:?set R2_REMOTE to e.g. r2:annohead}\" --transfers 32 --stats-one-line -v 2>&1 | tail -3"
   }
 }

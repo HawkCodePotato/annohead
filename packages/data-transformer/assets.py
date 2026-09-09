@@ -7,6 +7,7 @@ List items additionally receive properties.xml DefaultContainerValues for their 
 
 Usage: python3 assets.py <extracted_dir> <out.sqlite>
 """
+
 import copy
 import json
 import re
@@ -21,11 +22,16 @@ GUID_RE = re.compile(r"^\d{4,}$")
 def merge(base, over):
     """Deep-merge XML elements; `over` wins.
     Lists (all children tagged Item): if `over` uses VectorElement/InheritedIndex, items merge by index and the rest
-    append; otherwise `over`'s list replaces the inherited one (that is how Costs etc. are authored)."""
+    append; otherwise `over`'s list replaces the inherited one (that is how Costs etc. are authored).
+    """
     out = copy.deepcopy(base)
     if (over.text or "").strip():
         out.text = over.text
-    is_list = bool(len(over)) and all(c.tag == "Item" for c in over) and all(c.tag == "Item" for c in out)
+    is_list = (
+        bool(len(over))
+        and all(c.tag == "Item" for c in over)
+        and all(c.tag == "Item" for c in out)
+    )
     if is_list:
         if not any(c.find("VectorElement/InheritedIndex") is not None for c in over):
             out[:] = [copy.deepcopy(c) for c in over]
@@ -34,14 +40,20 @@ def merge(base, over):
         for oc in over:
             ie = oc.find("VectorElement/InheritedIndex")
             if ie is not None and int(ie.text) < len(items):
-                out[list(out).index(items[int(ie.text)])] = merge(items[int(ie.text)], oc)
+                out[list(out).index(items[int(ie.text)])] = merge(
+                    items[int(ie.text)], oc
+                )
             else:
                 out.append(copy.deepcopy(oc))
         return out
     for oc in over:
         ex = out.find(oc.tag)
         if ex is None or oc.tag == "Item":
-            out.append(copy.deepcopy(oc)) if ex is None else out.__setitem__(list(out).index(ex), merge(ex, oc))
+            (
+                out.append(copy.deepcopy(oc))
+                if ex is None
+                else out.__setitem__(list(out).index(ex), merge(ex, oc))
+            )
         else:
             out[list(out).index(ex)] = merge(ex, oc)
     return out
@@ -55,10 +67,23 @@ class Assets:
             g = a.findtext("Values/Standard/GUID")
             if g:
                 self.raw[g] = a
-        self.templates = {t.findtext("Name"): t.find("Properties") for t in ET.parse(cfg / "export/templates.xml").getroot().iter("Template")}
+        self.templates = {
+            t.findtext("Name"): t.find("Properties")
+            for t in ET.parse(cfg / "export/templates.xml").getroot().iter("Template")
+        }
         props = ET.parse(cfg / "export/properties.xml").getroot()
-        self.prop_defaults = {p.tag: p for g in props.iter("Group") for p in (g.find("DefaultValues") if g.find("DefaultValues") is not None else [])}
-        self.container_roots = [g.find("DefaultContainerValues") for g in props.iter("Group") if g.find("DefaultContainerValues") is not None]
+        self.prop_defaults = {
+            p.tag: p
+            for g in props.iter("Group")
+            for p in (
+                g.find("DefaultValues") if g.find("DefaultValues") is not None else []
+            )
+        }
+        self.container_roots = [
+            g.find("DefaultContainerValues")
+            for g in props.iter("Group")
+            if g.find("DefaultContainerValues") is not None
+        ]
         self.texts = {}  # line_id -> {lang: text}
         for f in sorted((cfg / "gui").glob("texts_*.xml")):
             lang = f.stem.split("_", 1)[1]
@@ -98,7 +123,10 @@ class Assets:
         base_guid = a.findtext("BaseAssetGUID")
         if base_guid and base_guid in self.raw:
             m = merge(self.xml(base_guid), a)
-            if m.find("Template") is None and self.xml(base_guid).find("Template") is not None:
+            if (
+                m.find("Template") is None
+                and self.xml(base_guid).find("Template") is not None
+            ):
                 m.append(copy.deepcopy(self.xml(base_guid).find("Template")))
         else:
             m = copy.deepcopy(a)
@@ -106,11 +134,15 @@ class Assets:
             if tpl is not None:
                 defaults = ET.Element("Values")
                 for prop in tpl:
-                    d = copy.deepcopy(self.prop_defaults.get(prop.tag, ET.Element(prop.tag)))
+                    d = copy.deepcopy(
+                        self.prop_defaults.get(prop.tag, ET.Element(prop.tag))
+                    )
                     d.tag = prop.tag
                     defaults.append(merge(d, prop))
                 vals = m.find("Values")
-                merged = merge(defaults, vals if vals is not None else ET.Element("Values"))
+                merged = merge(
+                    defaults, vals if vals is not None else ET.Element("Values")
+                )
                 if vals is not None:
                     m.remove(vals)
                 m.append(merged)
@@ -164,7 +196,9 @@ class Assets:
             elif isinstance(o, list):
                 for i, v in enumerate(o):
                     walk(v, f"{path}[{i}]")
-            elif isinstance(o, str) and GUID_RE.match(o) and o in self.raw and o != guid:
+            elif (
+                isinstance(o, str) and GUID_RE.match(o) and o in self.raw and o != guid
+            ):
                 out.append((path, int(o)))
 
         walk(self.obj(guid)["values"], "")
@@ -183,11 +217,30 @@ def build_db(extracted, out):
     """)
     for g in A.raw:
         o = A.obj(g)
-        db.execute("insert into assets values(?,?,?,?,?,?,?,?)", (o["guid"], o["template"], o["base_guid"], o["name"], o["text_id"], o["text"], o["icon"], json.dumps(o["values"], ensure_ascii=False)))
-        db.executemany("insert into refs values(?,?,?)", [(o["guid"], p, t) for p, t in A.refs(g)])
-    db.executemany("insert into texts values(?,?,?)", [(lid, lang, t) for lid, langs in A.texts.items() for lang, t in langs.items()])
+        db.execute(
+            "insert into assets values(?,?,?,?,?,?,?,?)",
+            (
+                o["guid"],
+                o["template"],
+                o["base_guid"],
+                o["name"],
+                o["text_id"],
+                o["text"],
+                o["icon"],
+                json.dumps(o["values"], ensure_ascii=False),
+            ),
+        )
+        db.executemany(
+            "insert into refs values(?,?,?)", [(o["guid"], p, t) for p, t in A.refs(g)]
+        )
+    db.executemany(
+        "insert into texts values(?,?,?)",
+        [(lid, lang, t) for lid, langs in A.texts.items() for lang, t in langs.items()],
+    )
     db.commit()
-    n = db.execute("select count(*), (select count(*) from refs), (select count(*) from texts) from assets").fetchone()
+    n = db.execute(
+        "select count(*), (select count(*) from refs), (select count(*) from texts) from assets"
+    ).fetchone()
     print(f"assets={n[0]} refs={n[1]} texts={n[2]} -> {out}")
     db.close()
     return A
