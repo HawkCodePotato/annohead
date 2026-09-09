@@ -1,8 +1,8 @@
-# Anno 117 data schema (proposal)
+# Anno 117 data schema
 
-Status: proposal, not final. Everything below is derived from the resolved game data in `data/source.sqlite`
-(built by `packages/data-transformer/assets.py`). The generic transformer that fills the site database is written once
-this document is agreed.
+Status: implemented but evolving. Everything below is derived from the resolved game data in `data/source.sqlite`
+(built by `packages/data-transformer/assets.py`) and normalized by `packages/data-transformer/transform.py`.
+The table definitions in `transform.py` are authoritative where this design document differs from the code.
 
 ## Layers
 
@@ -21,9 +21,9 @@ this document is agreed.
 - Names live in `texts_<lang>.xml` keyed by a 64-bit **line id** (`Values/Text/OasisId`).
 - Icons are referenced as `data/ui/fhd/.../name.png` and exist on disk as `data/ui/4k/.../name_0.dds`
   (1,895 of 2,071 referenced icons resolve this way; the rest are UI backgrounds, not entity icons).
-  `data-extractor/publish.py` resizes each to a 256px WebP named `sha1(source path)[:12].png` and syncs the
-  set to Cloudflare R2. The `icon` column in every site table holds that key, so the URL is
-  `https://<cdn-host>/<icon>.png`.
+  `data-extractor/publish.py` resizes each to a 256px PNG under the normalized original game path.
+  The `icon` column in every site table holds that relative path. Remote upload is intentionally separate from
+  database generation; the cross-platform `pipeline.py` never modifies a CDN.
 - Groups of things are **AssetPools** (705), nested. Effects, unlocks and quest rewards target pools, so
   "which buildings does this affect" always means "flatten the pool".
 - Regions: `Roman` = Latium, `Celtic` = Albion, `Egyptian` = Delta (DLC 3). Region variants of a building are
@@ -50,9 +50,10 @@ transport_type`. Derived: `produced_by[]`, `consumed_by[]` from FactoryBase inpu
 ### building
 
 Any asset with `Building` + `Constructable` properties (~250 incl. variants and DLC).
-Core: `guid, name, description, icon, template, kind, building_type, category, regions[], dlc,
+Core: `guid, name, description, icon, template, kind, building_type, category, regions[],
 radius, street_radius, health, cost[] (product, amount), maintenance[] (money, workforce product, amount),
-skins[], variant_group` (buildings sharing a display name).
+  Buildings do not yet have a direct DLC relation, skins table, or variant group; consumers should derive or
+  curate those fields separately until an authoritative relationship is added.
 `kind` is our UI grouping derived from template: Production, Residence, Public Service, City Watch
 (`CityInstitutionBuilding`), Harbour, Military, Monument, Marvel, Aqueduct, Marsh, Ornament, Road.
 

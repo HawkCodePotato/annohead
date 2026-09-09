@@ -2,8 +2,8 @@
   "name": "@anno/data-extractor",
   "private": true,
   "scripts": {
-    "extract": "python3 rda.py extract \"${ANNO_MAINDATA:-/Users/alizahid/Library/Application Support/CrossOver/Bottles/Steam/drive_c/Program Files (x86)/Steam/steamapps/common/Anno 117 - Pax Romana/maindata}\" ../../data/extracted && python3 icons.py ../../data/extracted ../../data/icons",
-    "test": "python3 test_rda.py",
-    "publish": "python3 publish.py ../../data/extracted ../../data/source.sqlite ../../data/cdn && rclone sync ../../data/cdn \"${R2_REMOTE:?set R2_REMOTE to e.g. r2:annohead}\" --transfers 32 --stats-one-line -v 2>&1 | tail -3"
+    "extract": "python ../../pipeline.py extract",
+    "test": "python test_rda.py",
+    "publish": "python ../../pipeline.py build --icons"
   }
 }

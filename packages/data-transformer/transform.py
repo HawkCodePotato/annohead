@@ -7,7 +7,9 @@ import os
 import re
 import sqlite3
 import sys
+import time
 from collections import defaultdict
+from pathlib import Path
 
 GUID = re.compile(r"^\d{4,}$")
 REGIONS = {"Roman": (1, "Latium"), "Celtic": (2, "Albion"), "Egyptian": (3, "Delta")}
@@ -112,31 +114,37 @@ class T:
     def items(self, x):
         return [i for i in x if isinstance(i, dict)] if isinstance(x, list) else []
 
-    def condition(self, owner_kind, owner_id, node):
+    def condition(self, owner_kind, owner_id, node, parent_id=None):
         """Store a PreCondition/TriggerCondition tree as condition rows; returns root condition id."""
         if not isinstance(node, dict):
             return None
-        tpl = node.get("Template")
-        vals = D(node.get("Values")) or node
+        # PreConditionList keeps its first condition and the remaining conditions
+        # as siblings. Accept either the wrapper or a bare condition so callers do
+        # not accidentally discard the sibling list.
+        if not node.get("Template") and ("Condition" in node or "SubConditions" in node):
+            condition_node = node.get("Condition") or {"Template": "ConditionAlwaysTrue"}
+            sibling_nodes = node.get("SubConditions")
+        else:
+            condition_node = node
+            sibling_nodes = None
+        if not isinstance(condition_node, dict):
+            return None
+        tpl = condition_node.get("Template")
+        vals = D(condition_node.get("Values")) or condition_node
         negate = 1 if D(vals.get("ConditionPropsNegatable")).get("NegateCondition") == "1" else 0
         cid = len(self.conditions) + 1
-        self.conditions.append((cid, owner_kind, owner_id, tpl, negate))
+        self.conditions.append((cid, owner_kind, owner_id, tpl, negate, parent_id))
         body = vals.get(tpl) if tpl and isinstance(vals.get(tpl), dict) else {k: v for k, v in vals.items() if k != "Condition"}
         for k, v in self.walk_leaves(body or {}):
             self.db.execute("insert into condition_param values(?,?,?)", (cid, k, v))
-        for sub in self.items((vals.get("SubConditions"))):
+        subconditions = sibling_nodes if sibling_nodes is not None else vals.get("SubConditions")
+        for sub in self.items(subconditions):
             sc = sub.get("SubCondition") if isinstance(sub, dict) else None
             if isinstance(sc, dict):
                 inner = D(D(sc.get("Values")).get("PreConditionList"))
-                child = self.condition(owner_kind, owner_id, inner.get("Condition") or {"Template": "ConditionAlwaysTrue"})
-                if child:
-                    self.db.execute("update condition set parent_id=? where id=?", (cid, child))
-                for sub2 in self.items(inner.get("SubConditions")):
-                    sc2 = (sub2 or {}).get("SubCondition")
-                    if isinstance(sc2, dict):
-                        c2 = self.condition(owner_kind, owner_id, D(D(D(sc2.get("Values")).get("PreConditionList")).get("Condition")))
-                        if c2:
-                            self.db.execute("update condition set parent_id=? where id=?", (cid, c2))
+                if not inner:
+                    inner = D(sc.get("PreConditionList"))
+                self.condition(owner_kind, owner_id, inner or sc, parent_id=cid)
         return cid
 
     def walk_leaves(self, o, path=""):
@@ -315,7 +323,7 @@ class T:
                     self.db.execute("insert into item_boost_buff values(?,?)", (a["guid"], self.num(b["GUID"])))
             bc = D(D(D(boost.get("BoostCondition")).get("Values")).get("PreConditionList"))
             if bc.get("Condition"):
-                self.db.execute("insert into item_boost_condition values(?,?)", (a["guid"], self.condition("item", a["guid"], bc["Condition"])))
+                self.db.execute("insert into item_boost_condition values(?,?)", (a["guid"], self.condition("item", a["guid"], bc)))
             for f, path in self.refs_to[a["guid"]]:
                 src = self.assets[f]
                 if src["template"] in ("RewardPool", "HallOfFameItem") or src["template"].startswith("Participant"):
@@ -373,7 +381,7 @@ class T:
                         self.db.execute("insert into storyline_variable values(?,?,?,?)", (a["guid"], var["Name"], kind[:-9].lower(), var.get("StartValue")))
             pc = D(a["v"].get("PreConditionList"))
             if pc.get("Condition"):
-                self.db.execute("insert into storyline_condition values(?,?)", (a["guid"], self.condition("storyline", a["guid"], pc["Condition"])))
+                self.db.execute("insert into storyline_condition values(?,?)", (a["guid"], self.condition("storyline", a["guid"], pc)))
             # BFS over Component references
             queue, seen = [a["guid"]], set()
             while queue:
@@ -456,7 +464,7 @@ class T:
         for name, vals in self.enums.items():
             for v in sorted(vals):
                 self.db.execute("insert into enum values(?,?)", (name, v))
-        self.db.executemany("insert into condition values(?,?,?,?,?,null)", self.conditions)
+        self.db.executemany("insert into condition values(?,?,?,?,?,?)", self.conditions)
         q = ",".join("?" * len(self.used_texts))
         langs = {}
         for lid, lang, val in self.src.execute(f"select line_id,lang,text from texts where line_id in ({q})", list(self.used_texts)):
@@ -492,6 +500,55 @@ def dict_get(o, path):
         if o is None:
             return None
     return o
+
+
+def build_site_db(src, out, icons_dir=None, langs=None):
+    """Build and validate beside the destination, then replace it atomically."""
+    target = Path(out)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    staging = target.with_name(f".{target.name}.{os.getpid()}.tmp")
+    staging.unlink(missing_ok=True)
+    transformer = None
+    try:
+        transformer = T(src, staging, icons_dir, langs)
+        for step in (
+            transformer.lookups,
+            transformer.products,
+            transformer.buildings,
+            transformer.effects,
+            transformer.items_,
+            transformer.techs,
+            transformer.quests,
+            transformer.finish,
+        ):
+            step()
+        integrity = transformer.db.execute("pragma integrity_check").fetchone()[0]
+        if integrity != "ok":
+            raise RuntimeError(f"SQLite integrity check failed: {integrity}")
+        foreign_key_errors = transformer.db.execute("pragma foreign_key_check").fetchall()
+        if foreign_key_errors:
+            raise RuntimeError(f"SQLite foreign-key check found {len(foreign_key_errors)} violation(s)")
+        transformer.db.close()
+        transformer.src.close()
+        transformer = None
+        last_error = None
+        for delay in (0.0, 0.1, 0.25, 0.5, 1.0):
+            if delay:
+                time.sleep(delay)
+            try:
+                os.replace(staging, target)
+                break
+            except PermissionError as exc:
+                last_error = exc
+        else:
+            raise last_error
+        print(f"validated -> {target}")
+    except Exception:
+        if transformer is not None:
+            transformer.db.close()
+            transformer.src.close()
+        staging.unlink(missing_ok=True)
+        raise
 
 
 SCHEMA = """
@@ -567,6 +624,4 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     langs = args.pop(args.index("--langs") + 1).split(",") if "--langs" in args else None
     args = [a for a in args if a != "--langs"]
-    t = T(args[0], args[1], args[2] if len(args) > 2 else None, langs)
-    for step in (t.lookups, t.products, t.buildings, t.effects, t.items_, t.techs, t.quests, t.finish):
-        step()
+    build_site_db(args[0], args[1], args[2] if len(args) > 2 else None, langs)

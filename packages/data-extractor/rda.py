@@ -18,7 +18,7 @@ import struct
 import sys
 import zlib
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 MAGIC = b"Resource File V2.2"
 HEADER_SIZE = 784
@@ -73,6 +73,7 @@ class Rda:
         self.path = Path(path)
         self.f = open(path, "rb")
         if self.f.read(len(MAGIC)) != MAGIC:
+            self.f.close()
             raise ValueError(f"{path}: not an RDA v2.2 file")
         (first,) = struct.unpack("<Q", self._read_at(HEADER_SIZE, 8))
         self.entries: list[Entry] = list(self._walk(first))
@@ -80,6 +81,16 @@ class Rda:
     def _read_at(self, off, n):
         self.f.seek(off)
         return self.f.read(n)
+
+    def close(self):
+        if not self.f.closed:
+            self.f.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, _exc_type, _exc, _tb):
+        self.close()
 
     def _walk(self, off):
         size = self.path.stat().st_size
@@ -108,14 +119,45 @@ class Layered:
     def __init__(self, folder):
         folder = Path(folder)
         paths = [folder] if folder.is_file() else sorted(folder.glob("*.rda"), key=lambda p: p.name.lower())
+        if not paths:
+            raise FileNotFoundError(f"no .rda files found in {folder}")
+        self.rdas: list[Rda] = []
         self.files: dict[str, Entry] = {}
-        for p in paths:
-            for e in Rda(p).entries:
-                self.files[e.name] = e
+        try:
+            for p in paths:
+                archive = Rda(p)
+                self.rdas.append(archive)
+                for e in archive.entries:
+                    self.files[e.name] = e
+        except Exception:
+            self.close()
+            raise
 
     def select(self, pattern: str):
         rx = re.compile(pattern, re.I)
         return sorted((k, e) for k, e in self.files.items() if rx.search(k))
+
+    def close(self):
+        for archive in self.rdas:
+            archive.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, _exc_type, _exc, _tb):
+        self.close()
+
+
+def extraction_target(out: Path, name: str) -> Path:
+    """Return a safe destination for an archive member."""
+    rel = PurePosixPath(name)
+    if rel.is_absolute() or any(part in ("", ".", "..") for part in rel.parts):
+        raise ValueError(f"unsafe archive path: {name!r}")
+    root = out.resolve()
+    dst = root.joinpath(*rel.parts).resolve()
+    if dst != root and root not in dst.parents:
+        raise ValueError(f"archive path escapes output directory: {name!r}")
+    return dst
 
 
 def main(argv):
@@ -123,22 +165,27 @@ def main(argv):
         sys.exit(__doc__)
     cmd, src = argv[1], argv[2]
     flt = argv[argv.index("--filter") + 1] if "--filter" in argv else DEFAULT_FILTER
-    picked = Layered(src).select(flt)
-    if cmd == "list":
-        for name, e in picked:
-            print(f"{e.size:>12}  {e.rda.path.name:<28} {name}")
-    elif cmd == "manifest":
-        print(json.dumps({name: e.rda.path.name for name, e in picked}, indent=1))
-    elif cmd == "extract":
-        out = Path(argv[3])
-        for name, e in picked:
-            dst = out / name
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            dst.write_bytes(e.read())
-        (out / "manifest.json").write_text(json.dumps({n: e.rda.path.name for n, e in picked}, indent=1))
-        print(f"{len(picked)} files -> {out}")
-    else:
-        sys.exit(__doc__)
+    with Layered(src) as layered:
+        picked = layered.select(flt)
+        if cmd == "list":
+            for name, e in picked:
+                print(f"{e.size:>12}  {e.rda.path.name:<28} {name}")
+        elif cmd == "manifest":
+            print(json.dumps({name: e.rda.path.name for name, e in picked}, indent=1))
+        elif cmd == "extract":
+            if len(argv) < 4:
+                sys.exit(__doc__)
+            out = Path(argv[3])
+            for name, e in picked:
+                dst = extraction_target(out, name)
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                dst.write_bytes(e.read())
+            (out / "manifest.json").write_text(
+                json.dumps({n: e.rda.path.name for n, e in picked}, indent=1), encoding="utf-8"
+            )
+            print(f"{len(picked)} files -> {out}")
+        else:
+            sys.exit(__doc__)
 
 
 if __name__ == "__main__":

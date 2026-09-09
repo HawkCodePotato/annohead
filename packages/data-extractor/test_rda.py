@@ -55,10 +55,17 @@ with tempfile.TemporaryDirectory() as tmp:
     (d / "zz_patchfiles_01.rda").write_bytes(build([
         (rda.F_COMPRESSED | rda.F_ENCRYPTED, {"data/base/config/export/assets.xml": b"<patched/>"}),
     ]))
-    layered = rda.Layered(d)
-    assert layered.files["data/base/config/export/assets.xml"].read() == b"<patched/>"
-    assert layered.files["data/base/config/export/assets.xml"].rda.path.name == "zz_patchfiles_01.rda"
-    assert layered.files["data/base/config/gui/texts_english.xml"].read() == b"<t>hi</t>"
-    assert [n for n, _ in layered.select(rda.DEFAULT_FILTER)] == sorted(layered.files)
-    assert rda.crypt(rda.crypt(b"roundtrip!")) == b"roundtrip!"
+    with rda.Layered(d) as layered:
+        assert layered.files["data/base/config/export/assets.xml"].read() == b"<patched/>"
+        assert layered.files["data/base/config/export/assets.xml"].rda.path.name == "zz_patchfiles_01.rda"
+        assert layered.files["data/base/config/gui/texts_english.xml"].read() == b"<t>hi</t>"
+        assert [n for n, _ in layered.select(rda.DEFAULT_FILTER)] == sorted(layered.files)
+        assert rda.crypt(rda.crypt(b"roundtrip!")) == b"roundtrip!"
+    assert all(archive.f.closed for archive in layered.rdas)
+    try:
+        rda.extraction_target(d, "../outside.txt")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("archive path traversal was not rejected")
 print("ok")

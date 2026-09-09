@@ -189,6 +189,7 @@ def build_db(extracted, out):
     db.commit()
     n = db.execute("select count(*), (select count(*) from refs), (select count(*) from texts) from assets").fetchone()
     print(f"assets={n[0]} refs={n[1]} texts={n[2]} -> {out}")
+    db.close()
     return A
 
 

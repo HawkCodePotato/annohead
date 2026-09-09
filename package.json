@@ -6,10 +6,16 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "python pipeline.py build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "extract": "turbo run extract"
+    "extract": "python pipeline.py extract",
+    "data:extract": "python pipeline.py extract",
+    "data:build": "python pipeline.py build",
+    "data:validate": "python pipeline.py validate",
+    "data:refresh": "python pipeline.py refresh",
+    "test": "python packages/data-extractor/test_rda.py && python packages/data-transformer/test_assets.py && python packages/data-transformer/test_transform.py && python packages/data-transformer/check_site.py data/anno.sqlite",
+    "test:data": "python packages/data-extractor/test_rda.py && python packages/data-transformer/test_assets.py && python packages/data-transformer/test_transform.py && python packages/data-transformer/check_site.py data/anno.sqlite"
   },
   "devDependencies": {
     "turbo": "^2"

@@ -5,6 +5,7 @@ dist
 __pycache__
 *.pyc
 .venv
+annohead.local.json
 # game data + extracted output never go in git
 data/*
 
