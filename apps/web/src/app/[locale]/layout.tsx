@@ -38,7 +38,7 @@ export default async function Layout({
     >
       <body>
         <Providers>
-          {children}
+          <div className="isolate">{children}</div>
 
           <OfflineCache />
         </Providers>

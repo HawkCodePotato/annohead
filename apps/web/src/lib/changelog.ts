@@ -10,6 +10,7 @@ export const changelog: Array<Release> = [
     date: new Date('2026-11-04'),
     fixed: [
       'The search box shows up with the page instead of popping in after',
+      'Menus and tooltips no longer show calculator numbers through them',
     ],
   },
   {
