@@ -1,12 +1,18 @@
 'use client'
 
 import { Authenticated, AuthLoading, Unauthenticated } from 'convex/react'
+import { use } from 'react'
 
 import { SignUp } from '@/components/auth/sign-up'
 import { Loading } from '@/components/common/loading'
 import { Redirect } from '@/components/common/redirect'
+import { getSafeNext } from '@/lib/url'
 
-export default function Page() {
+export default function Page({
+  searchParams,
+}: PageProps<'/[locale]/auth/sign-up'>) {
+  const next = getSafeNext(use(searchParams).next)
+
   return (
     <>
       <AuthLoading>
@@ -14,11 +20,11 @@ export default function Page() {
       </AuthLoading>
 
       <Authenticated>
-        <Redirect href="/" />
+        <Redirect href={next} />
       </Authenticated>
 
       <Unauthenticated>
-        <SignUp />
+        <SignUp next={next} />
       </Unauthenticated>
     </>
   )

@@ -8,6 +8,10 @@ type Release = {
 export const changelog: Array<Release> = [
   {
     added: ['Sign out from the profile menu in the header'],
+    changed: [
+      'Signing in or signing up takes you back to the page you were on',
+      'Signing in with Steam shows a loading screen while your account is checked',
+    ],
     date: new Date('2026-11-04'),
     fixed: [
       'The search box shows up with the page instead of popping in after',

@@ -5,13 +5,18 @@ import { Controller } from 'react-hook-form'
 
 import { useSignUp } from '@/hooks/auth/sign-up'
 import { NavLink } from '@/intl/nav'
+import { getAuthHref } from '@/lib/url'
 
 import { Button } from '../common/button'
 import { Field } from '../common/field'
 import { TextBox } from '../common/text-box'
 import { SteamSignIn } from './steam'
 
-export function SignUp() {
+type Props = {
+  next: string
+}
+
+export function SignUp({ next }: Props) {
   const t = useTranslations('component.auth.signUp')
 
   const { form, isPending, onSubmit } = useSignUp()
@@ -57,11 +62,11 @@ export function SignUp() {
         {t('action.submit')}
       </Button>
 
-      <SteamSignIn />
+      <SteamSignIn next={next} />
 
       <NavLink
         className="text-gray-11 text-center text-sm leading-tight"
-        href="/auth/sign-in"
+        href={getAuthHref('/auth/sign-in', next)}
       >
         {t('action.signIn')}
       </NavLink>

@@ -59,3 +59,20 @@ export function getUrl(type: SearchType, id: number, slug?: string | null) {
 
   return `/${base}/${id}/${slug ?? type}`
 }
+
+// only same-site paths, so ?next can't send people to another site
+export function getSafeNext(value: unknown) {
+  return typeof value === 'string' &&
+    value.startsWith('/') &&
+    !value.startsWith('//') &&
+    !value.startsWith('/\\')
+    ? value
+    : '/'
+}
+
+export function getAuthHref(
+  pathname: '/auth/sign-in' | '/auth/sign-up',
+  next: string,
+) {
+  return next === '/' ? pathname : { pathname, query: { next } }
+}

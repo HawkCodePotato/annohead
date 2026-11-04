@@ -12,13 +12,16 @@ import { Authenticated, AuthLoading, Unauthenticated } from 'convex/react'
 import { useTranslations } from 'next-intl'
 
 import { Spinner } from '@/components/common/spinner'
-import { NavLink } from '@/intl/nav'
+import { NavLink, usePathname } from '@/intl/nav'
+import { getAuthHref } from '@/lib/url'
 
 type Props = {
   className?: string
 }
 
 export function AuthProfile({ className }: Props) {
+  const pathname = usePathname()
+
   const t = useTranslations('component.auth.profile')
 
   const { signOut } = useAuthActions()
@@ -62,7 +65,10 @@ export function AuthProfile({ className }: Props) {
       </Authenticated>
 
       <Unauthenticated>
-        <NavLink className="outline-none" href="/auth/sign-in">
+        <NavLink
+          className="outline-none"
+          href={getAuthHref('/auth/sign-in', pathname)}
+        >
           <UserCircleDashedIcon className="size-6" />
         </NavLink>
       </Unauthenticated>

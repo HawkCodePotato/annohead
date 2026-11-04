@@ -1,8 +1,14 @@
+import { cn } from 'cn'
+
 import { Spinner } from './spinner'
 
-export function Loading() {
+type Props = {
+  className?: string
+}
+
+export function Loading({ className }: Props) {
   return (
-    <div className="flex flex-1 items-center justify-center">
+    <div className={cn('flex flex-1 items-center justify-center', className)}>
       <Spinner className="size-8 animate-spin" />
     </div>
   )

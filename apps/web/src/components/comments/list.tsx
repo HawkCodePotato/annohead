@@ -6,7 +6,8 @@ import { useConvexAuth, usePaginatedQuery } from 'convex/react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
-import { NavLink } from '@/intl/nav'
+import { NavLink, usePathname } from '@/intl/nav'
+import { getAuthHref } from '@/lib/url'
 
 import { Button } from '../common/button'
 import { Empty } from '../common/empty'
@@ -20,6 +21,8 @@ type Props = {
 }
 
 export function CommentList({ guid }: Props) {
+  const pathname = usePathname()
+
   const t = useTranslations('component.comments.list')
 
   const { isAuthenticated } = useConvexAuth()
@@ -61,7 +64,10 @@ export function CommentList({ guid }: Props) {
         <p className="text-gray-11 -mt-2 text-sm">
           {t.rich('signIn', {
             link: (text) => (
-              <NavLink className="text-accent-11" href="/auth/sign-in">
+              <NavLink
+                className="text-accent-11"
+                href={getAuthHref('/auth/sign-in', pathname)}
+              >
                 {text}
               </NavLink>
             ),

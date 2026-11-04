@@ -7,20 +7,20 @@ import { useSteamSignIn } from '@/hooks/auth/steam'
 
 import { Button } from '../common/button'
 
-export function SteamSignIn() {
+type Props = {
+  next: string
+}
+
+export function SteamSignIn({ next }: Props) {
   const t = useTranslations('component.auth.steam')
 
-  const { signIn, isPending, isError } = useSteamSignIn()
+  const { signIn, isPending } = useSteamSignIn(next)
 
   return (
-    <>
-      <Button loading={isPending} onClick={signIn} type="button">
-        <SteamLogoIcon className="size-6" weight="fill" />
+    <Button loading={isPending} onClick={signIn} type="button">
+      <SteamLogoIcon className="size-6" weight="fill" />
 
-        {t('action.signIn')}
-      </Button>
-
-      {isError ? <p className="text-red-11 text-sm">{t('error')}</p> : null}
-    </>
+      {t('action.signIn')}
+    </Button>
   )
 }
