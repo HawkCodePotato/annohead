@@ -28,7 +28,7 @@ export function Row({ description, href, icon, name }: Props) {
 
   return (
     <NavLink
-      className="-mx-4 -my-2 flex flex-col gap-1 rounded-sm px-4 py-2 transition-colors hover:bg-accent-4"
+      className="hover:bg-accent-4 -mx-4 -my-2 flex flex-col gap-1 rounded-sm px-4 py-2 transition-colors"
       href={href}
     >
       {content}

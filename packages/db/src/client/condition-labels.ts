@@ -25,7 +25,7 @@ const ATTRIBUTE_ALIASES: Record<string, string> = {
   PopulationByGroup: 'Population',
 }
 
-const TEMPLATE_PREFIX = /^Condition/
+const TEMPLATE_PREFIX = /^Condition/u
 
 /** The game's name for each `;`-separated variant, else ours, else the raw key */
 function variantLabel(
@@ -71,7 +71,7 @@ export function conditionLabel(
   )
     .replace('{name}', name ?? '')
     .replace('{variant}', variant ? variantLabel(type, variant, lang, l) : '')
-    .replace(/\s+/g, ' ')
+    .replace(/\s+/gu, ' ')
     .trim()
   return comparison === 'AtMost' || comparison === 'LessThan'
     ? `${label} (${phrases[lang].words.atMost})`
@@ -82,7 +82,7 @@ export function negatedLabel(label: string, lang: Lang) {
   return `${phrases[lang].words.not}: ${label}`
 }
 
-const VARIABLE_WORD_BREAK = /(?<=[a-z])(?=[A-Z0-9])|(?<=[0-9])(?=[A-Z])/g
+const VARIABLE_WORD_BREAK = /(?<=[a-z])(?=[A-Z0-9])|(?<=[0-9])(?=[A-Z])/gu
 
 /**
  * Quest variables are internal identifiers ("Colosseum_PatricianFavor", "Colosseum_StoryS6_done"); read as words

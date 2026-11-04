@@ -17,7 +17,7 @@ export type Labels = (
 ) => Label | null
 
 // the game ends some labels in a colon or line break ("Cargo Weight Speed Reduction:")
-const TRAILING = /[\s:]+$/
+const TRAILING = /[\s:]+$/u
 
 // ponytail: one map per language for the life of the process; the DB is rebuilt offline, so restart after a rebuild
 const cache = new Map<Lang, Promise<Labels>>()

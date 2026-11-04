@@ -13,7 +13,7 @@ type Props = {
 export function UnitCard({ unit }: Props) {
   return (
     <NavLink
-      className="relative flex flex-col gap-4 rounded-lg p-4 outline-none ring-accent-8 hover:bg-accent-4 focus-visible:ring-2"
+      className="ring-accent-8 hover:bg-accent-4 relative flex flex-col gap-4 rounded-lg p-4 outline-none focus-visible:ring-2"
       href={getUrl('unit', unit.guid, unit.slug)}
     >
       {unit.icon ? <Icon className="size-16" icon={unit.icon} /> : null}

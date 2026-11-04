@@ -3,8 +3,8 @@ import { phrases } from './phrases'
 
 type Role = 'governor' | 'emperor' | 'island' | 'unknown'
 
-const PLACEHOLDER = /\{[^{}]*\}/g
-const LINE_BREAK = /<br\s*\/?>/g
+const PLACEHOLDER = /\{[^{}]*\}/gu
+const LINE_BREAK = /<br\s*\/?>/gu
 
 function role(placeholder: string): Role {
   if (placeholder.includes('LocationName')) {
@@ -31,10 +31,10 @@ export function questText(text: string | null, lang: Lang) {
   )
 }
 
-const BOLD = /<b>([\s\S]*?)<\/b>/g
-const TAG = /<[^>]+>/g
+const BOLD = /<b>([\s\S]*?)<\/b>/gu
+const TAG = /<[^>]+>/gu
 // CJK texts end sentences with full-width marks
-const QUESTION = /[^.!?。！？\n]*[?？]+/g
+const QUESTION = /[^.!?。！？\n]*[?？]+/gu
 
 /** The question a decision screen ends on: its last bold line, else its last sentence ending in "?". */
 export function questQuestion(text: string | null, lang: Lang) {

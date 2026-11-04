@@ -29,7 +29,7 @@ export function TechPopover() {
               side="right"
               sideOffset={12}
             >
-              <Popover.Popup className="flex w-80 max-w-80 flex-col overflow-hidden rounded-2xl bg-white outline-hidden ring ring-gray-6 dark:bg-black">
+              <Popover.Popup className="ring-gray-6 flex w-80 max-w-80 flex-col overflow-hidden rounded-2xl bg-white ring outline-hidden dark:bg-black">
                 {payload.kind === 'tech' ? (
                   <TechCard tech={payload.tech} />
                 ) : (

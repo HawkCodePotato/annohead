@@ -65,7 +65,7 @@ export function CommentForm({ guid, onSuccess }: Props) {
         render={({ field }) => (
           <textarea
             {...field}
-            className="field-sizing-content max-h-64 min-h-16 w-full resize-none rounded-lg bg-gray-2 px-4 py-3 outline-none ring-accent-8 focus-visible:ring-2"
+            className="bg-gray-2 ring-accent-8 field-sizing-content max-h-64 min-h-16 w-full resize-none rounded-lg px-4 py-3 outline-none focus-visible:ring-2"
             placeholder={t('field.body.placeholder')}
           />
         )}

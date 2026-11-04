@@ -40,7 +40,7 @@ export function QuestBranchNode({
       <div className="flex size-14 shrink-0 items-center justify-center">
         <button
           className={cn(
-            'pointer-events-auto flex size-10 rotate-45 items-center justify-center rounded-md text-white outline-none ring-accent-8 ring-offset-2 ring-offset-gray-2 focus-visible:ring-2',
+            'ring-accent-8 ring-offset-gray-2 pointer-events-auto flex size-10 rotate-45 items-center justify-center rounded-md text-white ring-offset-2 outline-none focus-visible:ring-2',
             holds ? 'bg-green-9' : 'bg-red-9',
           )}
           disabled={locked.has(id)}
@@ -58,9 +58,9 @@ export function QuestBranchNode({
 
       {option.outcomes.length ? (
         <>
-          <div className="h-0.5 w-8 bg-gray-7" />
+          <div className="bg-gray-7 h-0.5 w-8" />
 
-          <DataList.Root className="w-72 bg-gray-3" title={t('outcomes')}>
+          <DataList.Root className="bg-gray-3 w-72" title={t('outcomes')}>
             <QuestOutcomeList outcomes={option.outcomes} />
           </DataList.Root>
         </>

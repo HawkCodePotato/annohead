@@ -41,7 +41,7 @@ export function QuestChoiceNode({
         ) : null}
 
         {choice.question ? (
-          <p className="whitespace-pre-line text-sm">{choice.question}</p>
+          <p className="text-sm whitespace-pre-line">{choice.question}</p>
         ) : null}
 
         {choice.kind === 'check' && !choice.requirements.length ? (

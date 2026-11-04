@@ -18,7 +18,11 @@
     },
     "typecheck": {
       "cache": false,
-      "dependsOn": ["^typecheck"]
+      "dependsOn": ["^typecheck", "typegen"]
+    },
+    "typegen": {
+      "cache": false,
+      "dependsOn": ["^typegen"]
     }
   }
 }

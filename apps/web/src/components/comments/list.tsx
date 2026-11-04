@@ -59,7 +59,7 @@ export function CommentList({ guid }: Props) {
       </div>
 
       {isAuthenticated ? null : (
-        <p className="-mt-2 text-gray-11 text-sm">
+        <p className="text-gray-11 -mt-2 text-sm">
           {t.rich('signIn', {
             link: (text) => (
               <NavLink className="text-accent-11" href="/auth/sign-in">

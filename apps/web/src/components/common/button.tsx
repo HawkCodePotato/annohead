@@ -18,7 +18,7 @@ export function Button({
     <Component
       {...props}
       className={cn(
-        'relative flex h-10 items-center justify-center gap-3 overflow-hidden rounded-lg bg-accent-9 px-3 font-bold text-accent-contrast outline-accent-8 outline-offset-4 enabled:active:bg-accent-9 enabled:hover:bg-accent-10',
+        'bg-accent-9 text-accent-contrast outline-accent-8 enabled:active:bg-accent-9 enabled:hover:bg-accent-10 relative flex h-10 items-center justify-center gap-3 overflow-hidden rounded-lg px-3 font-bold outline-offset-4',
         loading && 'cursor-progress',
         className,
       )}

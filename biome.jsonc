@@ -39,6 +39,9 @@
   },
   "linter": {
     "rules": {
+      "a11y": {
+        "noLabelWithoutControl": "off"
+      },
       "complexity": {
         "noExcessiveCognitiveComplexity": "off"
       },
@@ -65,7 +68,8 @@
           "options": {
             "style": "inlineType"
           }
-        }
+        },
+        "useNamedCaptureGroup": "off"
       },
       "suspicious": {
         "noUnnecessaryConditions": "off"

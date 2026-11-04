@@ -17,7 +17,7 @@ export function Header({ description, icon, subtitle, title }: Props) {
 
       <div className="flex flex-1 flex-col gap-1">
         {subtitle ? (
-          <p className="font-medium text-gray-11 text-sm">{subtitle}</p>
+          <p className="text-gray-11 text-sm font-medium">{subtitle}</p>
         ) : null}
 
         <Popover.Title className="font-bold">{title}</Popover.Title>

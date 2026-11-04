@@ -19,7 +19,7 @@ export function Link({ description, href, icon, name, value }: Props) {
 
   return (
     <NavLink
-      className="-mx-4 flex items-center justify-between gap-4 rounded-sm px-4 py-1 outline-none ring-accent-8 transition-colors hover:bg-accent-4 focus-visible:ring-2"
+      className="ring-accent-8 hover:bg-accent-4 -mx-4 flex items-center justify-between gap-4 rounded-sm px-4 py-1 transition-colors outline-none focus-visible:ring-2"
       href={href}
     >
       <div className="flex flex-1 items-center gap-2">

@@ -18,7 +18,7 @@ export function ProductionChain({ chain }: Props) {
   return (
     <>
       {final ? (
-        <div className="relative flex overflow-x-scroll rounded-lg bg-gray-1 lg:justify-center">
+        <div className="bg-gray-1 relative flex overflow-x-scroll rounded-lg lg:justify-center">
           <div className="absolute">
             {chain.nodes.map((node) =>
               node.parentId ? (

@@ -33,7 +33,7 @@ export default function Page() {
       <div className="flex flex-col gap-8">
         {changelog.map((release) => (
           <section className="flex flex-col gap-4" key={String(release.date)}>
-            <h3 className="font-bold text-xl tabular-nums">
+            <h3 className="text-xl font-bold tabular-nums">
               {f.dateTime(release.date, {
                 dateStyle: 'medium',
               })}
@@ -44,7 +44,7 @@ export default function Page() {
                 <div className="flex flex-col gap-2" key={section}>
                   <h4
                     className={cn(
-                      'font-bold text-gray-11 text-sm',
+                      'text-gray-11 text-sm font-bold',
                       section === 'added' && 'text-green-11',
                       section === 'changed' && 'text-blue-11',
                       section === 'fixed' && 'text-orange-11',

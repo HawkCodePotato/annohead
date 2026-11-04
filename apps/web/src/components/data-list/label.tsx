@@ -6,7 +6,7 @@ type Props = {
 
 export function Label({ children }: Props) {
   return (
-    <div className="not-first-of-type:mt-4 font-bold text-gray-11 text-sm">
+    <div className="text-gray-11 text-sm font-bold not-first-of-type:mt-4">
       {children}
     </div>
   )

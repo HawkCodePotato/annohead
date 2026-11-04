@@ -399,14 +399,14 @@ function Flow({ quest }: Props) {
       >
         <Controls showInteractive={false} />
 
-        <Panel className="flex rounded-lg bg-gray-3" position="top-left">
+        <Panel className="bg-gray-3 flex rounded-lg" position="top-left">
           <span className="mx-3 my-2 text-sm leading-tight">
             {t(walk.done ? 'end' : 'pick')}
           </span>
 
           {Object.keys(picks).length ? (
             <button
-              className="-ml-3 flex size-8.5 items-center justify-center rounded-lg outline-none ring-accent-8 focus-visible:ring-2"
+              className="ring-accent-8 -ml-3 flex size-8.5 items-center justify-center rounded-lg outline-none focus-visible:ring-2"
               onClick={() => setPicks({})}
               type="button"
             >
@@ -421,7 +421,7 @@ function Flow({ quest }: Props) {
 
 export function QuestFlow({ quest }: Props) {
   return (
-    <div className="h-[80vh] overflow-hidden rounded-lg bg-gray-1">
+    <div className="bg-gray-1 h-[80vh] overflow-hidden rounded-lg">
       <ReactFlowProvider>
         <Flow quest={quest} />
       </ReactFlowProvider>

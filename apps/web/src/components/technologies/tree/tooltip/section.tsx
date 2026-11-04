@@ -8,7 +8,7 @@ type Props = {
 export function Section({ children, title }: Props) {
   return (
     <div className="flex flex-col gap-2 p-4">
-      <div className="font-bold text-gray-11 text-sm">{title}</div>
+      <div className="text-gray-11 text-sm font-bold">{title}</div>
 
       <div className="flex flex-col gap-4">{children}</div>
     </div>

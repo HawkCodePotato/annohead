@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-8 p-6">
       <NavLink
-        className="flex items-center gap-4 rounded-sm outline-none ring-accent-8 ring-offset-8 ring-offset-gray-1 focus-visible:ring-2"
+        className="ring-accent-8 ring-offset-gray-1 flex items-center gap-4 rounded-sm ring-offset-8 outline-none focus-visible:ring-2"
         href="/"
       >
         <Logo className="h-8" />
@@ -47,7 +47,7 @@ export default function Home() {
       <div className="flex flex-wrap justify-center gap-4">
         {routing.locales.map((item) => (
           <NavLink
-            className="flex rounded-full leading-tight outline-none ring-accent-8 ring-offset-2 ring-offset-white transition-colors hover:bg-accent-4 focus-visible:ring-2 dark:ring-offset-black"
+            className="ring-accent-8 hover:bg-accent-4 flex rounded-full leading-tight ring-offset-2 ring-offset-white transition-colors outline-none focus-visible:ring-2 dark:ring-offset-black"
             href={item}
             key={item}
           >
@@ -63,7 +63,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4 text-gray-11 text-sm">
+      <div className="text-gray-11 flex flex-wrap justify-center gap-4 text-sm">
         <div className="tabular-nums">
           {t('updated', {
             updated: parseISO(process.env.LAST_UPDATED),
@@ -71,7 +71,7 @@ export default function Home() {
         </div>
 
         <NavLink
-          className="rounded-sm outline-none ring-accent-8 hover:text-gray-12 focus-visible:ring-2"
+          className="ring-accent-8 hover:text-gray-12 rounded-sm outline-none focus-visible:ring-2"
           href="/changelog"
         >
           {t('changelog')}

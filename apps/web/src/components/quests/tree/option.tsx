@@ -36,15 +36,15 @@ export function QuestOptionNode({
 
       <button
         className={cn(
-          'pointer-events-auto flex w-full flex-col gap-4 rounded-lg bg-gray-3 p-4 pb-3 text-left outline-none ring-accent-8 transition focus-visible:ring-2 enabled:bg-accent-3 enabled:hover:bg-accent-4',
-          on.has(id) && 'ring-2 ring-accent-9',
+          'bg-gray-3 ring-accent-8 enabled:bg-accent-3 enabled:hover:bg-accent-4 pointer-events-auto flex w-full flex-col gap-4 rounded-lg p-4 pb-3 text-left transition outline-none focus-visible:ring-2',
+          on.has(id) && 'ring-accent-9 ring-2',
           off.has(id) && 'opacity-40 enabled:hover:opacity-100',
         )}
         disabled={locked.has(id)}
         onClick={() => pick(choice, option.idx ?? 0)}
         type="button"
       >
-        <div className="font-bold text-sm leading-tight">
+        <div className="text-sm leading-tight font-bold">
           {option.text ??
             t('option', {
               number: (option.idx ?? 0) + 1,

@@ -8,7 +8,7 @@ export function TextBox({ className, ...props }: Props) {
     <Input
       {...props}
       className={cn(
-        'h-10 min-w-3xs rounded-lg bg-gray-3 px-3 outline-none ring-accent-8 focus-visible:ring-2',
+        'bg-gray-3 ring-accent-8 h-10 min-w-3xs rounded-lg px-3 outline-none focus-visible:ring-2',
         className,
       )}
     />

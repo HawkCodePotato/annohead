@@ -86,7 +86,7 @@ export function SearchBox({ className, inputClassName }: Props) {
       >
         <Autocomplete.InputGroup
           className={cn(
-            'flex w-full items-center rounded-lg bg-gray-3 ring-accent-8 focus-within:ring-2 not-data-list-empty:data-popup-open:rounded-b-none not-data-list-empty:data-popup-open:ring-0',
+            'bg-gray-3 ring-accent-8 flex w-full items-center rounded-lg focus-within:ring-2 not-data-list-empty:data-popup-open:rounded-b-none not-data-list-empty:data-popup-open:ring-0',
             inputClassName,
           )}
         >
@@ -110,11 +110,11 @@ export function SearchBox({ className, inputClassName }: Props) {
 
         <Autocomplete.Portal hidden={items.length === 0}>
           <Autocomplete.Positioner className="z-50 outline-none">
-            <Autocomplete.Popup className="w-(--anchor-width) max-w-(--available-width) overflow-hidden rounded-b-lg bg-gray-2">
+            <Autocomplete.Popup className="bg-gray-2 w-(--anchor-width) max-w-(--available-width) overflow-hidden rounded-b-lg">
               <Autocomplete.List>
                 {(item: SearchHit) => (
                   <Autocomplete.Item
-                    className="flex h-10 items-center gap-3 px-3 leading-tight outline-none data-highlighted:bg-accent-4"
+                    className="data-highlighted:bg-accent-4 flex h-10 items-center gap-3 px-3 leading-tight outline-none"
                     key={`${item.type}-${item.guid}`}
                     onClick={() => {
                       setText('')
@@ -140,7 +140,7 @@ export function SearchBox({ className, inputClassName }: Props) {
                       ) : null}
                     </div>
 
-                    <span className="shrink-0 text-gray-11 text-sm">
+                    <span className="text-gray-11 shrink-0 text-sm">
                       {t(`card.type.${item.type}`)}
                     </span>
                   </Autocomplete.Item>

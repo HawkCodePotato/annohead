@@ -11,7 +11,7 @@ type Props = {
 export function Field({ children, label, error, hint }: Props) {
   return (
     <Component.Root className="flex flex-col gap-1">
-      <Component.Label className="font-bold text-sm">{label}</Component.Label>
+      <Component.Label className="text-sm font-bold">{label}</Component.Label>
 
       {children}
 

@@ -18,7 +18,7 @@ export function MainLayout({ children }: Props) {
       <header className="flex flex-col gap-4">
         <div className="flex items-center gap-4">
           <NavLink
-            className="hidden shrink-0 rounded-lg outline-none ring-accent-8 ring-offset-4 ring-offset-gray-1 focus-visible:ring-2 md:block"
+            className="ring-accent-8 ring-offset-gray-1 hidden shrink-0 rounded-lg ring-offset-4 outline-none focus-visible:ring-2 md:block"
             href="/"
           >
             <Logo className="h-8" />

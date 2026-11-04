@@ -90,7 +90,7 @@ type Param = {
   value: string | null
 }
 
-const SCOPE_KEY = /^(ConditionLocationFilter|CounterScope)/
+const SCOPE_KEY = /^(ConditionLocationFilter|CounterScope)/u
 
 /** `ConditionCompareVariable`: the game defaults an unset operator to AtLeast and an unset second value to false. */
 export function variableCheck(params: Array<Param>) {

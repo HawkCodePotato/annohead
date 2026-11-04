@@ -7,7 +7,8 @@ import { env } from '../_generated/server'
 
 const endpoint = 'https://steamcommunity.com/openid/login'
 
-const claimedIdPattern = /^https:\/\/steamcommunity\.com\/openid\/id\/(\d{17})$/
+const claimedIdPattern =
+  /^https:\/\/steamcommunity\.com\/openid\/id\/(\d{17})$/u
 
 const requiredSigned = [
   'op_endpoint',

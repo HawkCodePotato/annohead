@@ -25,8 +25,8 @@ export function QuestPartNode({ data: { part }, id }: NodeProps<PartNode>) {
   return (
     <div
       className={cn(
-        'flex h-full w-full rounded-lg bg-gray-2 transition-opacity',
-        on.has(id) && 'ring-2 ring-accent-8',
+        'bg-gray-2 flex h-full w-full rounded-lg transition-opacity',
+        on.has(id) && 'ring-accent-8 ring-2',
         off.has(id) && 'opacity-40',
       )}
     >
@@ -36,12 +36,12 @@ export function QuestPartNode({ data: { part }, id }: NodeProps<PartNode>) {
         {part.icon ? <Icon className="size-10" icon={part.icon} /> : null}
 
         <div className="flex flex-col gap-2">
-          <div className="font-bold text-xl leading-tight">
+          <div className="text-xl leading-tight font-bold">
             {part.name ?? t('untitled')}
           </div>
 
           {part.story ? (
-            <Html className="whitespace-pre-line text-gray-11 text-sm">
+            <Html className="text-gray-11 text-sm whitespace-pre-line">
               {part.story}
             </Html>
           ) : null}

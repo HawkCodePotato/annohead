@@ -18,7 +18,7 @@ export function IconButton({
     <Button
       {...props}
       className={cn(
-        'relative flex size-10 items-center justify-center overflow-hidden rounded-lg bg-accent-9 text-accent-contrast outline-accent-8 outline-offset-4 enabled:active:bg-accent-9 enabled:hover:bg-accent-10',
+        'bg-accent-9 text-accent-contrast outline-accent-8 enabled:active:bg-accent-9 enabled:hover:bg-accent-10 relative flex size-10 items-center justify-center overflow-hidden rounded-lg outline-offset-4',
         loading && 'cursor-progress',
         className,
       )}

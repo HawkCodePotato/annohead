@@ -34,7 +34,7 @@ export function ChainNode({ chain, node }: Props) {
         key={node.guid}
         render={
           <NavLink
-            className="relative flex size-24 shrink-0 items-center justify-center rounded-full bg-gray-3"
+            className="bg-gray-3 relative flex size-24 shrink-0 items-center justify-center rounded-full"
             href={getUrl('building', node.guid, node.slug)}
             id={`node-${node.id}`}
           />

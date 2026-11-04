@@ -9,7 +9,7 @@ const db = new Database('anno.sqlite', {
 })
 
 function pascal(name: string) {
-  return name.replace(/(^|_)(\w)/g, (_, __, c: string) => c.toUpperCase())
+  return name.replace(/(^|_)(\w)/gu, (_, __, c: string) => c.toUpperCase())
 }
 
 function camel(name: string) {
@@ -165,7 +165,7 @@ for (const [table, cols] of Object.entries(columnEnums)) {
   let body = schema.slice(start, end)
   for (const [col, name] of Object.entries(cols)) {
     const ident = `${camel(name)}Values`
-    const re = new RegExp(`(\\b${col}: text\\()([^)]*)\\)`)
+    const re = new RegExp(`(\\b${col}: text\\()([^)]*)\\)`, 'u')
     if (!re.test(body)) {
       throw new Error(`no text column ${table}.${col} in schema`)
     }

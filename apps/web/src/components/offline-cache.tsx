@@ -11,9 +11,9 @@ import { emptyIcon } from './common/empty'
 /** The only page saved for offline use; returning visitors who are offline see it whatever url they open. */
 const offlinePage = '/calculator'
 
-const cssUrl = /url\(\s*['"]?([^'")]+)['"]?\s*\)/g
+const cssUrl = /url\(\s*['"]?([^'")]+)['"]?\s*\)/gu
 
-const whitespace = /\s+/
+const whitespace = /\s+/u
 
 /** Registers public/sw.js and, on every full page load, re-saves the offline page (in this locale) with its assets. */
 export function OfflineCache() {

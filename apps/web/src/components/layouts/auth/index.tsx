@@ -11,7 +11,7 @@ export function AuthLayout({ children }: Props) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-12">
       <NavLink
-        className="rounded-sm outline-none ring-accent-8 ring-offset-8 ring-offset-gray-1 focus-visible:ring-2"
+        className="ring-accent-8 ring-offset-gray-1 rounded-sm ring-offset-8 outline-none focus-visible:ring-2"
         href="/"
       >
         <Logo className="h-8" />

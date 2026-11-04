@@ -6,7 +6,7 @@ import { anno } from './index'
 /** "Part I" in every game language */
 const PART_NUMBER = /\b(?:Part|Teil|Parte|partie|część|часть)\b|第.*部|\d부/iu
 // typed queries have no zero-width spaces, which the game puts between CJK words
-const INVISIBLE = /[\u200B-\u200D\uFEFF]/g
+const INVISIBLE = /[\u200B-\u200D\uFEFF]/gu
 
 test('specialists paginate and join effects', async () => {
   const { rows, total } = await anno.items.list({

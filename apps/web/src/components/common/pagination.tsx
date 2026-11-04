@@ -24,7 +24,7 @@ export function Pagination({ page, pages }: Props) {
           if (typeof index === 'string') {
             return (
               <div
-                className="pointer-events-none flex size-8 items-center justify-center rounded-lg bg-accent-2 text-sm"
+                className="bg-accent-2 pointer-events-none flex size-8 items-center justify-center rounded-lg text-sm"
                 key={index}
               >
                 &#8230;
@@ -43,7 +43,7 @@ export function Pagination({ page, pages }: Props) {
           return (
             <NavLink
               className={cn(
-                'flex size-8 items-center justify-center rounded-lg bg-accent-3 text-sm tabular-nums outline-none ring-accent-8 focus-visible:ring-2',
+                'bg-accent-3 ring-accent-8 flex size-8 items-center justify-center rounded-lg text-sm tabular-nums outline-none focus-visible:ring-2',
                 index === page && 'bg-accent-5',
                 index === 1 && !page && 'bg-accent-5',
               )}

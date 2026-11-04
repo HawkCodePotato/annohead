@@ -144,7 +144,7 @@ async function queryQuestlines(f: QuestFilter & Page, id?: number) {
 }
 
 // "part done" flags only sequence a questline's parts, which their order already shows
-const PART_DONE = /done$/i
+const PART_DONE = /done$/iu
 
 /** A condition tree a questline walk can evaluate: the node's own test, and its sub-tests (all, or any one of them). */
 export type QuestTest = {

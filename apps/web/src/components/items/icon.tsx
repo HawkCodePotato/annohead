@@ -26,7 +26,7 @@ export function ItemIcon({ className, icon, rarity }: Props) {
     <div className={cn('relative size-16', className)}>
       <div
         className={cn(
-          'mask-[url(/img/anno/bg_item_villa_0.png)] mask-center mask-contain mask-no-repeat pointer-events-none absolute size-full bg-black dark:bg-white',
+          'pointer-events-none absolute size-full bg-black mask-[url(/img/anno/bg_item_villa_0.png)] mask-contain mask-center mask-no-repeat dark:bg-white',
           className,
         )}
         style={{

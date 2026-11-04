@@ -16,7 +16,7 @@ export function Icon({ className, icon, size = 64 }: Props) {
       className={cn(
         'size-16',
         icon.includes('2d') && 'invert dark:invert-0',
-        icon.includes('portraits') && 'rounded-full bg-gray-3',
+        icon.includes('portraits') && 'bg-gray-3 rounded-full',
         className,
       )}
       height={size}

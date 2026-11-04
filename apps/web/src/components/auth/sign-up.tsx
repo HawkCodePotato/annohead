@@ -60,7 +60,7 @@ export function SignUp() {
       <SteamSignIn />
 
       <NavLink
-        className="text-center text-gray-11 text-sm leading-tight"
+        className="text-gray-11 text-center text-sm leading-tight"
         href="/auth/sign-in"
       >
         {t('action.signIn')}

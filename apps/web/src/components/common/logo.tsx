@@ -7,7 +7,7 @@ type Props = {
 export function Logo({ className }: Props) {
   return (
     <svg
-      className={cn('aspect-[calc(49/36)] text-accent-9', className)}
+      className={cn('text-accent-9 aspect-[calc(49/36)]', className)}
       fill="currentColor"
       viewBox="0 0 49 36"
       xmlns="http://www.w3.org/2000/svg"

@@ -16,7 +16,7 @@ type Modifier = {
 
 /** the game's "{} Area Effect", wrapped around modifiers of an effect passed on to nearby buildings */
 const NEARBY = 'BuildingUpgrade.AdditionalFunctionalEffect'
-const PLACEHOLDER = /\{\}/g
+const PLACEHOLDER = /\{\}/gu
 
 /** What fills a templated path's game text ("Additional {}t {} every {} cycles"), in the text's order; null for plain modifiers */
 function templateArgs(

@@ -102,7 +102,7 @@ function ids(list: Iterable<number>) {
 
 const DIACRITICS = /\p{M}/gu
 // the game separates CJK words with zero-width spaces, which a typed query never has
-const INVISIBLE = /[\u200B-\u200D\uFEFF]/g
+const INVISIBLE = /[\u200B-\u200D\uFEFF]/gu
 const WORD_BREAK = /[^\p{L}\p{N}]+/u
 /** no typos in short words, one from 4 characters, two from 8 */
 const ONE_TYPO_LENGTH = 4

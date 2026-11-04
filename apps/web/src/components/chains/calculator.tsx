@@ -33,8 +33,8 @@ export function Calculator({ chain }: Props) {
     ((chain.building?.baseProductivity ?? 100) / 100)
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg bg-gray-1 p-4">
-      <div className="font-bold text-sm">{t('title')}</div>
+    <div className="bg-gray-1 flex flex-col gap-4 rounded-lg p-4">
+      <div className="text-sm font-bold">{t('title')}</div>
 
       <NumberField.Root
         className="flex flex-1 items-center justify-between gap-4"
@@ -51,7 +51,7 @@ export function Calculator({ chain }: Props) {
         <NumberField.ScrubArea className="flex min-w-0">
           {root ? (
             <NavLink
-              className="flex min-w-0 items-center gap-2 rounded-sm outline-none ring-accent-8 focus-visible:ring-2"
+              className="ring-accent-8 flex min-w-0 items-center gap-2 rounded-sm outline-none focus-visible:ring-2"
               href={getUrl('building', root.guid, root.slug)}
             >
               {root.icon ? (
@@ -71,14 +71,14 @@ export function Calculator({ chain }: Props) {
           </NumberField.ScrubAreaCursor>
         </NumberField.ScrubArea>
 
-        <NumberField.Group className="flex shrink-0 rounded-md border border-gray-4 bg-gray-2">
-          <NumberField.Decrement className="flex size-8 items-center justify-center rounded-l-md border-gray-4 border-r transition-colors hover:bg-accent-4 active:bg-accent-5">
+        <NumberField.Group className="border-gray-4 bg-gray-2 flex shrink-0 rounded-md border">
+          <NumberField.Decrement className="border-gray-4 hover:bg-accent-4 active:bg-accent-5 flex size-8 items-center justify-center rounded-l-md border-r transition-colors">
             <MinusIcon weight="bold" />
           </NumberField.Decrement>
 
-          <NumberField.Input className="z-10 w-16 rounded-md px-2 py-1 tabular-nums outline-none ring-accent-8 focus-visible:ring-2" />
+          <NumberField.Input className="ring-accent-8 z-10 w-16 rounded-md px-2 py-1 tabular-nums outline-none focus-visible:ring-2" />
 
-          <NumberField.Increment className="flex size-8 items-center justify-center rounded-r-md border-gray-4 border-l transition-colors hover:bg-accent-4 active:bg-accent-5">
+          <NumberField.Increment className="border-gray-4 hover:bg-accent-4 active:bg-accent-5 flex size-8 items-center justify-center rounded-r-md border-l transition-colors">
             <PlusIcon weight="bold" />
           </NumberField.Increment>
         </NumberField.Group>
@@ -117,7 +117,7 @@ export function Calculator({ chain }: Props) {
         </div>
       </div>
 
-      <div className="mt-4 font-bold text-sm">{t('inputs')}</div>
+      <div className="mt-4 text-sm font-bold">{t('inputs')}</div>
 
       <div className="flex flex-col gap-2">
         {chain.nodes
@@ -133,7 +133,7 @@ export function Calculator({ chain }: Props) {
             return (
               <div className="flex justify-between gap-4" key={node.id}>
                 <NavLink
-                  className="flex min-w-0 items-center gap-2 rounded-sm outline-none ring-accent-8 focus-visible:ring-2"
+                  className="ring-accent-8 flex min-w-0 items-center gap-2 rounded-sm outline-none focus-visible:ring-2"
                   href={getUrl('building', node.guid, node.slug)}
                 >
                   {node.icon ? (

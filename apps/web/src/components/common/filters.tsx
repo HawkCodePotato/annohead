@@ -55,7 +55,7 @@ export function FiltersCard<Type extends UseQueryStatesKeysMap>({
       >
         {items.map((item) => (
           <Checkbox.Root
-            className="flex h-8 items-center gap-2 rounded-md px-1 outline-none ring-accent-8 transition-colors hover:bg-accent-4 focus-visible:ring-2 data-checked:bg-accent-5"
+            className="ring-accent-8 hover:bg-accent-4 data-checked:bg-accent-5 flex h-8 items-center gap-2 rounded-md px-1 transition-colors outline-none focus-visible:ring-2"
             key={item.value}
             value={String(item.value)}
           >
@@ -63,12 +63,12 @@ export function FiltersCard<Type extends UseQueryStatesKeysMap>({
               <Icon className="size-6" icon={item.icon} />
             ) : (
               <Checkbox.Indicator
-                className="mx-0.5 flex size-5 items-center justify-center rounded-full border border-gray-12 data-checked:border-0 data-checked:bg-gray-12"
+                className="border-gray-12 data-checked:bg-gray-12 mx-0.5 flex size-5 items-center justify-center rounded-full border data-checked:border-0"
                 keepMounted
               />
             )}
 
-            <span className="font-medium text-sm">{item.label}</span>
+            <span className="text-sm font-medium">{item.label}</span>
 
             {item.after}
           </Checkbox.Root>

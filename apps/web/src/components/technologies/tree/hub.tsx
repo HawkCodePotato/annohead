@@ -30,7 +30,7 @@ export function TechHubNode({ data: { category } }: NodeProps<HubNode>) {
           kind: 'category',
         }}
         render={
-          <div className="relative size-full overflow-hidden rounded-full bg-gray-3 outline-hidden" />
+          <div className="bg-gray-3 relative size-full overflow-hidden rounded-full outline-hidden" />
         }
       >
         {category.artwork ? (
@@ -41,8 +41,8 @@ export function TechHubNode({ data: { category } }: NodeProps<HubNode>) {
           />
         ) : null}
 
-        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-1 bg-gray-3/90 px-4 pt-2 pb-5">
-          <div className="font-bold text-sm">{category.name}</div>
+        <div className="bg-gray-3/90 absolute inset-x-0 bottom-0 flex flex-col items-center gap-1 px-4 pt-2 pb-5">
+          <div className="text-sm font-bold">{category.name}</div>
 
           {category.icon ? (
             <Icon className="size-8" icon={category.icon} />
