@@ -8,7 +8,7 @@ import { cn } from 'cn'
 import Form from 'next/form'
 import { useLocale, useTranslations } from 'next-intl'
 import { useQueryStates } from 'nuqs'
-import { useRef, useState } from 'react'
+import { Suspense, useRef, useState } from 'react'
 
 import { NavLink } from '@/intl/nav'
 import { getUrl } from '@/lib/url'
@@ -22,16 +22,32 @@ type Props = {
   inputClassName?: string
 }
 
-export function SearchBox({ className, inputClassName }: Props) {
+export function SearchBox(props: Props) {
+  return (
+    <Suspense fallback={<Box {...props} />}>
+      <BoxWithQuery {...props} />
+    </Suspense>
+  )
+}
+
+function BoxWithQuery(props: Props) {
+  const [filters] = useQueryStates(searchFilters)
+
+  return <Box {...props} initialQuery={filters.query ?? ''} />
+}
+
+function Box({
+  className,
+  initialQuery = '',
+  inputClassName,
+}: Props & { initialQuery?: string }) {
   const locale = useLocale()
   const t = useTranslations('component.search')
 
   const form = useRef<HTMLFormElement>(null)
   const highlighted = useRef<SearchHit>(undefined)
 
-  const [filters] = useQueryStates(searchFilters)
-
-  const [text, setText] = useState(filters.query ?? '')
+  const [text, setText] = useState(initialQuery)
 
   const query = text.trim().toLowerCase()
 

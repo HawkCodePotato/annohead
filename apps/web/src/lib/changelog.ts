@@ -7,6 +7,12 @@ type Release = {
 
 export const changelog: Array<Release> = [
   {
+    date: new Date('2026-11-04'),
+    fixed: [
+      'The search box shows up with the page instead of popping in after',
+    ],
+  },
+  {
     date: new Date('2026-10-07'),
     fixed: [
       'Production chains and the calculator no longer list some goods twice, like Brooches, Chariots, Cheese and Cloaks',

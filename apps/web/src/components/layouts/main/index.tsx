@@ -1,4 +1,4 @@
-import { type ReactNode, Suspense } from 'react'
+import { type ReactNode } from 'react'
 
 import { AuthProfile } from '@/components/auth/profile'
 import { Logo } from '@/components/common/logo'
@@ -31,9 +31,7 @@ export function MainLayout({ children }: Props) {
           <AuthProfile />
         </div>
 
-        <Suspense>
-          <SearchBox />
-        </Suspense>
+        <SearchBox />
       </header>
 
       <main className="flex flex-1 flex-col">{children}</main>
