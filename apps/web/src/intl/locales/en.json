@@ -17,6 +17,9 @@
   },
   "component": {
     "auth": {
+      "profile": {
+        "signOut": "Sign out"
+      },
       "signIn": {
         "action": {
           "signUp": "New user?",

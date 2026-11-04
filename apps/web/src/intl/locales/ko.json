@@ -17,6 +17,9 @@
   },
   "component": {
     "auth": {
+      "profile": {
+        "signOut": "로그아웃"
+      },
       "signIn": {
         "action": {
           "signUp": "처음이신가요?",

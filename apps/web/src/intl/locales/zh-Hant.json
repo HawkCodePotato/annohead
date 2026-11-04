@@ -17,6 +17,9 @@
   },
   "component": {
     "auth": {
+      "profile": {
+        "signOut": "登出"
+      },
       "signIn": {
         "action": {
           "signUp": "新使用者？",

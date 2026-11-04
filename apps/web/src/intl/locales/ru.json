@@ -17,6 +17,9 @@
   },
   "component": {
     "auth": {
+      "profile": {
+        "signOut": "Выйти"
+      },
       "signIn": {
         "action": {
           "signUp": "Новый пользователь?",

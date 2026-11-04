@@ -17,6 +17,9 @@
   },
   "component": {
     "auth": {
+      "profile": {
+        "signOut": "ログアウト"
+      },
       "signIn": {
         "action": {
           "signUp": "初めての方はこちら",

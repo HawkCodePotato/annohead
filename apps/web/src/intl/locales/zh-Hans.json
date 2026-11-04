@@ -17,6 +17,9 @@
   },
   "component": {
     "auth": {
+      "profile": {
+        "signOut": "退出登录"
+      },
       "signIn": {
         "action": {
           "signUp": "新用户？",

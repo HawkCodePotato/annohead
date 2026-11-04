@@ -17,6 +17,9 @@
   },
   "component": {
     "auth": {
+      "profile": {
+        "signOut": "Esci"
+      },
       "signIn": {
         "action": {
           "signUp": "Nuovo utente?",

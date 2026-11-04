@@ -17,6 +17,9 @@
   },
   "component": {
     "auth": {
+      "profile": {
+        "signOut": "Sair"
+      },
       "signIn": {
         "action": {
           "signUp": "Novo por aqui?",

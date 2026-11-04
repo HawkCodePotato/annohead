@@ -7,6 +7,7 @@ type Release = {
 
 export const changelog: Array<Release> = [
   {
+    added: ['Sign out from the profile menu in the header'],
     date: new Date('2026-11-04'),
     fixed: [
       'The search box shows up with the page instead of popping in after',

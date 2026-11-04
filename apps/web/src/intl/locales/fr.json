@@ -17,6 +17,9 @@
   },
   "component": {
     "auth": {
+      "profile": {
+        "signOut": "Se déconnecter"
+      },
       "signIn": {
         "action": {
           "signUp": "Nouvel utilisateur ?",
