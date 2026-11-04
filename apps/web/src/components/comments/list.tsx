@@ -1,9 +1,8 @@
 'use client'
 
 import { api } from '@anno/convex'
-import { useConvexAuth } from '@convex-dev/auth/react'
 import { PlusCircleIcon, XCircleIcon } from '@phosphor-icons/react/dist/ssr'
-import { usePaginatedQuery } from 'convex/react'
+import { useConvexAuth, usePaginatedQuery } from 'convex/react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 

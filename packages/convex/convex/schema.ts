@@ -10,6 +10,7 @@ export default defineSchema({
     .index('by_guid', ['guid'])
     .index('by_user', ['userId']),
   users: defineTable({
-    username: v.string(),
+    // empty for a moment after a password sign up, until users.internal.syncUsername runs
+    username: v.optional(v.string()),
   }),
 })

@@ -1,9 +1,6 @@
 import { api } from '@anno/convex'
-import { useSignInWithPassword } from '@convex-dev/auth/providers/password/react.js'
-import {
-  MAX_PASSWORD_LENGTH,
-  MIN_PASSWORD_LENGTH,
-} from '@convex-dev/auth/providers/password/validation'
+import { DEFAULT_MIN_PASSWORD_LENGTH } from '@convex-dev/auth/methods/username-password'
+import { useSignInWithUsernamePassword } from '@convex-dev/auth/methods/username-password/react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
 import { type FunctionArgs } from 'convex/server'
@@ -11,17 +8,17 @@ import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-type Variables = FunctionArgs<typeof api.auth.signInWithPassword>
+type Variables = FunctionArgs<typeof api.auth.signInWithUsernamePassword>
 
 const schema = z.object({
-  password: z.string().min(MIN_PASSWORD_LENGTH).max(MAX_PASSWORD_LENGTH),
+  password: z.string().min(DEFAULT_MIN_PASSWORD_LENGTH),
   username: z.string().min(4),
 })
 
 export function useSignIn() {
   const t = useTranslations('hook.auth.error')
 
-  const { signIn } = useSignInWithPassword(api.auth.signInWithPassword)
+  const { signIn } = useSignInWithUsernamePassword(api.auth)
 
   const form = useForm({
     defaultValues: {
@@ -101,13 +98,6 @@ export function useSignIn() {
 
       form.setError('password', {
         message: t(result.userError.error),
-        type: 'custom',
-      })
-    },
-    onError() {
-      // e.g. a password sign in with a Steam account's username
-      form.setError('password', {
-        message: t('OTHER_ERROR'),
         type: 'custom',
       })
     },

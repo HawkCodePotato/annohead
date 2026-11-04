@@ -1,8 +1,6 @@
-import {
-  Authenticated,
-  AuthLoading,
-  Unauthenticated,
-} from '@convex-dev/auth/react'
+'use client'
+
+import { Authenticated, AuthLoading, Unauthenticated } from 'convex/react'
 
 import { SignIn } from '@/components/auth/sign-in'
 import { Loading } from '@/components/common/loading'

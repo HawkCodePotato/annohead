@@ -1,6 +1,6 @@
-import auth from '@convex-dev/auth/core/convex.config.js'
-import password from '@convex-dev/auth/providers/password/convex.config.js'
-import username from '@convex-dev/auth/username/convex.config.js'
+import password from '@convex-dev/auth/components/password/convex.config.js'
+import username from '@convex-dev/auth/components/username/convex.config.js'
+import auth from '@convex-dev/auth/convex.config.js'
 import { defineApp } from 'convex/server'
 import { v } from 'convex/values'
 
@@ -21,7 +21,8 @@ app.use(auth, {
   httpPrefix: '/auth',
 })
 
-app.use(password)
+// the beta renamed this component to authPassword, keep the old mount so existing password hashes stay put
+app.use(password, { name: 'authPasswordProvider' })
 app.use(username)
 
 export default app

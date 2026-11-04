@@ -1,5 +1,3 @@
-import { validateUsernameFormat } from '@convex-dev/auth/username/validation'
-
 import { env } from '../_generated/server'
 
 // Steam only speaks OpenID 2.0, so we verify its assertion ourselves
@@ -80,8 +78,5 @@ export async function getSteamPersonaName(steamId: string): Promise<string> {
     }
   }
 
-  const name = data.response.players[0]?.personaname.trim() ?? ''
-
-  // fall back to the Steam id for names the username component would reject
-  return validateUsernameFormat(name) ? steamId : name
+  return data.response.players[0]?.personaname.trim() ?? ''
 }

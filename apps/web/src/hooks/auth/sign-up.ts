@@ -1,9 +1,6 @@
 import { api } from '@anno/convex'
-import { useSignUpWithPassword } from '@convex-dev/auth/providers/password/react'
-import {
-  MAX_PASSWORD_LENGTH,
-  MIN_PASSWORD_LENGTH,
-} from '@convex-dev/auth/providers/password/validation'
+import { DEFAULT_MIN_PASSWORD_LENGTH } from '@convex-dev/auth/methods/username-password'
+import { useSignUpWithUsernamePassword } from '@convex-dev/auth/methods/username-password/react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
 import { type FunctionArgs } from 'convex/server'
@@ -11,17 +8,17 @@ import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-type Variables = FunctionArgs<typeof api.auth.signInWithPassword>
+type Variables = FunctionArgs<typeof api.auth.signInWithUsernamePassword>
 
 const schema = z.object({
-  password: z.string().min(MIN_PASSWORD_LENGTH).max(MAX_PASSWORD_LENGTH),
+  password: z.string().min(DEFAULT_MIN_PASSWORD_LENGTH),
   username: z.string().min(4),
 })
 
 export function useSignUp() {
   const t = useTranslations('hook.auth.error')
 
-  const { signUp } = useSignUpWithPassword(api.auth.signUpWithPassword)
+  const { signUp } = useSignUpWithUsernamePassword(api.auth)
 
   const form = useForm({
     defaultValues: {

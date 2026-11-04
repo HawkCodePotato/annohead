@@ -1,13 +1,11 @@
-import {
-  Authenticated,
-  AuthLoading,
-  Unauthenticated,
-} from '@convex-dev/auth/react'
+'use client'
+
 import {
   UserCircleDashedIcon,
   UserCircleIcon,
 } from '@phosphor-icons/react/dist/ssr'
 import { cn } from 'cn'
+import { Authenticated, AuthLoading, Unauthenticated } from 'convex/react'
 
 import { Spinner } from '@/components/common/spinner'
 import { NavLink } from '@/intl/nav'

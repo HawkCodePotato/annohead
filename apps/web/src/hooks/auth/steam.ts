@@ -1,6 +1,7 @@
 import { api } from '@anno/convex'
-import { useAuthActions, useAuthSignInApi } from '@convex-dev/auth/react'
+import { useAuthActions } from '@convex-dev/auth/react'
 import { useMutation } from '@tanstack/react-query'
+import { useAction } from 'convex/react'
 import { useEffect } from 'react'
 
 const stateKey = 'steam-openid-state'
@@ -10,7 +11,7 @@ const identifierSelect = 'http://specs.openid.net/auth/2.0/identifier_select'
 export function useSteamSignIn() {
   const { setSession } = useAuthActions()
 
-  const signInApi = useAuthSignInApi()
+  const signInWithSteam = useAction(api.auth.signInWithSteam)
 
   const { mutate, isPending, isError } = useMutation({
     async mutationFn(search: Record<string, string>) {
@@ -26,7 +27,7 @@ export function useSteamSignIn() {
         Object.entries(search).filter(([key]) => key.startsWith('openid.')),
       )
 
-      const result = await signInApi.action(api.auth.signInWithSteam, {
+      const result = await signInWithSteam({
         params,
       })
 
