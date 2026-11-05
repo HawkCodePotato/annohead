@@ -37,7 +37,7 @@ export type ChainFilter = {
   tiers?: Array<number>
 }
 
-/** The construction-menu tabs chains are filed under, in game order, each tier's tab with its population tier (matched by the tier's workforce icon). */
+/** The construction-menu tabs chains are filed under, in game order, each tier's tab with its population tier (matched by the tier's workforce icon, else its name). */
 async function menuTabs(lang: Lang) {
   const [categories, levels, workforce] = await Promise.all([
     categoriesOf('menu', productionChain.guid, lang),
@@ -54,7 +54,10 @@ async function menuTabs(lang: Lang) {
     const productGuid = workforce.find((w) => w.icon === category.icon)?.guid
     return {
       category,
-      tier: levels.find((t) => t.workforceProductGuid === productGuid),
+      // Egypt's tabs show resident portraits, not workforce icons, but share the tier's name
+      tier:
+        levels.find((t) => t.workforceProductGuid === productGuid) ??
+        levels.find((t) => t.name === category.name),
     }
   })
 }

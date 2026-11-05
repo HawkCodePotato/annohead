@@ -46,6 +46,8 @@ const colors: Record<Rarity, string> = {
   Epic: '#a563a7',
   Legendary: '#c76937',
   Mythic: '#f0a418',
+  // the game's ItemRarityColors has no Narrative entry and no listed item uses it; story items read like Quest
+  Narrative: '#4a3860',
   Quest: '#4a3860',
   Rare: '#3e5496',
   Unique: '#d4d406',

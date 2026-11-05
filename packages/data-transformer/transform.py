@@ -54,6 +54,7 @@ MODIFIER_TEXTS = {
     "MovementUpgrade.BuffFavorableWindAngle": K + "MovementFavorableWindAngleUpgradeKey",
     "MovementUpgrade.BuffReduceCargoImpactUpgrade": K + "MovementCargoImpactKey",
     "MovementUpgrade.BuffReduceDamageImpactUpgrade": K + "MovementDamageImpactKey",
+    "MovementUpgrade.BuffReduceNegativeRiverCurrentImpactUpgrade": I + "BuffReduceNegativeSpeedImpactOfRiverCurrent.Text",
     "MovementUpgrade.BuffReduceNegativeWindImpactUpgrade": K + "MovementNegativeWindImpactKey",
     "MovementUpgrade.BuffTransferSpeedUpgrade": K + "MovementTransferSpeedUpgradeKey",
     "RaceTrackUpgrades.TrainingChargesUpgrade": K + "TrainingChargesUpgradeKey",
@@ -97,6 +98,7 @@ MODIFIER_TEXTS = {
     "UnitUpgrade.RewardMoneyPerDestroyedShipUpgrade": K + "UnitRewardMoneyPerDestroyedShipUpgradeKey",
     "UnitUpgrade.ShieldUpgrade": K + "UnitShieldUpgradeKey",
     "WarehouseUpgrade.AdditionalLoadingSpeedInPercent": K + "WarehouseLoadingSpeedKey",
+    "WarehouseUpgrade.OverflowStorageRiskMultiplierUpgrade": I + "BuffOverflowStorageRiskMultiplier.TextThresholds[0].Text",
     # templates, see _templated_modifiers(); the nearby entry wraps modifiers of an area effect a buff passes on
     "BuildingUpgrade.AdditionalFunctionalEffect": I + "BuffAdditionalNeedAttributes.AttributeInRange",
     "FactoryUpgrade.AddedFertility": I + "BuffFertility.Text",
@@ -879,7 +881,7 @@ class T:
                     self.text(D(v.get("Standard")).get("InfoDescription")),
                     self.icon(a["icon"]),
                     # the menus list most ornaments for every region; pack statues come in one per region
-                    next(iter(regions[g])) if len(regions[g]) < len(self.regions) else None,
+                    next(iter(regions[g])) if len(regions[g]) == 1 else None,
                     self.num(D(v.get("Ornament")).get("OrnamentUnit")),
                     owners.get(g),
                 ),

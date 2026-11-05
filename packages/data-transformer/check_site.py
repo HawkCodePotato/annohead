@@ -17,18 +17,18 @@ assert (
     )
     == [("BuildingUpgrade.AdditionalAttributes.Knowledge", 1.0)]
 )
-# two bakeries, one per region, same cycle time
+# three bakeries, one per region, same cycle time
 assert sorted(
     q(
         "select region_id from building b join translation t on t.line_id=b.name_text and t.lang_id=(select id from lang where code='english') where t.value='Bakery'"
     )
-) == [(1,), (2,)]
-# two bread chains, one per region, taken from the output building
+) == [(1,), (2,), (3,)]
+# three bread chains, one per region, taken from the output building
 assert sorted(
     q(
         "select region_id from production_chain pc join translation t on t.line_id=pc.name_text and t.lang_id=(select id from lang where code='english') where t.value='Bread'"
     )
-) == [(1,), (2,)]
+) == [(1,), (2,), (3,)]
 # one chain per region and output building: Albion keeps Celtic Cheese (6587), not Latium's Roman Cheese copy (8894)
 assert q("select count(*) from (select 1 from production_chain group by region_id, building_guid having count(*) > 1)") == [(0,)]
 assert q("select guid from production_chain where building_guid=6586") == [(6587,)]
@@ -79,7 +79,7 @@ assert q("select category_guid from category_member where asset_guid=39573") == 
 assert q("select amount from unit_cost where unit_guid=30456 and product_guid=1010017") == [(5000.0,)]
 # ornaments: Statue of Kassandra belongs to Echoes of Kassandra; Builder's Obelisk (a Twitch reward built from a
 # pack model) to no pack; Eternal Fountain sits under its menu tab and Hall Of Fame; Petrified Gorgo has one copy per region
-assert q("select value, dlc_guid, region_id from ornament where guid=174718") == [(9, 67908, None)]
+assert q("select value, dlc_guid, region_id from ornament where guid=174718") == [(4, 67908, None)]
 assert q("select dlc_guid from ornament where guid=174502") == [(None,)]
 assert q("select category_guid from category_member where asset_guid=80620 order by 1") == [(80617,), (87448,)]
 assert q("select guid, region_id from ornament where guid in (160617, 180455) order by 1") == [(160617, 1), (180455, 2)]

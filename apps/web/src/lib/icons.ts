@@ -39,7 +39,7 @@ const icons = {
   'niche.Religion': '/img/anno/niche_religion_0.png',
   'niche.Research': '/img/anno/niche_research_0.png',
   'region.Celtic': '/img/anno/icon_2d_region_wetlands.png',
-  'region.Egyptian': '/img/anno/icon_2d_region_global.png',
+  'region.Egyptian': '/img/anno/icon_2d_region_egypt.png',
   'region.Roman': '/img/anno/icon_2d_region_heartlands.png',
   'tier.1': '/img/anno/icon_roman_numerals_1_0.png',
   'tier.2': '/img/anno/icon_roman_numerals_2_0.png',

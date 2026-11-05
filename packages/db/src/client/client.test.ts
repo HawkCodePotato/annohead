@@ -164,14 +164,14 @@ test.each([
       lang,
     })
     expect(types[0]?.guid).toBe(41_362)
-    // the Roman and Celtic tabs read the same, so they are one
+    // the Roman, Celtic and Egyptian tabs read the same, so they are one
     expect(types.filter((m) => m.name === military)).toHaveLength(1)
     const listed = await anno.buildings.list({
       lang,
       perPage: 1000,
       types: [41_368],
     })
-    expect(listed.total).toBe(37)
+    expect(listed.total).toBe(56)
     expect(listed.rows.map((row) => row.guid)).toContain(2794)
   },
 )
@@ -236,7 +236,7 @@ test.each(['building', 'item', 'questline', 'tech'] as const)(
       of,
     })
     // 67_906-67_908 are the cosmetic packs, which only add ornaments
-    expect(dlcs.map((d) => d.guid)).toEqual([67_902, 67_903])
+    expect(dlcs.map((d) => d.guid)).toEqual([67_902, 67_903, 67_904])
   },
 )
 
@@ -388,10 +388,10 @@ test('Amphitheatre phases expose construction inputs, time, workforce and unlock
     lang: 'en',
   })
   expect(building?.phases.map((phase) => phase.name)).toEqual([
-    'Amphitheatre: Foundation',
-    'Amphitheatre: Foundation',
-    'Amphitheatre: Outer Walls',
-    'Amphitheatre: Arena',
+    'Foundation',
+    'Foundation',
+    'Outer Walls',
+    'Arena',
   ])
   expect(building?.phases.map((phase) => phase.durationSeconds)).toEqual([
     0, 1800, 1800, 1800,
@@ -499,7 +499,7 @@ test('products and techs', async () => {
         types: [-1],
       })
     ).total,
-  ).toBe(9)
+  ).toBe(14)
   const dlcProducts = await anno.products.list({
     dlcs: [67_902],
     lang: 'en',
@@ -515,9 +515,11 @@ test('products and techs', async () => {
   })
   expect(wineRow?.dlc).toBeNull()
   // Wine is on the Equites (Roman) and Aldermen/Nobles (Celtic) menus; Patricians still consume it
-  expect(wineRow?.neededBy.map((tier) => tier.guid)).toEqual([1497, 1502, 1504])
+  expect(wineRow?.neededBy.map((tier) => tier.guid)).toEqual([
+    1497, 1502, 1504, 150_542,
+  ])
   expect(wineRow?.wantedBy.map((tier) => tier.guid)).toEqual([1498])
-  expect(wineRow?.producedBy.map((b) => b.region?.id)).toEqual([1, 2])
+  expect(wineRow?.producedBy.map((b) => b.region?.id)).toEqual([1, 2, 3])
   expect(wineRow?.regions.length).toBeGreaterThan(0)
   // Plebeians only get Wine through a buff, so they don't count
   async function needsWine(tier: number) {
@@ -535,7 +537,7 @@ test('products and techs', async () => {
     lang: 'en',
     regions: [1],
   })
-  expect(roman.total).toBe(94)
+  expect(roman.total).toBe(101)
   expect(roman.rows.every((r) => r.regions.some((x) => x.id === 1))).toBe(true)
   expect(
     await anno.products.types({
@@ -681,7 +683,7 @@ test('chains filter by type, tier, region and dlc', async () => {
     types: [41_368],
   })
   expect(military.rows.map((r) => r.guid)).toContain(3253)
-  expect(military.total).toBe(4)
+  expect(military.total).toBe(6)
   // Roman Celtic Wine is on both the Aldermen and Nobles menus
   const nobles = await anno.chains.list({
     lang: 'en',
@@ -710,7 +712,7 @@ test('chains filter by type, tier, region and dlc', async () => {
     'Military Buildings',
     'Materials',
   ])
-  // every tier's menu tab matches its population tier by workforce icon; a patch changing either icon breaks this
+  // every tier's menu tab matches its population tier by workforce icon or name; a patch changing both breaks this
   const tiers = await anno.chains.tiers({
     lang: 'en',
   })
@@ -733,6 +735,7 @@ test('search ranks name matches, dedupes variants, filters by type and paginates
   )
   expect(breadChains.map((r) => r.regions).sort()).toEqual([
     ['Celtic'],
+    ['Egyptian'],
     ['Roman'],
   ])
 
@@ -741,7 +744,7 @@ test('search ranks name matches, dedupes variants, filters by type and paginates
     query: 'Infantry Camp',
   })
   expect(camps.rows.map((r) => [r.type, r.guid, r.regions])).toEqual([
-    ['building', 32_606, ['Roman', 'Celtic']],
+    ['building', 32_606, ['Roman', 'Celtic', 'Egyptian']],
   ])
 
   const items = await anno.search({
@@ -771,7 +774,8 @@ test('search ranks name matches, dedupes variants, filters by type and paginates
     (
       await anno.search({
         lang: 'en',
-        query: '100%',
+        // `%` is no LIKE wildcard (not '100%': Egyptian techs ask for 1000 Knowledge)
+        query: 'qzx%',
       })
     ).total,
   ).toBe(0)
@@ -1088,7 +1092,7 @@ test.each([
   },
   {
     id: 144_878,
-    name: 'Money balance',
+    name: 'Denarii in stock',
     type: 'ConditionPlayerCounter',
   },
   {
@@ -1175,6 +1179,7 @@ test.each([...langValues])(
     const query = (spinner?.name ?? '').replace(INVISIBLE, '').slice(0, 4)
     const { rows } = await anno.search({
       lang,
+      perPage: 1000,
       query,
     })
     expect(rows.map((r) => r.guid)).toContain(3187)
@@ -1187,7 +1192,7 @@ test('ornaments carry their pack, value, costs and menu tabs', async () => {
     lang: 'en',
   })
   expect(kassandra?.name).toBe('Statue of Kassandra')
-  expect(kassandra?.value).toBe(9)
+  expect(kassandra?.value).toBe(4)
   expect(kassandra?.dlc?.guid).toBe(67_908)
   expect(kassandra?.costs.map((c) => [c.guid, c.amount])).toEqual([
     [1_010_017, 1000],
@@ -1211,7 +1216,7 @@ test('ornaments filter by menu tab and DLC', async () => {
     perPage: 1000,
     types: [80_618],
   })
-  expect(walls.total).toBe(13)
+  expect(walls.total).toBe(15)
   expect(walls.rows.every((r) => r.types.some((t) => t.guid === 80_618))).toBe(
     true,
   )
@@ -1248,7 +1253,7 @@ test('ornaments every region builds match any region filter', async () => {
     perPage: 1000,
     regions: [1],
   })
-  // everything but Albion's copies of Petrified Gorgo and Sisyphus
-  expect(latium.total).toBe(all.total - 2)
+  // everything but the Albion and Egypt copies of Petrified Gorgo and Sisyphus
+  expect(latium.total).toBe(all.total - 4)
   expect(latium.rows.every((r) => !r.region || r.region.id === 1)).toBe(true)
 })

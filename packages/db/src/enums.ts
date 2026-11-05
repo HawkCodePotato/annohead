@@ -20,10 +20,13 @@ export const conditionTemplateValues = [
   'ConditionAreaOwnedByHuman',
   'ConditionCityStatus',
   'ConditionCompareVariable',
+  'ConditionCorporationDifficulty',
   'ConditionDiplomacyState',
+  'ConditionDoesQuestComponentExist',
   'ConditionDominantPatron',
   'ConditionEmperorRelation',
   'ConditionFestivalActive',
+  'ConditionHasDeliveredToSectorProject',
   'ConditionInStorage',
   'ConditionIsCampaign',
   'ConditionIsDLCActive',
@@ -42,6 +45,8 @@ export const conditionTemplateValues = [
   'ConditionProductCapacityReached',
   'ConditionRaceOutcome',
   'ConditionReligion',
+  'ConditionRomanization',
+  'ConditionSectorProjectPhaseActive',
   'ConditionTechResearched',
   'ConditionTimer',
   'ConditionTradeRouteCount',
@@ -104,6 +109,7 @@ export const rarityValues = [
   'Epic',
   'Legendary',
   'Mythic',
+  'Narrative',
   'Quest',
   'Rare',
   'Unique',
@@ -159,10 +165,11 @@ export const dlcValues = [
   'CDLC3',
   'DLC01_Prophecies_of_Ash',
   'DLC02_The_Hippodrome',
+  'DLC03_Dawn_of_Delta',
 ] as const
 export type Dlc = (typeof dlcValues)[number]
 
-export const regionValues = ['Roman', 'Celtic'] as const
+export const regionValues = ['Roman', 'Celtic', 'Egyptian'] as const
 export type Region = (typeof regionValues)[number]
 
 /** ISO code -> name of the game's texts file / lang table row */

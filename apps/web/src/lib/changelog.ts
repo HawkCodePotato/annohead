@@ -7,6 +7,13 @@ type Release = {
 
 export const changelog: Array<Release> = [
   {
+    added: [
+      'Dawn of the Delta: the Egypt region with its buildings, goods, population tiers, production chains, research, items and questlines',
+    ],
+    changed: ['Game data updated to the latest patch'],
+    date: new Date('2026-11-05'),
+  },
+  {
     added: ['Sign out from the profile menu in the header'],
     changed: [
       'Signing in or signing up takes you back to the page you were on',
