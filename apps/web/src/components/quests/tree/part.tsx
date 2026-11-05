@@ -74,6 +74,9 @@ export function QuestPartNode({ data: { part }, id }: NodeProps<PartNode>) {
           )}
         </div>
       </div>
+
+      {/* the walk jumps on from a part it passed through without a pick */}
+      <QuestHandle type="source" />
     </div>
   )
 }
