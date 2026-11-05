@@ -126,6 +126,13 @@ LABEL_TABLES = [
 # "The Mysterious Murmillo Part I" -> "The Mysterious Murmillo", as the client's English phrases do
 # the game separates CJK words with zero-width spaces, which a typed query never has
 INVISIBLE = re.compile("[\u200b-\u200d\ufeff]")
+# a line that is only a text variable the quest fills in at runtime ("Potential evidence not yet found" → "Ornate Blade")
+TEXT_VARIABLE = re.compile(r'^\{Text:GetText\(Variables:GetVariableOfComponent\("([^"]+)", QuestComponentID\)\)\}$')
+TEXT_WRITE = re.compile(
+    r'"VariableName": "([^"]+)", "ModifierVariable": \{"Template": "TextVariableOrValue", "Values": \{"TextVariableOrValue": \{"Text": \{"Value": "(-?\d+)"'
+)
+IMG_SRC = re.compile(r"""(<img[^>]*?\bsrc=["'])([^"']*)(["'])""")
+ASSET_ICON = re.compile(r"\{AssetData\((\d+)\)\.Icon\}")
 QUESTLINE_PART = re.compile(r"\s*(?:[–-]\s*)?\bPart\s+[IVXL]+\b.*$", re.IGNORECASE)
 # products the trading post filter doesn't list, filed under categories the game has no name for (client phrases)
 PRODUCT_KINDS = {"Workforce": -1, "Service": -2, "Meta": -3}
@@ -1369,8 +1376,24 @@ class T:
             )
 
     # ---- quests --------------------------------------------------------------------------------------------
+    def text_variables(self):
+        """Line id of each text-variable placeholder line -> the line the quest writes into that variable. Several
+        writes of one variable are the same words with and without a "new" marker; the plain one wins."""
+        written = defaultdict(set)
+        for (j,) in self.src.execute("select json from assets where json like '%TextVariableOrValue%'"):
+            for var, tid in TEXT_WRITE.findall(j):
+                written[var].add(int(tid))
+        english = dict(self.src.execute("select line_id, text from texts where lang='english'"))
+        out = {}
+        for lid, text in english.items():
+            m = TEXT_VARIABLE.match(text.strip())
+            if m and written[m[1]]:
+                out[int(lid)] = min(written[m[1]], key=lambda t: ("<" in english.get(str(t), ""), t))
+        return out
+
     def quests(self):
         node_story = {}
+        filled = self.text_variables()
         for a in self.by_template("StoryLine"):
             sl = D(a["v"].get("StoryLine"))
             self.db.execute("insert into storyline(guid) values(?)", (a["guid"],))
@@ -1482,7 +1505,7 @@ class T:
                     (
                         g,
                         i,
-                        self.text(opt.get("OptionText")),
+                        filled.get(self.text(opt.get("OptionText"))) or self.text(opt.get("OptionText")),
                         next(
                             (
                                 self.num(p.get("GUID"))
@@ -2098,6 +2121,21 @@ class T:
                     name = QUESTLINE_PART.sub("", name)
                 self.db.execute(f"update {table} set slug=? where guid=?", (slug(name), guid))
 
+    def inline_icons(self):
+        """Inline <img> tags in game text point at the CDN icon path: "{AssetData(183440).Icon}" becomes that asset's
+        icon, a game path is normalised. One the CDN doesn't have keeps its src for the client to drop."""
+
+        def src(m):
+            ref = ASSET_ICON.fullmatch(m[2])
+            path = D(self.assets.get(int(ref[1]))).get("icon") if ref else m[2]
+            return f"{m[1]}{self.icon(path) or m[2]}{m[3]}"
+
+        rows = self.db.execute("select line_id, lang_id, value from translation where value like '%<img%'").fetchall()
+        for lid, lang, value in rows:
+            self.db.execute(
+                "update translation set value=? where line_id=? and lang_id=?", (IMG_SRC.sub(src, value), lid, lang)
+            )
+
     def search(self):
         """Each searchable entity once per language under its folded name, for the trigram index client search.ts
         queries. Variants that read the same (Infantry Camp ×2) collapse to the lowest guid."""
@@ -2179,6 +2217,7 @@ class T:
             " where e.line_id = translation.line_id and e.lang_id = ? and translation.value = ''",
             (langs.get("english"),),
         )
+        self.inline_icons()
         self.slugs()
         self.search()
         # pools referenced by effects, flattened once

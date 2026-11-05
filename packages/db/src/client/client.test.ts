@@ -589,6 +589,23 @@ test('questlines group the Mysterious Murmillo parts in order', async () => {
   expect(q?.parts.at(-1)?.name).toBe('The Mysterious Murmillo Part VI')
 })
 
+test('options read the text the quest fills in, with inline icons on the CDN', async () => {
+  const q = await anno.quests.get({
+    id: 152_815,
+    lang: 'en',
+  })
+  const options = q?.parts.flatMap((p) => p.choices.flatMap((c) => c.options))
+  const texts = options?.map((o) => o.text) ?? []
+  expect(texts).toContain('Kashtan Weapon')
+  expect(texts).toContain('Ornate Blade')
+  expect(texts).toContain(
+    `<img src="data/ui/fhd/dlc03/icon_content/crew_mainfest/icon_2d_crew_manifest_diamond.png" width='26' height='26'/> Nekht (Diamond Symbol)`,
+  )
+  expect(texts.filter((t) => t?.includes('{') || t?.includes('[…]'))).toEqual(
+    [],
+  )
+})
+
 test('questline choices carry costs, requirements and outcomes', async () => {
   const q = await anno.quests.get({
     id: 50_806,

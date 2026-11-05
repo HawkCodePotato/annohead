@@ -5,6 +5,8 @@ type Role = 'governor' | 'emperor' | 'island' | 'unknown'
 
 const PLACEHOLDER = /\{[^{}]*\}/gu
 const LINE_BREAK = /<br\s*\/?>/gu
+// inline icons transform.py could not point at a CDN icon (a runtime lookup like "{AssetData(183440).Icon}")
+const UNRESOLVED_IMAGE = /<img(?![^>]*\bsrc=["']data\/)[^>]*>\s*/gu
 
 function role(placeholder: string): Role {
   if (placeholder.includes('LocationName')) {
@@ -19,11 +21,12 @@ function role(placeholder: string): Role {
   return 'unknown'
 }
 
-/** Quest text ready to render: runtime placeholders ("{Static.Tags.LocationName(…)}") become roles, `<br/>` newlines. */
+/** Quest text ready to render: runtime placeholders ("{Static.Tags.LocationName(…)}") become roles, `<br/>` newlines, inline icons without a CDN icon go. */
 export function questText(text: string | null, lang: Lang) {
   return (
     text
       ?.replace(LINE_BREAK, '\n')
+      .replace(UNRESOLVED_IMAGE, '')
       .replace(
         PLACEHOLDER,
         (placeholder) => phrases[lang].roles[role(placeholder)],

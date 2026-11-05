@@ -3,6 +3,7 @@ import { type Node, type NodeProps } from '@xyflow/react'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 
+import { Html } from '../../common/html'
 import { DataList } from '../../data-list'
 import { QuestHandle } from './handle'
 import { QuestOutcomeList } from './outcome'
@@ -45,10 +46,13 @@ export function QuestOptionNode({
         type="button"
       >
         <div className="text-sm leading-tight font-bold">
-          {option.text ??
+          {option.text ? (
+            <Html>{option.text}</Html>
+          ) : (
             t('option', {
               number: (option.idx ?? 0) + 1,
-            })}
+            })
+          )}
         </div>
 
         <div className="flex w-full flex-col gap-1">
