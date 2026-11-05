@@ -1394,6 +1394,7 @@ class T:
     def quests(self):
         node_story = {}
         filled = self.text_variables()
+        self.variant_screens = set()  # decisions whose options collapsed into one; still a screen the player answers
         for a in self.by_template("StoryLine"):
             sl = D(a["v"].get("StoryLine"))
             self.db.execute("insert into storyline(guid) values(?)", (a["guid"],))
@@ -1496,9 +1497,34 @@ class T:
                     "update quest set storyline_guid=? where guid=? and storyline_guid is null",
                     (story, quest),
                 )
-            for i, opt in enumerate(
-                self.items(D(v.get("Decision")).get("DecisionOptions"))
-            ):
+            opts = self.items(D(v.get("Decision")).get("DecisionOptions"))
+            outputs = D(v.get("DecisionComponent")).get("DecisionOutputs") or []
+
+            def variant(i, opt):
+                """Options hidden while locked that differ only in what unlocks them are one button in game: the
+                screen shows whichever variant earlier answers unlock (a "Continue" for each set of answers). Variants
+                with their own odds or outcome text (stocked up in time: 60%, else 25%) stay apart."""
+                if D(opt.get("UnlockRequirement")).get("HideWhenLocked") != "1":
+                    return None
+                out = outputs[i] if i < len(outputs) else None
+                return json.dumps(
+                    sorted(
+                        (path, val)
+                        for path, val in self.walk_leaves([opt, out or None])
+                        if ".UnlockRequirement" not in path and not path.endswith((".IsBaseAutoCreateAsset", ".Template"))
+                    )
+                )
+
+            variants = defaultdict(list)
+            for i, opt in enumerate(opts):
+                if key := variant(i, opt):
+                    variants[key].append(i)
+            for i, opt in enumerate(opts):
+                group = variants.get(variant(i, opt), [i])
+                if group[0] != i:
+                    continue
+                if len(group) > 1:
+                    self.variant_screens.add(g)
                 cost = D(opt.get("CostData")) if opt.get("HasCost") == "1" else {}
                 self.db.execute(
                     "insert into quest_option values(?,?,?,?,?,?)",
@@ -1514,7 +1540,10 @@ class T:
                             None,
                         ),
                         self.num(D(cost.get("Amount")).get("Value")),
-                        self.precondition_list(
+                        # ponytail: assumes the variants' conditions together cover every case, as the game's do here
+                        None
+                        if len(group) > 1
+                        else self.precondition_list(
                             "quest_option",
                             g,
                             D(
@@ -1683,7 +1712,7 @@ class T:
         start_of = {root: start for start, root in root_of.items()}
 
         def is_choice(g):
-            return (types.get(g) == "Decision" and options[g] > 1) or g in branches
+            return (types.get(g) == "Decision" and (options[g] > 1 or g in self.variant_screens)) or g in branches
 
         def reach(starts):
             out, queue, seen = [], list(starts), set()

@@ -606,6 +606,27 @@ test('options read the text the quest fills in, with inline icons on the CDN', a
   )
 })
 
+test('hidden variants of one button are one option, variants with their own odds stay apart', async () => {
+  const mystery = await anno.quests.get({
+    id: 152_815,
+    lang: 'en',
+  })
+  // a "Continue" for each set of wrong answers, only one of them ever shown
+  const conclusion = mystery?.parts
+    .flatMap((p) => p.choices)
+    .find((c) => c.guid === 173_271)
+  expect(conclusion?.options.map((o) => o.text)).toEqual(['Continue'])
+  const amphora = await anno.quests.get({
+    id: 152_807,
+    lang: 'en',
+  })
+  // denying succeeds more often when the player stocked up in time
+  const deny = amphora?.parts
+    .flatMap((p) => p.choices)
+    .find((c) => c.guid === 153_038)
+  expect(deny?.options).toHaveLength(3)
+})
+
 test('questline choices carry costs, requirements and outcomes', async () => {
   const q = await anno.quests.get({
     id: 50_806,

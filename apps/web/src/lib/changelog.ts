@@ -16,6 +16,7 @@ export const changelog: Array<Release> = [
       'Search finds questlines by the names their journal entries take on later, like Breadbasket for Folk Of The Great River',
       'The Egyptian region is called Aegyptus, as in the game, instead of Delta',
       'Quest choices show the evidence and names the game fills in, like Kashtan Weapon and Ornate Blade, instead of […] or stray icon code',
+      'Quest screens that only ever show one button, like the murder mystery’s Final Conclusion, no longer list a copy for every possible answer',
     ],
   },
   {
