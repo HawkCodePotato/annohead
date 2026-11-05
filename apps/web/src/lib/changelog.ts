@@ -14,6 +14,7 @@ export const changelog: Array<Release> = [
     date: new Date('2026-11-05'),
     fixed: [
       'Search finds questlines by the names their journal entries take on later, like Breadbasket for Folk Of The Great River',
+      'The Egyptian region is called Aegyptus, as in the game, instead of Delta',
     ],
   },
   {
