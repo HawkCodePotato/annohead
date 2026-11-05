@@ -221,13 +221,22 @@ type Hit = Entry & {
 async function match(f: SearchFilter, withDescriptions: boolean) {
   const query = fold(f.query.trim())
   const tokens = words(query)
+  // by entity: a questline can match under its name and under a later journal name, best match wins
   const hits = new Map<number, Hit>()
-  const add = (entry: Entry, tier: number, typos = 0) =>
-    hits.set(entry.id, {
+  const add = (entry: Entry, tier: number, typos = 0) => {
+    const seen = hits.get(entry.guid)
+    if (
+      seen &&
+      (seen.tier < tier || (seen.tier === tier && seen.typos <= typos))
+    ) {
+      return
+    }
+    hits.set(entry.guid, {
       ...entry,
       tier,
       typos,
     })
+  }
   if (tokens.length === 0) {
     for (const entry of await entries(f, sql`1`)) {
       add(entry, Tier.Exact)
@@ -279,7 +288,7 @@ async function match(f: SearchFilter, withDescriptions: boolean) {
   if (withDescriptions) {
     for (const entry of await descriptions(f)) {
       const text = fold(entry.description)
-      if (!hits.has(entry.id) && tokens.every((t) => text.includes(t))) {
+      if (!hits.has(entry.guid) && tokens.every((t) => text.includes(t))) {
         add(entry, Tier.Description)
       }
     }

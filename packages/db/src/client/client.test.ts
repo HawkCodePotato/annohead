@@ -781,6 +781,23 @@ test('search ranks name matches, dedupes variants, filters by type and paginates
   ).toBe(0)
 })
 
+test('search finds a questline by the name its journal entry takes on later', async () => {
+  const { rows } = await anno.search({
+    lang: 'en',
+    query: 'Breadbasket',
+    types: ['quest'],
+  })
+  expect(rows.map((r) => [r.guid, r.name])).toEqual([
+    [152_815, 'Folk Of The Great River'],
+  ])
+  const both = await anno.search({
+    lang: 'en',
+    query: 'river',
+    types: ['quest'],
+  })
+  expect(both.rows.filter((r) => r.guid === 152_815)).toHaveLength(1)
+})
+
 test('item rarities, niches and allocations are named by the game', async () => {
   const rarities = await anno.items.rarities({
     lang: 'en',

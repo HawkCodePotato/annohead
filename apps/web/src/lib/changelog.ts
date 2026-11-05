@@ -12,6 +12,9 @@ export const changelog: Array<Release> = [
     ],
     changed: ['Game data updated to the latest patch'],
     date: new Date('2026-11-05'),
+    fixed: [
+      'Search finds questlines by the names their journal entries take on later, like Breadbasket for Folk Of The Great River',
+    ],
   },
   {
     added: ['Sign out from the profile menu in the header'],

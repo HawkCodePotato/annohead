@@ -1853,6 +1853,13 @@ class T:
                 self.db.execute(
                     "insert into questline_storyline values(?,?,?)", (first, s, i)
                 )
+            # journal entries renamed mid-quest ("Folk Of The Great River" becomes "Breadbasket"), for search
+            for s in members:
+                for g in by_story[s]:
+                    for d in self.walk_dicts(self.assets[g]["v"]):
+                        new = self.text(D(D(d.get("ActionUpdateQuestEntry")).get("QuestName")).get("NewName"))
+                        if new:
+                            self.db.execute("insert into questline_alias values(?,?)", (first, new))
 
     def speaker(self, screen):
         """Who asks on a decision screen: its left portrait, else its right one; never the player, and not a
@@ -2116,6 +2123,12 @@ class T:
               join translation n on n.line_id = s.name_text
               left join translation d on d.line_id = s.description_text and d.lang_id = n.lang_id
               group by n.lang_id, s.type, n.value, d.value, s.rarity, s.regions order by 1, 3;
+            -- a questline is also found by the names its journal entry takes on later
+            insert into search(lang_id, guid, key)
+              select distinct n.lang_id, a.questline_guid, fold(n.value) from questline_alias a
+              join translation n on n.line_id = a.name_text
+              where fold(n.value) not in (select key from search where guid = a.questline_guid and lang_id = n.lang_id);
+            drop table questline_alias;
             insert into search_entry select guid, type, slug, icon, rarity, regions, name_text, description_text
               from search_source where guid in (select guid from search);
             insert into search_fts(search_fts) values('rebuild');
@@ -2350,6 +2363,7 @@ create virtual table search_fts using fts5(key, content='search', content_rowid=
 # build-time scratch tables, dropped by prune()
 SCRATCH = """
 create table storyline_variable(storyline_guid int, name text, start_value text);
+create table questline_alias(questline_guid int, name_text integer);
 create table quest_node(guid integer primary key, storyline_guid int, type text, quest_guid int, headline_text integer, text_text integer,
   condition_id int, speaker_guid int);
 create table quest_edge(from_guid int, to_guid int, kind text, idx int, primary key(from_guid,to_guid,kind,idx)) without rowid;
