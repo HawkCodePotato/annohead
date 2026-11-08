@@ -1,0 +1,470 @@
+{
+  "annohead": "Annohead",
+  "common": {
+    "dlc": {
+      "CDLC1": "华丽马赛克组合包",
+      "CDLC2": "繁花之城包",
+      "CDLC3": "卡珊德拉的回响组合包",
+      "DLC01_Prophecies_of_Ash": "灰烬的预言",
+      "DLC02_The_Hippodrome": "赛马场",
+      "DLC03_Dawn_of_Delta": "三角洲的黎明"
+    },
+    "needsFuel": "需要煤炭",
+    "region": {
+      "Celtic": "阿尔比恩",
+      "Egyptian": "埃古普托斯",
+      "Roman": "拉丁姆"
+    }
+  },
+  "component": {
+    "auth": {
+      "profile": {
+        "signOut": "退出登录"
+      },
+      "signIn": {
+        "action": {
+          "signUp": "新用户？",
+          "submit": "登录"
+        },
+        "field": {
+          "password": {
+            "label": "密码",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "用户名",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "signUp": {
+        "action": {
+          "signIn": "已有账号？",
+          "submit": "注册"
+        },
+        "field": {
+          "password": {
+            "label": "密码",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "用户名",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "steam": {
+        "action": {
+          "signIn": "使用 Steam 登录"
+        },
+        "error": "Steam 登录失败"
+      }
+    },
+    "buildings": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地区",
+        "tiers": "人口阶层",
+        "types": "类型"
+      },
+      "list": {
+        "empty": "未找到结果",
+        "title": "建筑"
+      },
+      "page": {
+        "details": {
+          "buffs": "满足需求",
+          "construction": "建造成本",
+          "effects": "范围效果",
+          "inputs": "输入",
+          "maintenance": "维护",
+          "outputs": "产出",
+          "title": "详情",
+          "unlocked": "解锁条件",
+          "workforce": "所需劳动力"
+        },
+        "other": {
+          "baseProductivity": "基础生产力",
+          "category": "分类",
+          "cycleTime": "周期时间",
+          "needsFuel": "需要煤炭",
+          "radius": "半径",
+          "streetRadius": "道路半径",
+          "template": "模板",
+          "title": "其他",
+          "transporterRange": "运输范围"
+        },
+        "phases": {
+          "duration": "持续时间",
+          "phase": "阶段",
+          "title": "阶段",
+          "unlock": "解锁要求"
+        }
+      }
+    },
+    "chains": {
+      "all": {
+        "empty": "未找到结果",
+        "search": "筛选",
+        "title": "计算器"
+      },
+      "calculator": {
+        "baseProductivity": "基础生产力",
+        "buildings": "× {required, number, required}",
+        "cycleTime": "周期时间",
+        "inputs": "输入",
+        "output": "产出",
+        "title": "计算器",
+        "tons": "{tons, number, tons} 吨/分钟"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地区",
+        "tiers": "人口阶层",
+        "types": "类型"
+      },
+      "list": {
+        "empty": "未找到结果",
+        "title": "生产链"
+      }
+    },
+    "comments": {
+      "form": {
+        "action": {
+          "submit": "发送"
+        },
+        "field": {
+          "body": {
+            "placeholder": "说点好话吧"
+          }
+        }
+      },
+      "list": {
+        "empty": "暂无评论",
+        "more": "加载更多",
+        "signIn": "<link>登录</link>后即可参与讨论。",
+        "title": "评论"
+      }
+    },
+    "items": {
+      "filters": {
+        "dlcs": "DLC",
+        "niches": "领域",
+        "rarities": "稀有度",
+        "types": "类型"
+      },
+      "list": {
+        "empty": "未找到结果",
+        "title": "物品"
+      },
+      "page": {
+        "boost": {
+          "conditions": "条件",
+          "modifiers": "修正",
+          "title": "增益"
+        },
+        "charioteer": {
+          "initial": "初始",
+          "potential": "潜力",
+          "title": "战车手"
+        },
+        "details": {
+          "modifiers": "修正",
+          "sources": "来源",
+          "targets": "目标"
+        },
+        "other": {
+          "title": "其他",
+          "tradePrice": "交易价格",
+          "type": "类型"
+        }
+      }
+    },
+    "layouts": {
+      "main": {
+        "footer": {
+          "copyright": "© {year} Annohead。保留所有权利。"
+        },
+        "nav": {
+          "building": "建筑",
+          "calculator": "计算器",
+          "chain": "生产链",
+          "item": "物品",
+          "product": "货物",
+          "quest": "任务",
+          "tech": "科技",
+          "title": "数据库",
+          "unit": "单位",
+          "ornament": "装饰"
+        },
+        "title": "Annohead"
+      }
+    },
+    "ornaments": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地区",
+        "types": "类型"
+      },
+      "list": {
+        "empty": "未找到结果",
+        "title": "装饰"
+      },
+      "page": {
+        "costs": "费用",
+        "stats": {
+          "title": "其他",
+          "value": "装饰值"
+        }
+      }
+    },
+    "products": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地区",
+        "tiers": "人口阶层",
+        "types": "分类"
+      },
+      "list": {
+        "empty": "未找到结果",
+        "title": "货物"
+      },
+      "page": {
+        "consumed": "消耗者",
+        "needed": "需求者",
+        "produced": "生产者",
+        "tons": "{tons, number, tons} 吨/分钟",
+        "wanted": "想要者"
+      }
+    },
+    "quests": {
+      "choice": {
+        "check": "游戏检查",
+        "cost": "花费",
+        "decision": "决定",
+        "earlier": "取决于你之前的选择",
+        "end": "任务线结束",
+        "fails": "否则",
+        "holds": "若满足",
+        "later": "影响后续发展",
+        "nothing": "无持续效果",
+        "option": "选项 {number}",
+        "outcomes": "结果",
+        "pick": "选择一个选项，查看它会通向何处",
+        "requires": "要求",
+        "reset": "重置"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地区"
+      },
+      "list": {
+        "empty": "未找到结果",
+        "title": "任务"
+      },
+      "outcome": {
+        "duration": "{hours, plural, other {# 小时}}",
+        "effect": "效果",
+        "incident": "触发事故",
+        "incidentFallback": "事故",
+        "lock": "已锁定",
+        "lockFallback": "某项内容",
+        "power": "权力斗争",
+        "racer": "赛车手升级",
+        "racerFallback": "赛车手",
+        "reputation": "名声",
+        "storyline": "开启后续事件",
+        "storylineFallback": "后续事件",
+        "unlock": "已解锁",
+        "unlockFallback": "某项内容",
+        "xp": "经验"
+      },
+      "page": {
+        "empty": "本部分仅有剧情，没有选择。",
+        "requires": "仅当：{requirements}",
+        "untitled": "无标题"
+      }
+    },
+    "search": {
+      "box": {
+        "placeholder": "搜索"
+      },
+      "card": {
+        "type": {
+          "building": "建筑",
+          "chain": "生产链",
+          "item": "物品",
+          "product": "货物",
+          "quest": "任务",
+          "tech": "科技",
+          "unit": "单位",
+          "ornament": "装饰"
+        }
+      },
+      "filters": {
+        "all": "全部",
+        "building": "建筑",
+        "chain": "生产链",
+        "item": "物品",
+        "product": "货物",
+        "quest": "任务",
+        "tech": "科技",
+        "unit": "单位",
+        "ornament": "装饰"
+      },
+      "page": {
+        "empty": "未找到结果",
+        "results": "{total, plural, =0 {无结果} =1 {1 个结果} other {# 个结果}}",
+        "title": "搜索"
+      }
+    },
+    "technologies": {
+      "page": {
+        "effects": {
+          "modifiers": "修正",
+          "targets": "目标",
+          "title": "效果"
+        },
+        "other": {
+          "knowledgeNeeded": "知识",
+          "title": "其他"
+        },
+        "rewards": "奖励",
+        "unlocks": "解锁"
+      },
+      "tree": {
+        "discovery": "发现",
+        "effects": "效果",
+        "inspiration": "灵感",
+        "knowledge": "知识",
+        "requirement": "要求",
+        "rewards": "奖励",
+        "unlocks": "解锁"
+      }
+    },
+    "units": {
+      "filters": {
+        "regions": "地区",
+        "types": "分类"
+      },
+      "list": {
+        "empty": "未找到结果",
+        "title": "单位"
+      },
+      "page": {
+        "costs": "费用",
+        "maintenance": "维护",
+        "recruited": "招募地点",
+        "stats": {
+          "buildTime": "建造时间",
+          "cargoSlots": "货舱格",
+          "health": "生命值",
+          "itemSockets": "物品槽",
+          "moduleSlots": "模块槽",
+          "morale": "士气",
+          "soldiers": "士兵",
+          "speed": "速度",
+          "title": "其他"
+        },
+        "unlocked": "解锁条件"
+      }
+    }
+  },
+  "hook": {
+    "auth": {
+      "error": {
+        "INVALID_CREDENTIALS": "用户名或密码错误",
+        "OTHER_ERROR": "出错了",
+        "PASSWORD_HAS_SURROUNDING_WHITESPACE": "密码首尾不能有空格",
+        "PASSWORD_TOO_COMMON": "密码过于常见",
+        "PASSWORD_TOO_LONG": "密码过长（最多 {max, plural, =0 {} =1 {1 个字符} other {# 个字符}}）",
+        "PASSWORD_TOO_SHORT": "密码过短（至少 {min, plural, =0 {} =1 {1 个字符} other {# 个字符}}）",
+        "RATE_LIMITED": "请求过于频繁。请{seconds, plural, =0 {稍后} =1 {在 1 秒后} other {在 # 秒后}}再试",
+        "USERNAME_HAS_INVALID_CHARACTERS": "用户名包含无效字符",
+        "USERNAME_HAS_SURROUNDING_WHITESPACE": "用户名首尾不能有空格",
+        "USERNAME_TAKEN": "用户名已被使用",
+        "USERNAME_TOO_SHORT": "用户名过短（至少 {min, plural, =0 {} =1 {1 个字符} other {# 个字符}}）",
+        "USER_NOT_FOUND": "用户不存在"
+      }
+    }
+  },
+  "page": {
+    "building": {
+      "fallback": "建筑",
+      "title": "{name} × 建筑 × Annohead"
+    },
+    "buildings": {
+      "title": "建筑 × Annohead"
+    },
+    "calculator": {
+      "title": "生产链计算器 × Annohead"
+    },
+    "chain": {
+      "fallback": "生产链",
+      "title": "{name} × 生产链 × Annohead"
+    },
+    "chains": {
+      "title": "生产链 × Annohead"
+    },
+    "changelog": {
+      "added": "新增",
+      "changed": "变更",
+      "fixed": "修复",
+      "header": "更新日志",
+      "title": "更新日志 × Annohead",
+      "updated": "更新于 {updated, date, long} {updated, time, short} UTC"
+    },
+    "item": {
+      "fallback": "物品",
+      "title": "{name} × 物品 × Annohead"
+    },
+    "items": {
+      "title": "物品 × Annohead"
+    },
+    "landing": {
+      "annohead": "Annohead",
+      "changelog": "更新日志",
+      "description": "Anno 117 数据库，收录建筑、生产链、物品、专家、船长、货物、任务、科技、单位和装饰的信息。",
+      "title": "Anno 117 数据库 × Annohead",
+      "updated": "更新于 {updated, date, medium}"
+    },
+    "ornament": {
+      "fallback": "装饰",
+      "title": "{name} × 装饰 × Annohead"
+    },
+    "ornaments": {
+      "title": "装饰 × Annohead"
+    },
+    "product": {
+      "fallback": "货物",
+      "title": "{name} × 货物 × Annohead"
+    },
+    "products": {
+      "title": "货物 × Annohead"
+    },
+    "quest": {
+      "fallback": "任务",
+      "title": "{name} × 任务 × Annohead"
+    },
+    "quests": {
+      "title": "任务 × Annohead"
+    },
+    "search": {
+      "title": "搜索 × Annohead"
+    },
+    "technologies": {
+      "title": "科技 × Annohead"
+    },
+    "technology": {
+      "fallback": "科技",
+      "title": "{name} × 科技 × Annohead"
+    },
+    "unit": {
+      "fallback": "单位",
+      "title": "{name} × 单位 × Annohead"
+    },
+    "units": {
+      "title": "单位 × Annohead"
+    }
+  }
+}

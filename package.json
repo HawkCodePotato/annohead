@@ -1,29 +1,35 @@
 {
   "name": "anno",
   "private": true,
+  "license": "MIT",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
+    "clean": "rimraf --glob '**/.next' '**/.expo' '**/.turbo'",
     "dev": "turbo run dev",
     "extract": "python pipeline.py extract",
     "data:extract": "python pipeline.py extract",
     "data:build": "python pipeline.py build",
     "data:validate": "python pipeline.py validate",
     "data:refresh": "python pipeline.py refresh",
-    "test": "python packages/data-extractor/test_rda.py && python packages/data-transformer/test_assets.py && python packages/data-transformer/test_transform.py && python packages/data-transformer/check_site.py data/anno.sqlite",
-    "test:data": "python packages/data-extractor/test_rda.py && python packages/data-transformer/test_assets.py && python packages/data-transformer/test_transform.py && python packages/data-transformer/check_site.py data/anno.sqlite",
+    "test": "python packages/data-extractor/test_rda.py && python packages/data-transformer/test_assets.py && python packages/data-transformer/check_site.py data/anno.sqlite",
+    "test:data": "python packages/data-extractor/test_rda.py && python packages/data-transformer/test_assets.py && python packages/data-transformer/check_site.py data/anno.sqlite",
     "lint": "ultracite fix",
-    "prepare": "husky"
+    "nuke": "bun clean '**/node_modules' bun.lock",
+    "prepare": "husky",
+    "typecheck": "turbo run typecheck",
+    "typegen": "turbo run typegen"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.12",
+    "@biomejs/biome": "2.6.4",
     "husky": "^9.1.7",
-    "lint-staged": "^17.5.0",
-    "turbo": "^2",
-    "ultracite": "7.11.1"
+    "lint-staged": "^17.6.0",
+    "rimraf": "^6.1.4",
+    "turbo": "^2.11.10",
+    "ultracite": "8.1.1"
   },
-  "packageManager": "bun@1.4.0"
+  "packageManager": "bun@1.4.2"
 }

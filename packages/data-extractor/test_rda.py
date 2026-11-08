@@ -61,6 +61,10 @@ with tempfile.TemporaryDirectory() as tmp:
                     {
                         "data/base/config/export/assets.xml": b"<base/>",
                         "data/ui/x/icon_content/a.dds": b"DDS",
+                        "data/ui/2kimages/fpp/icons/items/rarity_epic_0.dds": b"DDS",
+                        "data/ui/4k/base/features/goods_items/bg_item_villa_0.dds": b"DDS",
+                        "data/ui/other/image.png": b"PNG",
+                        "data/base/graphics/ui/appicons/anno8.png": b"PNG",
                     },
                 ),
                 (

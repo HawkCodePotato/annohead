@@ -1,0 +1,470 @@
+{
+  "annohead": "Annohead",
+  "common": {
+    "dlc": {
+      "CDLC1": "Meisterhafte Mosaike Pack",
+      "CDLC2": "Blütezeit Pack",
+      "CDLC3": "Echos der Kassandra Pack",
+      "DLC01_Prophecies_of_Ash": "Verheißung des Vulkans",
+      "DLC02_The_Hippodrome": "Das Hippodrom",
+      "DLC03_Dawn_of_Delta": "Erwachen des Deltas"
+    },
+    "needsFuel": "Benötigt Kohle",
+    "region": {
+      "Celtic": "Albion",
+      "Egyptian": "Aegyptus",
+      "Roman": "Latium"
+    }
+  },
+  "component": {
+    "auth": {
+      "profile": {
+        "signOut": "Abmelden"
+      },
+      "signIn": {
+        "action": {
+          "signUp": "Neu hier?",
+          "submit": "Anmelden"
+        },
+        "field": {
+          "password": {
+            "label": "Passwort",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Benutzername",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "signUp": {
+        "action": {
+          "signIn": "Du hast schon ein Konto?",
+          "submit": "Registrieren"
+        },
+        "field": {
+          "password": {
+            "label": "Passwort",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Benutzername",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "steam": {
+        "action": {
+          "signIn": "Mit Steam anmelden"
+        },
+        "error": "Anmeldung mit Steam fehlgeschlagen"
+      }
+    },
+    "buildings": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region",
+        "tiers": "Bevölkerungsstufe",
+        "types": "Typ"
+      },
+      "list": {
+        "empty": "Nichts gefunden",
+        "title": "Gebäude"
+      },
+      "page": {
+        "details": {
+          "buffs": "Bedürfniserfüllung",
+          "construction": "Baukosten",
+          "effects": "Flächeneffekte",
+          "inputs": "Rohstoffe",
+          "maintenance": "Unterhalt",
+          "outputs": "Erzeugnisse",
+          "title": "Details",
+          "unlocked": "Freigeschaltet durch",
+          "workforce": "Benötigte Arbeitskraft"
+        },
+        "other": {
+          "baseProductivity": "Grundproduktivität",
+          "category": "Kategorie",
+          "cycleTime": "Produktionszeit",
+          "needsFuel": "Benötigt Kohle",
+          "radius": "Radius",
+          "streetRadius": "Straßenradius",
+          "template": "Vorlage",
+          "title": "Sonstiges",
+          "transporterRange": "Transportreichweite"
+        },
+        "phases": {
+          "duration": "Dauer",
+          "phase": "Phase",
+          "title": "Bauphasen",
+          "unlock": "Freischaltbedingungen"
+        }
+      }
+    },
+    "chains": {
+      "all": {
+        "empty": "Nichts gefunden",
+        "search": "Filtern",
+        "title": "Rechner"
+      },
+      "calculator": {
+        "baseProductivity": "Grundproduktivität",
+        "buildings": "× {required, number, required}",
+        "cycleTime": "Produktionszeit",
+        "inputs": "Rohstoffe",
+        "output": "Erzeugnis",
+        "title": "Rechner",
+        "tons": "{tons, number, tons} t / min"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region",
+        "tiers": "Bevölkerungsstufe",
+        "types": "Typ"
+      },
+      "list": {
+        "empty": "Nichts gefunden",
+        "title": "Produktionsketten"
+      }
+    },
+    "comments": {
+      "form": {
+        "action": {
+          "submit": "Senden"
+        },
+        "field": {
+          "body": {
+            "placeholder": "Schreib etwas Nettes"
+          }
+        }
+      },
+      "list": {
+        "empty": "Noch keine Kommentare",
+        "more": "Mehr laden",
+        "signIn": "<link>Melde dich an</link>, um mitzureden.",
+        "title": "Kommentare"
+      }
+    },
+    "items": {
+      "filters": {
+        "dlcs": "DLC",
+        "niches": "Nische",
+        "rarities": "Seltenheit",
+        "types": "Typ"
+      },
+      "list": {
+        "empty": "Nichts gefunden",
+        "title": "Gegenstände"
+      },
+      "page": {
+        "boost": {
+          "conditions": "Bedingungen",
+          "modifiers": "Modifikatoren",
+          "title": "Bonus"
+        },
+        "charioteer": {
+          "initial": "Start",
+          "potential": "Potenzial",
+          "title": "Wagenlenker"
+        },
+        "details": {
+          "modifiers": "Modifikatoren",
+          "sources": "Quellen",
+          "targets": "Ziele"
+        },
+        "other": {
+          "title": "Sonstiges",
+          "tradePrice": "Handelspreis",
+          "type": "Typ"
+        }
+      }
+    },
+    "layouts": {
+      "main": {
+        "footer": {
+          "copyright": "© {year} Annohead. Alle Rechte vorbehalten."
+        },
+        "nav": {
+          "building": "Gebäude",
+          "calculator": "Rechner",
+          "chain": "Produktionsketten",
+          "item": "Gegenstände",
+          "product": "Waren",
+          "quest": "Quests",
+          "tech": "Technologien",
+          "title": "Datenbank",
+          "unit": "Einheiten",
+          "ornament": "Ornamente"
+        },
+        "title": "Annohead"
+      }
+    },
+    "ornaments": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region",
+        "types": "Typ"
+      },
+      "list": {
+        "empty": "Nichts gefunden",
+        "title": "Ornamente"
+      },
+      "page": {
+        "costs": "Kosten",
+        "stats": {
+          "title": "Sonstiges",
+          "value": "Ornamentwert"
+        }
+      }
+    },
+    "products": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region",
+        "tiers": "Bevölkerungsstufe",
+        "types": "Kategorie"
+      },
+      "list": {
+        "empty": "Nichts gefunden",
+        "title": "Waren"
+      },
+      "page": {
+        "consumed": "Verbraucht von",
+        "needed": "Benötigt von",
+        "produced": "Hergestellt von",
+        "tons": "{tons, number, tons} t / min",
+        "wanted": "Gewünscht von"
+      }
+    },
+    "quests": {
+      "choice": {
+        "check": "Das Spiel prüft",
+        "cost": "Kosten",
+        "decision": "Entscheidung",
+        "earlier": "Hängt von deinen früheren Entscheidungen ab",
+        "end": "Ende der Questreihe",
+        "fails": "Andernfalls",
+        "holds": "Falls ja",
+        "later": "Wirkt sich später aus",
+        "nothing": "Keine bleibende Wirkung",
+        "option": "Option {number}",
+        "outcomes": "Ergebnis",
+        "pick": "Wähle eine Option, um zu sehen, wohin sie führt",
+        "requires": "Voraussetzung",
+        "reset": "Zurücksetzen"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region"
+      },
+      "list": {
+        "empty": "Nichts gefunden",
+        "title": "Quests"
+      },
+      "outcome": {
+        "duration": "{hours, plural, one {# Stunde} other {# Stunden}}",
+        "effect": "Effekt",
+        "incident": "Löst einen Zwischenfall aus",
+        "incidentFallback": "Zwischenfall",
+        "lock": "Gesperrt",
+        "lockFallback": "Etwas",
+        "power": "Machtkampf",
+        "racer": "Verbesserung des Rennpferds",
+        "racerFallback": "Rennpferd",
+        "reputation": "Ansehen",
+        "storyline": "Startet eine Fortsetzung",
+        "storylineFallback": "Ein Folgeereignis",
+        "unlock": "Freigeschaltet",
+        "unlockFallback": "Etwas",
+        "xp": "Erfahrung"
+      },
+      "page": {
+        "empty": "Nur Geschichte, keine Entscheidungen in diesem Teil.",
+        "requires": "Nur wenn: {requirements}",
+        "untitled": "Ohne Titel"
+      }
+    },
+    "search": {
+      "box": {
+        "placeholder": "Suchen"
+      },
+      "card": {
+        "type": {
+          "building": "Gebäude",
+          "chain": "Produktionskette",
+          "item": "Gegenstand",
+          "product": "Ware",
+          "quest": "Quest",
+          "tech": "Technologie",
+          "unit": "Einheit",
+          "ornament": "Ornament"
+        }
+      },
+      "filters": {
+        "all": "Alle",
+        "building": "Gebäude",
+        "chain": "Produktionsketten",
+        "item": "Gegenstände",
+        "product": "Waren",
+        "quest": "Quests",
+        "tech": "Technologien",
+        "unit": "Einheiten",
+        "ornament": "Ornamente"
+      },
+      "page": {
+        "empty": "Nichts gefunden",
+        "results": "{total, plural, =0 {Keine Ergebnisse} =1 {1 Ergebnis} other {# Ergebnisse}}",
+        "title": "Suche"
+      }
+    },
+    "technologies": {
+      "page": {
+        "effects": {
+          "modifiers": "Modifikatoren",
+          "targets": "Ziele",
+          "title": "Effekte"
+        },
+        "other": {
+          "knowledgeNeeded": "Wissen",
+          "title": "Sonstiges"
+        },
+        "rewards": "Belohnungen",
+        "unlocks": "Schaltet frei"
+      },
+      "tree": {
+        "discovery": "Entdeckung",
+        "effects": "Effekte",
+        "inspiration": "Inspiration",
+        "knowledge": "Wissen",
+        "requirement": "Voraussetzung",
+        "rewards": "Belohnungen",
+        "unlocks": "Schaltet frei"
+      }
+    },
+    "units": {
+      "filters": {
+        "regions": "Region",
+        "types": "Kategorie"
+      },
+      "list": {
+        "empty": "Nichts gefunden",
+        "title": "Einheiten"
+      },
+      "page": {
+        "costs": "Kosten",
+        "maintenance": "Unterhalt",
+        "recruited": "Rekrutiert in",
+        "stats": {
+          "buildTime": "Bauzeit",
+          "cargoSlots": "Frachtplätze",
+          "health": "Lebenspunkte",
+          "itemSockets": "Gegenstandsplätze",
+          "moduleSlots": "Modulplätze",
+          "morale": "Moral",
+          "soldiers": "Soldaten",
+          "speed": "Geschwindigkeit",
+          "title": "Sonstiges"
+        },
+        "unlocked": "Freigeschaltet durch"
+      }
+    }
+  },
+  "hook": {
+    "auth": {
+      "error": {
+        "INVALID_CREDENTIALS": "Ungültige Anmeldedaten",
+        "OTHER_ERROR": "Etwas ist schiefgelaufen",
+        "PASSWORD_HAS_SURROUNDING_WHITESPACE": "Das Passwort beginnt oder endet mit Leerzeichen",
+        "PASSWORD_TOO_COMMON": "Das Passwort ist zu verbreitet",
+        "PASSWORD_TOO_LONG": "Passwort zu lang (max. {max, plural, =0 {} =1 {1 Zeichen} other {# Zeichen}})",
+        "PASSWORD_TOO_SHORT": "Passwort zu kurz (min. {min, plural, =0 {} =1 {1 Zeichen} other {# Zeichen}})",
+        "RATE_LIMITED": "Zu viele Versuche. Versuche es {seconds, plural, =0 {später} =1 {in 1 Sekunde} other {in # Sekunden}} erneut",
+        "USERNAME_HAS_INVALID_CHARACTERS": "Der Benutzername enthält ungültige Zeichen",
+        "USERNAME_HAS_SURROUNDING_WHITESPACE": "Der Benutzername beginnt oder endet mit Leerzeichen",
+        "USERNAME_TAKEN": "Benutzername bereits vergeben",
+        "USERNAME_TOO_SHORT": "Benutzername zu kurz (min. {min, plural, =0 {} =1 {1 Zeichen} other {# Zeichen}})",
+        "USER_NOT_FOUND": "Benutzer nicht gefunden"
+      }
+    }
+  },
+  "page": {
+    "building": {
+      "fallback": "Gebäude",
+      "title": "{name} × Gebäude × Annohead"
+    },
+    "buildings": {
+      "title": "Gebäude × Annohead"
+    },
+    "calculator": {
+      "title": "Produktionskettenrechner × Annohead"
+    },
+    "chain": {
+      "fallback": "Produktionskette",
+      "title": "{name} × Produktionsketten × Annohead"
+    },
+    "chains": {
+      "title": "Produktionsketten × Annohead"
+    },
+    "changelog": {
+      "added": "Neu",
+      "changed": "Geändert",
+      "fixed": "Behoben",
+      "header": "Änderungsprotokoll",
+      "title": "Änderungsprotokoll × Annohead",
+      "updated": "Aktualisiert am {updated, date, long} um {updated, time, short} UTC"
+    },
+    "item": {
+      "fallback": "Gegenstand",
+      "title": "{name} × Gegenstände × Annohead"
+    },
+    "items": {
+      "title": "Gegenstände × Annohead"
+    },
+    "landing": {
+      "annohead": "Annohead",
+      "changelog": "Änderungsprotokoll",
+      "description": "Anno-117-Datenbank mit Informationen zu Gebäuden, Produktionsketten, Gegenständen, Spezialisten, Kapitänen, Waren, Quests, Technologien, Einheiten und Ornamenten.",
+      "title": "Datenbank für Anno 117 × Annohead",
+      "updated": "Aktualisiert am {updated, date, medium}"
+    },
+    "ornament": {
+      "fallback": "Ornament",
+      "title": "{name} × Ornamente × Annohead"
+    },
+    "ornaments": {
+      "title": "Ornamente × Annohead"
+    },
+    "product": {
+      "fallback": "Ware",
+      "title": "{name} × Waren × Annohead"
+    },
+    "products": {
+      "title": "Waren × Annohead"
+    },
+    "quest": {
+      "fallback": "Quest",
+      "title": "{name} × Quests × Annohead"
+    },
+    "quests": {
+      "title": "Quests × Annohead"
+    },
+    "search": {
+      "title": "Suche × Annohead"
+    },
+    "technologies": {
+      "title": "Technologien × Annohead"
+    },
+    "technology": {
+      "fallback": "Technologie",
+      "title": "{name} × Technologien × Annohead"
+    },
+    "unit": {
+      "fallback": "Einheit",
+      "title": "{name} × Einheiten × Annohead"
+    },
+    "units": {
+      "title": "Einheiten × Annohead"
+    }
+  }
+}

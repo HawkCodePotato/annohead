@@ -1,9 +1,10 @@
-"""Convert extracted .dds icons to .png (Pillow). Mirrors the data/ui tree.
+"""Convert extracted images to .png (Pillow). Mirrors the extracted directory tree.
 
 Usage: python3 icons.py <extracted_dir> <out_dir>
 """
 
 import collections
+import shutil
 import struct
 import sys
 from pathlib import Path
@@ -13,7 +14,9 @@ from PIL import Image
 src, out = Path(sys.argv[1]), Path(sys.argv[2])
 stats = collections.Counter()
 failed = collections.defaultdict(list)
-for dds in src.rglob("*.dds"):
+for dds in src.rglob("*"):
+    if dds.suffix.lower() not in {".dds", ".png", ".tga", ".jpg", ".jpeg", ".bmp", ".webp"}:
+        continue
     dst = (out / dds.relative_to(src)).with_suffix(".png")
     if dst.exists() and dst.stat().st_mtime >= dds.stat().st_mtime:
         stats["skipped"] += 1
@@ -21,7 +24,11 @@ for dds in src.rglob("*.dds"):
     try:
         with Image.open(dds) as im:
             dst.parent.mkdir(parents=True, exist_ok=True)
-            im.save(dst)
+            if dds.suffix.lower() == ".png":
+                im.verify()
+                shutil.copy2(dds, dst)
+            else:
+                im.save(dst)
         stats["ok"] += 1
     except Exception as ex:
         # DX10 header: dxgiFormat is uint32 at byte 128
@@ -29,7 +36,7 @@ for dds in src.rglob("*.dds"):
             hdr = f.read(148)
         fmt = (
             struct.unpack_from("<I", hdr, 128)[0]
-            if hdr[84:88] == b"DX10"
+            if len(hdr) >= 148 and hdr[84:88] == b"DX10"
             else hdr[84:88]
         )
         failed[f"{fmt}: {type(ex).__name__}: {ex}"].append(str(dds.relative_to(src)))
@@ -37,3 +44,5 @@ for dds in src.rglob("*.dds"):
 print(dict(stats))
 for k, v in failed.items():
     print(f"  {len(v):>5}  {k}  e.g. {v[0]}")
+if failed:
+    sys.exit(1)

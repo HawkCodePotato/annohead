@@ -1,0 +1,470 @@
+{
+  "annohead": "Annohead",
+  "common": {
+    "dlc": {
+      "CDLC1": "경이로운 모자이크 팩",
+      "CDLC2": "만개한 도시 팩",
+      "CDLC3": "카산드라의 메아리 팩",
+      "DLC01_Prophecies_of_Ash": "재의 예언",
+      "DLC02_The_Hippodrome": "히포드롬",
+      "DLC03_Dawn_of_Delta": "삼각주의 여명"
+    },
+    "needsFuel": "석탄 필요",
+    "region": {
+      "Celtic": "알비온",
+      "Egyptian": "아이깁투스",
+      "Roman": "라티움"
+    }
+  },
+  "component": {
+    "auth": {
+      "profile": {
+        "signOut": "로그아웃"
+      },
+      "signIn": {
+        "action": {
+          "signUp": "처음이신가요?",
+          "submit": "로그인"
+        },
+        "field": {
+          "password": {
+            "label": "비밀번호",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "사용자 이름",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "signUp": {
+        "action": {
+          "signIn": "이미 계정이 있으신가요?",
+          "submit": "가입하기"
+        },
+        "field": {
+          "password": {
+            "label": "비밀번호",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "사용자 이름",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "steam": {
+        "action": {
+          "signIn": "Steam으로 로그인"
+        },
+        "error": "Steam 로그인에 실패했습니다"
+      }
+    },
+    "buildings": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "지역",
+        "tiers": "인구 계층",
+        "types": "유형"
+      },
+      "list": {
+        "empty": "결과 없음",
+        "title": "건물"
+      },
+      "page": {
+        "details": {
+          "buffs": "요구 충족",
+          "construction": "건설 비용",
+          "effects": "지역 효과",
+          "inputs": "투입",
+          "maintenance": "유지비",
+          "outputs": "산출",
+          "title": "세부 정보",
+          "unlocked": "잠금 해제 조건",
+          "workforce": "필요 노동력"
+        },
+        "other": {
+          "baseProductivity": "기본 생산성",
+          "category": "카테고리",
+          "cycleTime": "주기 시간",
+          "needsFuel": "석탄 필요",
+          "radius": "반경",
+          "streetRadius": "도로 반경",
+          "template": "템플릿",
+          "title": "기타",
+          "transporterRange": "운송 범위"
+        },
+        "phases": {
+          "duration": "지속시간",
+          "phase": "단계",
+          "title": "단계",
+          "unlock": "잠금 해제 조건"
+        }
+      }
+    },
+    "chains": {
+      "all": {
+        "empty": "결과 없음",
+        "search": "필터",
+        "title": "계산기"
+      },
+      "calculator": {
+        "baseProductivity": "기본 생산성",
+        "buildings": "× {required, number, required}",
+        "cycleTime": "주기 시간",
+        "inputs": "투입",
+        "output": "산출",
+        "title": "계산기",
+        "tons": "{tons, number, tons}톤/분"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "지역",
+        "tiers": "인구 계층",
+        "types": "유형"
+      },
+      "list": {
+        "empty": "결과 없음",
+        "title": "생산 체인"
+      }
+    },
+    "comments": {
+      "form": {
+        "action": {
+          "submit": "보내기"
+        },
+        "field": {
+          "body": {
+            "placeholder": "따뜻한 한마디를 남겨 주세요"
+          }
+        }
+      },
+      "list": {
+        "empty": "아직 댓글이 없습니다",
+        "more": "더 보기",
+        "signIn": "<link>로그인</link>하고 대화에 참여하세요.",
+        "title": "댓글"
+      }
+    },
+    "items": {
+      "filters": {
+        "dlcs": "DLC",
+        "niches": "분야",
+        "rarities": "희귀도",
+        "types": "유형"
+      },
+      "list": {
+        "empty": "결과 없음",
+        "title": "아이템"
+      },
+      "page": {
+        "boost": {
+          "conditions": "조건",
+          "modifiers": "보정치",
+          "title": "부스트"
+        },
+        "charioteer": {
+          "initial": "초기",
+          "potential": "잠재력",
+          "title": "전차 기수"
+        },
+        "details": {
+          "modifiers": "보정치",
+          "sources": "획득처",
+          "targets": "대상"
+        },
+        "other": {
+          "title": "기타",
+          "tradePrice": "거래 가격",
+          "type": "유형"
+        }
+      }
+    },
+    "layouts": {
+      "main": {
+        "footer": {
+          "copyright": "© {year} Annohead. All rights reserved."
+        },
+        "nav": {
+          "building": "건물",
+          "calculator": "계산기",
+          "chain": "생산 체인",
+          "item": "아이템",
+          "product": "물품",
+          "quest": "퀘스트",
+          "tech": "기술",
+          "title": "데이터베이스",
+          "unit": "유닛",
+          "ornament": "장식품"
+        },
+        "title": "Annohead"
+      }
+    },
+    "ornaments": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "지역",
+        "types": "유형"
+      },
+      "list": {
+        "empty": "결과 없음",
+        "title": "장식품"
+      },
+      "page": {
+        "costs": "비용",
+        "stats": {
+          "title": "기타",
+          "value": "장식 수치"
+        }
+      }
+    },
+    "products": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "지역",
+        "tiers": "인구 계층",
+        "types": "카테고리"
+      },
+      "list": {
+        "empty": "결과 없음",
+        "title": "물품"
+      },
+      "page": {
+        "consumed": "소비처",
+        "needed": "사용처",
+        "produced": "생산처",
+        "tons": "{tons, number, tons}톤/분",
+        "wanted": "수요처"
+      }
+    },
+    "quests": {
+      "choice": {
+        "check": "게임 판정",
+        "cost": "비용",
+        "decision": "결정",
+        "earlier": "이전 선택에 따라 결정됩니다",
+        "end": "퀘스트라인 끝",
+        "fails": "그렇지 않으면",
+        "holds": "해당하는 경우",
+        "later": "이후 전개에 영향을 줍니다",
+        "nothing": "지속 효과 없음",
+        "option": "선택지 {number}",
+        "outcomes": "결과",
+        "pick": "선택지를 고르면 어디로 이어지는지 볼 수 있습니다",
+        "requires": "필요조건",
+        "reset": "초기화"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "지역"
+      },
+      "list": {
+        "empty": "결과 없음",
+        "title": "퀘스트"
+      },
+      "outcome": {
+        "duration": "{hours, plural, other {#시간}}",
+        "effect": "효과",
+        "incident": "사건 발생",
+        "incidentFallback": "사건",
+        "lock": "잠김",
+        "lockFallback": "무언가",
+        "power": "권력 투쟁",
+        "racer": "경주마 강화",
+        "racerFallback": "경주마",
+        "reputation": "평판",
+        "storyline": "후속 이벤트 시작",
+        "storylineFallback": "후속 이벤트",
+        "unlock": "잠금 해제",
+        "unlockFallback": "무언가",
+        "xp": "경험치"
+      },
+      "page": {
+        "empty": "스토리만 있으며 이 부분에는 선택지가 없습니다.",
+        "requires": "조건: {requirements}",
+        "untitled": "제목 없음"
+      }
+    },
+    "search": {
+      "box": {
+        "placeholder": "검색"
+      },
+      "card": {
+        "type": {
+          "building": "건물",
+          "chain": "생산 체인",
+          "item": "아이템",
+          "product": "물품",
+          "quest": "퀘스트",
+          "tech": "기술",
+          "unit": "유닛",
+          "ornament": "장식품"
+        }
+      },
+      "filters": {
+        "all": "전체",
+        "building": "건물",
+        "chain": "생산 체인",
+        "item": "아이템",
+        "product": "물품",
+        "quest": "퀘스트",
+        "tech": "기술",
+        "unit": "유닛",
+        "ornament": "장식품"
+      },
+      "page": {
+        "empty": "결과 없음",
+        "results": "{total, plural, =0 {결과 없음} =1 {결과 1개} other {결과 #개}}",
+        "title": "검색"
+      }
+    },
+    "technologies": {
+      "page": {
+        "effects": {
+          "modifiers": "보정치",
+          "targets": "대상",
+          "title": "효과"
+        },
+        "other": {
+          "knowledgeNeeded": "지식",
+          "title": "기타"
+        },
+        "rewards": "보상",
+        "unlocks": "잠금 해제"
+      },
+      "tree": {
+        "discovery": "발견",
+        "effects": "효과",
+        "inspiration": "영감",
+        "knowledge": "지식",
+        "requirement": "필요조건",
+        "rewards": "보상",
+        "unlocks": "잠금 해제"
+      }
+    },
+    "units": {
+      "filters": {
+        "regions": "지역",
+        "types": "카테고리"
+      },
+      "list": {
+        "empty": "결과 없음",
+        "title": "유닛"
+      },
+      "page": {
+        "costs": "비용",
+        "maintenance": "유지비",
+        "recruited": "모집 장소",
+        "stats": {
+          "buildTime": "건조 시간",
+          "cargoSlots": "화물 슬롯",
+          "health": "체력",
+          "itemSockets": "아이템 슬롯",
+          "moduleSlots": "모듈 슬롯",
+          "morale": "사기",
+          "soldiers": "병사",
+          "speed": "속도",
+          "title": "기타"
+        },
+        "unlocked": "잠금 해제 조건"
+      }
+    }
+  },
+  "hook": {
+    "auth": {
+      "error": {
+        "INVALID_CREDENTIALS": "로그인 정보가 올바르지 않습니다",
+        "OTHER_ERROR": "문제가 발생했습니다",
+        "PASSWORD_HAS_SURROUNDING_WHITESPACE": "비밀번호 앞뒤에 공백이 있습니다",
+        "PASSWORD_TOO_COMMON": "너무 흔한 비밀번호입니다",
+        "PASSWORD_TOO_LONG": "비밀번호가 너무 깁니다 (최대 {max, plural, =0 {} =1 {1자} other {#자}})",
+        "PASSWORD_TOO_SHORT": "비밀번호가 너무 짧습니다 (최소 {min, plural, =0 {} =1 {1자} other {#자}})",
+        "RATE_LIMITED": "요청이 너무 많습니다. {seconds, plural, =0 {잠시} =1 {1초} other {#초}} 후에 다시 시도하세요",
+        "USERNAME_HAS_INVALID_CHARACTERS": "사용자 이름에 사용할 수 없는 문자가 있습니다",
+        "USERNAME_HAS_SURROUNDING_WHITESPACE": "사용자 이름 앞뒤에 공백이 있습니다",
+        "USERNAME_TAKEN": "이미 사용 중인 사용자 이름입니다",
+        "USERNAME_TOO_SHORT": "사용자 이름이 너무 짧습니다 (최소 {min, plural, =0 {} =1 {1자} other {#자}})",
+        "USER_NOT_FOUND": "사용자를 찾을 수 없습니다"
+      }
+    }
+  },
+  "page": {
+    "building": {
+      "fallback": "건물",
+      "title": "{name} × 건물 × Annohead"
+    },
+    "buildings": {
+      "title": "건물 × Annohead"
+    },
+    "calculator": {
+      "title": "생산 체인 계산기 × Annohead"
+    },
+    "chain": {
+      "fallback": "체인",
+      "title": "{name} × 생산 체인 × Annohead"
+    },
+    "chains": {
+      "title": "생산 체인 × Annohead"
+    },
+    "changelog": {
+      "added": "추가",
+      "changed": "변경",
+      "fixed": "수정",
+      "header": "변경 내역",
+      "title": "변경 내역 × Annohead",
+      "updated": "{updated, date, long} {updated, time, short} UTC 업데이트"
+    },
+    "item": {
+      "fallback": "아이템",
+      "title": "{name} × 아이템 × Annohead"
+    },
+    "items": {
+      "title": "아이템 × Annohead"
+    },
+    "landing": {
+      "annohead": "Annohead",
+      "changelog": "변경 내역",
+      "description": "건물, 생산 체인, 아이템, 전문가, 선장, 물품, 퀘스트, 기술, 유닛, 장식품 정보를 담은 Anno 117 데이터베이스.",
+      "title": "Anno 117 데이터베이스 × Annohead",
+      "updated": "{updated, date, medium} 업데이트"
+    },
+    "ornament": {
+      "fallback": "장식품",
+      "title": "{name} × 장식품 × Annohead"
+    },
+    "ornaments": {
+      "title": "장식품 × Annohead"
+    },
+    "product": {
+      "fallback": "물품",
+      "title": "{name} × 물품 × Annohead"
+    },
+    "products": {
+      "title": "물품 × Annohead"
+    },
+    "quest": {
+      "fallback": "퀘스트",
+      "title": "{name} × 퀘스트 × Annohead"
+    },
+    "quests": {
+      "title": "퀘스트 × Annohead"
+    },
+    "search": {
+      "title": "검색 × Annohead"
+    },
+    "technologies": {
+      "title": "기술 × Annohead"
+    },
+    "technology": {
+      "fallback": "기술",
+      "title": "{name} × 기술 × Annohead"
+    },
+    "unit": {
+      "fallback": "유닛",
+      "title": "{name} × 유닛 × Annohead"
+    },
+    "units": {
+      "title": "유닛 × Annohead"
+    }
+  }
+}

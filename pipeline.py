@@ -34,6 +34,8 @@ SITE_DB = DATA / "anno.sqlite"
 CDN = DATA / "cdn"
 LOCAL_CONFIG = ROOT / "annohead.local.json"
 CONFIG_FILTER = r"^data/(base/)?config/.*\.xml$"
+# The game points some consumption buffs at an AssetPool of goods ("Food"), not a single product.
+TOLERATED_FOREIGN_KEYS = {("buff_modifier", "product")}
 
 EXTRACTOR = ROOT / "packages" / "data-extractor"
 TRANSFORMER = ROOT / "packages" / "data-transformer"
@@ -248,6 +250,23 @@ def atomic_source_db() -> None:
         raise
 
 
+def atomic_site_db(languages: str, include_icons: bool) -> None:
+    """Build and validate beside the live database, which the transformer would otherwise delete first."""
+    staging = DATA / f".anno-{os.getpid()}.sqlite"
+    staging.unlink(missing_ok=True)
+    transform_args: list[object] = [TRANSFORMER / "transform.py", SOURCE_DB, staging]
+    if include_icons:
+        transform_args.append(CDN)
+    transform_args.extend(["--langs", languages])
+    try:
+        run(*transform_args)
+        validate(staging)
+        move_generated_path(staging, SITE_DB)
+    except Exception:
+        staging.unlink(missing_ok=True)
+        raise
+
+
 def build_icons() -> None:
     if not any(EXTRACTED.rglob("*.dds")):
         raise RuntimeError("No extracted DDS files found. Run extract/refresh with --icons first.")
@@ -273,17 +292,20 @@ def validate_sqlite(path: Path, required_tables: tuple[str, ...] = ()) -> None:
         if integrity != "ok":
             raise RuntimeError(f"{path.name}: integrity check failed: {integrity}")
         violations = db.execute("pragma foreign_key_check").fetchall()
-        if violations:
-            raise RuntimeError(f"{path.name}: {len(violations)} foreign-key violation(s)")
+        tolerated = [row for row in violations if (row[0], row[2]) in TOLERATED_FOREIGN_KEYS]
+        if tolerated:
+            print(f"{path.name}: tolerating {len(tolerated)} {sorted(TOLERATED_FOREIGN_KEYS)} reference(s)")
+        if len(violations) > len(tolerated):
+            raise RuntimeError(f"{path.name}: {len(violations) - len(tolerated)} foreign-key violation(s)")
         tables = {row[0] for row in db.execute("select name from sqlite_master where type='table'")}
         missing = sorted(set(required_tables) - tables)
         if missing:
             raise RuntimeError(f"{path.name}: missing tables: {', '.join(missing)}")
 
 
-def validate(run_regressions: bool = True) -> None:
+def validate(path: Path = SITE_DB) -> None:
     validate_sqlite(
-        SITE_DB,
+        path,
         required_tables=(
             "building",
             "factory",
@@ -294,9 +316,8 @@ def validate(run_regressions: bool = True) -> None:
             "translation",
         ),
     )
-    if run_regressions:
-        run(TRANSFORMER / "check_site.py", SITE_DB)
-    with closing(sqlite3.connect(SITE_DB)) as db:
+    run(TRANSFORMER / "check_site.py", path)
+    with closing(sqlite3.connect(path)) as db:
         counts = {
             table: db.execute(f"select count(*) from {table}").fetchone()[0]
             for table in ("building", "factory", "product", "residence_need", "item", "effect")
@@ -340,11 +361,7 @@ def build(languages: str, include_icons: bool) -> None:
     atomic_source_db()
     if include_icons:
         build_icons()
-    transform_args: list[object] = [TRANSFORMER / "transform.py", SOURCE_DB, SITE_DB]
-    if include_icons:
-        transform_args.append(CDN)
-    transform_args.extend(["--langs", languages])
-    run(*transform_args)
+    atomic_site_db(languages, include_icons)
     validate()
     write_build_manifest(languages, include_icons)
 

@@ -15,6 +15,14 @@
     },
     "test": {
       "cache": false
+    },
+    "typecheck": {
+      "cache": false,
+      "dependsOn": ["^typecheck", "typegen"]
+    },
+    "typegen": {
+      "cache": false,
+      "dependsOn": ["^typegen"]
     }
   }
 }

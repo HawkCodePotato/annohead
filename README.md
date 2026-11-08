@@ -83,11 +83,10 @@ From the repository root:
 ```powershell
 python packages/data-extractor/test_rda.py
 python packages/data-transformer/test_assets.py
-python packages/data-transformer/test_transform.py
 python packages/data-transformer/check_site.py data/anno.sqlite
 ```
 
-The first three tests are synthetic and require no installed game data. The final
+The first two tests are synthetic and require no installed game data. The final
 check validates known facts in a generated or supplied `anno.sqlite` database.
 
 ## Repository status

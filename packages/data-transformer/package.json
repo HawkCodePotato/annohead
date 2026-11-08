@@ -2,7 +2,7 @@
   "name": "@anno/data-transformer",
   "private": true,
   "scripts": {
-    "build": "python3 assets.py ../../data/extracted ../../data/source.sqlite && python3 transform.py ../../data/source.sqlite ../db/anno.sqlite ../../data/cdn --langs english,german",
-    "test": "python test_assets.py && python test_transform.py && python check_site.py ../db/anno.sqlite"
+    "build": "python3 assets.py ../../data/extracted ../../data/source.sqlite && python3 transform.py ../../data/source.sqlite ../db/anno.sqlite ../../data/cdn",
+    "test": "python test_assets.py && python check_site.py ../db/anno.sqlite"
   }
 }

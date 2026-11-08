@@ -33,8 +33,12 @@ MEMRES_HDR = struct.Struct("<QQ")  # compressed, uncompressed
 F_COMPRESSED, F_ENCRYPTED, F_MEMRESIDENT, F_DELETED = 1, 2, 4, 8
 SEED = 0x71C71C71
 
-# Default: everything the wiki pipeline consumes. config xml + localization + icons.
-DEFAULT_FILTER = r"^data/(base/)?config/.*\.xml$|^data/ui/(.*/icon_content/.*|.*/(icon|achievement|artwork_deity)_[^/]*)\.dds$"
+# Include all UI images: backgrounds and rarity textures need not start with icon_.
+# Also include icon textures outside data/ui (unit banners, map markers, app icons).
+DEFAULT_FILTER = (
+    r"^data/(base/)?config/.*\.xml$|"
+    r"^data/(?:ui/.*|.*icon.*)\.(?:dds|png|tga|jpg|jpeg|bmp|webp)$"
+)
 
 
 def crypt(buf: bytes) -> bytes:

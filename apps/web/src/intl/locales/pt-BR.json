@@ -1,0 +1,470 @@
+{
+  "annohead": "Annohead",
+  "common": {
+    "dlc": {
+      "CDLC1": "Pacote Mosaico Maravilhoso",
+      "CDLC2": "Pacote Cidades Florescentes",
+      "CDLC3": "Pacote Ecos de Kassandra",
+      "DLC01_Prophecies_of_Ash": "Profecias das Cinzas",
+      "DLC02_The_Hippodrome": "O Hipódromo",
+      "DLC03_Dawn_of_Delta": "Alvorecer do Delta"
+    },
+    "needsFuel": "Precisa de carvão",
+    "region": {
+      "Celtic": "Albion",
+      "Egyptian": "Aegyptus",
+      "Roman": "Latium"
+    }
+  },
+  "component": {
+    "auth": {
+      "profile": {
+        "signOut": "Sair"
+      },
+      "signIn": {
+        "action": {
+          "signUp": "Novo por aqui?",
+          "submit": "Entrar"
+        },
+        "field": {
+          "password": {
+            "label": "Senha",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Nome de usuário",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "signUp": {
+        "action": {
+          "signIn": "Já tem uma conta?",
+          "submit": "Cadastrar"
+        },
+        "field": {
+          "password": {
+            "label": "Senha",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Nome de usuário",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "steam": {
+        "action": {
+          "signIn": "Entrar com a Steam"
+        },
+        "error": "Falha ao entrar com a Steam"
+      }
+    },
+    "buildings": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Região",
+        "tiers": "Nível de população",
+        "types": "Tipo"
+      },
+      "list": {
+        "empty": "Nada encontrado",
+        "title": "Construções"
+      },
+      "page": {
+        "details": {
+          "buffs": "Satisfação de necessidades",
+          "construction": "Custos de construção",
+          "effects": "Efeitos de área",
+          "inputs": "Insumos",
+          "maintenance": "Manutenção",
+          "outputs": "Produção",
+          "title": "Detalhes",
+          "unlocked": "Desbloqueado por",
+          "workforce": "Força de trabalho necessária"
+        },
+        "other": {
+          "baseProductivity": "Produtividade base",
+          "category": "Categoria",
+          "cycleTime": "Tempo de ciclo",
+          "needsFuel": "Precisa de carvão",
+          "radius": "Raio",
+          "streetRadius": "Raio pela rua",
+          "template": "Modelo",
+          "title": "Outros",
+          "transporterRange": "Alcance do transportador"
+        },
+        "phases": {
+          "duration": "Duração",
+          "phase": "Fase",
+          "title": "Fases",
+          "unlock": "Requisitos de desbloqueio"
+        }
+      }
+    },
+    "chains": {
+      "all": {
+        "empty": "Nada encontrado",
+        "search": "Filtrar",
+        "title": "Calculadora"
+      },
+      "calculator": {
+        "baseProductivity": "Produtividade base",
+        "buildings": "× {required, number, required}",
+        "cycleTime": "Tempo de ciclo",
+        "inputs": "Insumos",
+        "output": "Produção",
+        "title": "Calculadora",
+        "tons": "{tons, number, tons} t / min"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Região",
+        "tiers": "Nível de população",
+        "types": "Tipo"
+      },
+      "list": {
+        "empty": "Nada encontrado",
+        "title": "Cadeias de produção"
+      }
+    },
+    "comments": {
+      "form": {
+        "action": {
+          "submit": "Enviar"
+        },
+        "field": {
+          "body": {
+            "placeholder": "Diga algo legal"
+          }
+        }
+      },
+      "list": {
+        "empty": "Nenhum comentário ainda",
+        "more": "Carregar mais",
+        "signIn": "<link>Entre</link> para participar da conversa.",
+        "title": "Comentários"
+      }
+    },
+    "items": {
+      "filters": {
+        "dlcs": "DLC",
+        "niches": "Nicho",
+        "rarities": "Raridade",
+        "types": "Tipo"
+      },
+      "list": {
+        "empty": "Nada encontrado",
+        "title": "Itens"
+      },
+      "page": {
+        "boost": {
+          "conditions": "Condições",
+          "modifiers": "Modificadores",
+          "title": "Bônus"
+        },
+        "charioteer": {
+          "initial": "Inicial",
+          "potential": "Potencial",
+          "title": "Auriga"
+        },
+        "details": {
+          "modifiers": "Modificadores",
+          "sources": "Fontes",
+          "targets": "Alvos"
+        },
+        "other": {
+          "title": "Outros",
+          "tradePrice": "Preço de troca",
+          "type": "Tipo"
+        }
+      }
+    },
+    "layouts": {
+      "main": {
+        "footer": {
+          "copyright": "© {year} Annohead. Todos os direitos reservados."
+        },
+        "nav": {
+          "building": "Construções",
+          "calculator": "Calculadora",
+          "chain": "Cadeias de produção",
+          "item": "Itens",
+          "product": "Mercadorias",
+          "quest": "Missões",
+          "tech": "Tecnologias",
+          "title": "Banco de dados",
+          "unit": "Unidades",
+          "ornament": "Ornamentos"
+        },
+        "title": "Annohead"
+      }
+    },
+    "ornaments": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Região",
+        "types": "Tipo"
+      },
+      "list": {
+        "empty": "Nada encontrado",
+        "title": "Ornamentos"
+      },
+      "page": {
+        "costs": "Custos",
+        "stats": {
+          "title": "Outros",
+          "value": "Valor de ornamento"
+        }
+      }
+    },
+    "products": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Região",
+        "tiers": "Nível de população",
+        "types": "Categoria"
+      },
+      "list": {
+        "empty": "Nada encontrado",
+        "title": "Mercadorias"
+      },
+      "page": {
+        "consumed": "Consumido por",
+        "needed": "Necessário para",
+        "produced": "Produzido por",
+        "tons": "{tons, number, tons} t / min",
+        "wanted": "Desejado por"
+      }
+    },
+    "quests": {
+      "choice": {
+        "check": "O jogo verifica",
+        "cost": "Custos",
+        "decision": "Decisão",
+        "earlier": "Depende das suas escolhas anteriores",
+        "end": "Fim da linha de missões",
+        "fails": "Caso contrário",
+        "holds": "Se sim",
+        "later": "Influencia o que vem depois",
+        "nothing": "Sem efeito duradouro",
+        "option": "Opção {number}",
+        "outcomes": "Resultado",
+        "pick": "Escolha uma opção para ver aonde ela leva",
+        "requires": "Requer",
+        "reset": "Redefinir"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Região"
+      },
+      "list": {
+        "empty": "Nada encontrado",
+        "title": "Missões"
+      },
+      "outcome": {
+        "duration": "{hours, plural, one {# hora} other {# horas}}",
+        "effect": "Efeito",
+        "incident": "Inicia um incidente",
+        "incidentFallback": "Incidente",
+        "lock": "Bloqueado",
+        "lockFallback": "Algo",
+        "power": "Luta pelo poder",
+        "racer": "Melhoria do cavalo de corrida",
+        "racerFallback": "Cavalo de corrida",
+        "reputation": "Reputação",
+        "storyline": "Inicia uma continuação",
+        "storylineFallback": "Um evento subsequente",
+        "unlock": "Desbloqueado",
+        "unlockFallback": "Algo",
+        "xp": "Experiência"
+      },
+      "page": {
+        "empty": "Apenas história, sem escolhas nesta parte.",
+        "requires": "Somente se: {requirements}",
+        "untitled": "Sem título"
+      }
+    },
+    "search": {
+      "box": {
+        "placeholder": "Buscar"
+      },
+      "card": {
+        "type": {
+          "building": "Construção",
+          "chain": "Cadeia de produção",
+          "item": "Item",
+          "product": "Produto",
+          "quest": "Missão",
+          "tech": "Tecnologia",
+          "unit": "Unidade",
+          "ornament": "Ornamento"
+        }
+      },
+      "filters": {
+        "all": "Tudo",
+        "building": "Construções",
+        "chain": "Cadeias de produção",
+        "item": "Itens",
+        "product": "Produtos",
+        "quest": "Missões",
+        "tech": "Tecnologias",
+        "unit": "Unidades",
+        "ornament": "Ornamentos"
+      },
+      "page": {
+        "empty": "Nada encontrado",
+        "results": "{total, plural, =0 {Nenhum resultado} =1 {1 resultado} other {# resultados}}",
+        "title": "Buscar"
+      }
+    },
+    "technologies": {
+      "page": {
+        "effects": {
+          "modifiers": "Modificadores",
+          "targets": "Alvos",
+          "title": "Efeitos"
+        },
+        "other": {
+          "knowledgeNeeded": "Conhecimento",
+          "title": "Outros"
+        },
+        "rewards": "Recompensas",
+        "unlocks": "Desbloqueia"
+      },
+      "tree": {
+        "discovery": "Descoberta",
+        "effects": "Efeitos",
+        "inspiration": "Inspiração",
+        "knowledge": "Conhecimento",
+        "requirement": "Requisito",
+        "rewards": "Recompensas",
+        "unlocks": "Desbloqueia"
+      }
+    },
+    "units": {
+      "filters": {
+        "regions": "Região",
+        "types": "Categoria"
+      },
+      "list": {
+        "empty": "Nada encontrado",
+        "title": "Unidades"
+      },
+      "page": {
+        "costs": "Custos",
+        "maintenance": "Manutenção",
+        "recruited": "Recrutado em",
+        "stats": {
+          "buildTime": "Tempo de construção",
+          "cargoSlots": "Espaços de carga",
+          "health": "Vida",
+          "itemSockets": "Espaços de itens",
+          "moduleSlots": "Espaços de módulos",
+          "morale": "Moral",
+          "soldiers": "Soldados",
+          "speed": "Velocidade",
+          "title": "Outros"
+        },
+        "unlocked": "Desbloqueado por"
+      }
+    }
+  },
+  "hook": {
+    "auth": {
+      "error": {
+        "INVALID_CREDENTIALS": "Credenciais inválidas",
+        "OTHER_ERROR": "Algo deu errado",
+        "PASSWORD_HAS_SURROUNDING_WHITESPACE": "A senha tem espaços no início ou no fim",
+        "PASSWORD_TOO_COMMON": "A senha é muito comum",
+        "PASSWORD_TOO_LONG": "Senha muito longa (máx. {max, plural, =0 {} =1 {1 caractere} other {# caracteres}})",
+        "PASSWORD_TOO_SHORT": "Senha muito curta (mín. {min, plural, =0 {} =1 {1 caractere} other {# caracteres}})",
+        "RATE_LIMITED": "Muitas tentativas. Tente novamente em {seconds, plural, =0 {alguns instantes} =1 {1 segundo} other {# segundos}}",
+        "USERNAME_HAS_INVALID_CHARACTERS": "O nome de usuário tem caracteres inválidos",
+        "USERNAME_HAS_SURROUNDING_WHITESPACE": "O nome de usuário tem espaços no início ou no fim",
+        "USERNAME_TAKEN": "Nome de usuário em uso",
+        "USERNAME_TOO_SHORT": "Nome de usuário muito curto (mín. {min, plural, =0 {} =1 {1 caractere} other {# caracteres}})",
+        "USER_NOT_FOUND": "Usuário não encontrado"
+      }
+    }
+  },
+  "page": {
+    "building": {
+      "fallback": "Construção",
+      "title": "{name} × Construções × Annohead"
+    },
+    "buildings": {
+      "title": "Construções × Annohead"
+    },
+    "calculator": {
+      "title": "Calculadora de cadeias de produção × Annohead"
+    },
+    "chain": {
+      "fallback": "Cadeia",
+      "title": "{name} × Cadeias de produção × Annohead"
+    },
+    "chains": {
+      "title": "Cadeias de produção × Annohead"
+    },
+    "changelog": {
+      "added": "Adicionado",
+      "changed": "Alterado",
+      "fixed": "Corrigido",
+      "header": "Registro de alterações",
+      "title": "Registro de alterações × Annohead",
+      "updated": "Atualizado em {updated, date, long} às {updated, time, short} UTC"
+    },
+    "item": {
+      "fallback": "Item",
+      "title": "{name} × Itens × Annohead"
+    },
+    "items": {
+      "title": "Itens × Annohead"
+    },
+    "landing": {
+      "annohead": "Annohead",
+      "changelog": "Registro de alterações",
+      "description": "Banco de dados de Anno 117 com informações sobre construções, cadeias de produção, itens, especialistas, capitães, mercadorias, missões, tecnologias, unidades e ornamentos.",
+      "title": "Banco de dados de Anno 117 × Annohead",
+      "updated": "Atualizado em {updated, date, medium}"
+    },
+    "ornament": {
+      "fallback": "Ornamento",
+      "title": "{name} × Ornamentos × Annohead"
+    },
+    "ornaments": {
+      "title": "Ornamentos × Annohead"
+    },
+    "product": {
+      "fallback": "Produto",
+      "title": "{name} × Produtos × Annohead"
+    },
+    "products": {
+      "title": "Mercadorias × Annohead"
+    },
+    "quest": {
+      "fallback": "Missão",
+      "title": "{name} × Missões × Annohead"
+    },
+    "quests": {
+      "title": "Missões × Annohead"
+    },
+    "search": {
+      "title": "Buscar × Annohead"
+    },
+    "technologies": {
+      "title": "Tecnologias × Annohead"
+    },
+    "technology": {
+      "fallback": "Tecnologia",
+      "title": "{name} × Tecnologias × Annohead"
+    },
+    "unit": {
+      "fallback": "Unidade",
+      "title": "{name} × Unidades × Annohead"
+    },
+    "units": {
+      "title": "Unidades × Annohead"
+    }
+  }
+}

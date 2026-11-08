@@ -1,0 +1,470 @@
+{
+  "annohead": "Annohead",
+  "common": {
+    "dlc": {
+      "CDLC1": "華麗馬賽克組合包",
+      "CDLC2": "繁花之城組合包",
+      "CDLC3": "卡珊卓的迴響組合包",
+      "DLC01_Prophecies_of_Ash": "灰燼預言",
+      "DLC02_The_Hippodrome": "賽馬場",
+      "DLC03_Dawn_of_Delta": "三角洲的黎明"
+    },
+    "needsFuel": "需要煤炭",
+    "region": {
+      "Celtic": "阿爾比恩",
+      "Egyptian": "埃及",
+      "Roman": "拉丁姆"
+    }
+  },
+  "component": {
+    "auth": {
+      "profile": {
+        "signOut": "登出"
+      },
+      "signIn": {
+        "action": {
+          "signUp": "新使用者？",
+          "submit": "登入"
+        },
+        "field": {
+          "password": {
+            "label": "密碼",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "使用者名稱",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "signUp": {
+        "action": {
+          "signIn": "已有帳號？",
+          "submit": "註冊"
+        },
+        "field": {
+          "password": {
+            "label": "密碼",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "使用者名稱",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "steam": {
+        "action": {
+          "signIn": "使用 Steam 登入"
+        },
+        "error": "Steam 登入失敗"
+      }
+    },
+    "buildings": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地區",
+        "tiers": "人口階層",
+        "types": "類型"
+      },
+      "list": {
+        "empty": "找不到結果",
+        "title": "建築"
+      },
+      "page": {
+        "details": {
+          "buffs": "滿足需求",
+          "construction": "建築成本",
+          "effects": "區域效果",
+          "inputs": "輸入",
+          "maintenance": "維護",
+          "outputs": "產出",
+          "title": "詳情",
+          "unlocked": "解鎖條件",
+          "workforce": "所需勞動力"
+        },
+        "other": {
+          "baseProductivity": "基礎生產效率",
+          "category": "分類",
+          "cycleTime": "週期時間",
+          "needsFuel": "需要煤炭",
+          "radius": "半徑",
+          "streetRadius": "道路半徑",
+          "template": "範本",
+          "title": "其他",
+          "transporterRange": "運輸範圍"
+        },
+        "phases": {
+          "duration": "持續時間",
+          "phase": "階段",
+          "title": "階段",
+          "unlock": "解鎖需求"
+        }
+      }
+    },
+    "chains": {
+      "all": {
+        "empty": "找不到結果",
+        "search": "篩選",
+        "title": "計算器"
+      },
+      "calculator": {
+        "baseProductivity": "基礎生產效率",
+        "buildings": "× {required, number, required}",
+        "cycleTime": "週期時間",
+        "inputs": "輸入",
+        "output": "產出",
+        "title": "計算器",
+        "tons": "{tons, number, tons} 噸/分鐘"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地區",
+        "tiers": "人口階層",
+        "types": "類型"
+      },
+      "list": {
+        "empty": "找不到結果",
+        "title": "生產鏈"
+      }
+    },
+    "comments": {
+      "form": {
+        "action": {
+          "submit": "送出"
+        },
+        "field": {
+          "body": {
+            "placeholder": "說點好話吧"
+          }
+        }
+      },
+      "list": {
+        "empty": "尚無留言",
+        "more": "載入更多",
+        "signIn": "<link>登入</link>後即可參與討論。",
+        "title": "留言"
+      }
+    },
+    "items": {
+      "filters": {
+        "dlcs": "DLC",
+        "niches": "領域",
+        "rarities": "稀有度",
+        "types": "類型"
+      },
+      "list": {
+        "empty": "找不到結果",
+        "title": "物品"
+      },
+      "page": {
+        "boost": {
+          "conditions": "條件",
+          "modifiers": "修正",
+          "title": "增益"
+        },
+        "charioteer": {
+          "initial": "初始",
+          "potential": "潛力",
+          "title": "戰車騎手"
+        },
+        "details": {
+          "modifiers": "修正",
+          "sources": "來源",
+          "targets": "目標"
+        },
+        "other": {
+          "title": "其他",
+          "tradePrice": "交易價格",
+          "type": "類型"
+        }
+      }
+    },
+    "layouts": {
+      "main": {
+        "footer": {
+          "copyright": "© {year} Annohead。保留所有權利。"
+        },
+        "nav": {
+          "building": "建築",
+          "calculator": "計算器",
+          "chain": "生產鏈",
+          "item": "物品",
+          "product": "貨物",
+          "quest": "任務",
+          "tech": "科技",
+          "title": "資料庫",
+          "unit": "單位",
+          "ornament": "裝飾"
+        },
+        "title": "Annohead"
+      }
+    },
+    "ornaments": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地區",
+        "types": "類型"
+      },
+      "list": {
+        "empty": "找不到結果",
+        "title": "裝飾"
+      },
+      "page": {
+        "costs": "費用",
+        "stats": {
+          "title": "其他",
+          "value": "裝飾值"
+        }
+      }
+    },
+    "products": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地區",
+        "tiers": "人口階層",
+        "types": "分類"
+      },
+      "list": {
+        "empty": "找不到結果",
+        "title": "貨物"
+      },
+      "page": {
+        "consumed": "消耗者",
+        "needed": "需求者",
+        "produced": "生產者",
+        "tons": "{tons, number, tons} 噸/分鐘",
+        "wanted": "想要者"
+      }
+    },
+    "quests": {
+      "choice": {
+        "check": "遊戲檢查",
+        "cost": "花費",
+        "decision": "決定",
+        "earlier": "取決於你之前的選擇",
+        "end": "任務線結束",
+        "fails": "否則",
+        "holds": "若滿足",
+        "later": "影響後續發展",
+        "nothing": "無持續效果",
+        "option": "選項 {number}",
+        "outcomes": "結果",
+        "pick": "選擇一個選項，查看它會通往何處",
+        "requires": "需求",
+        "reset": "重置"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地區"
+      },
+      "list": {
+        "empty": "找不到結果",
+        "title": "任務"
+      },
+      "outcome": {
+        "duration": "{hours, plural, other {# 小時}}",
+        "effect": "效果",
+        "incident": "觸發事故",
+        "incidentFallback": "事故",
+        "lock": "已鎖定",
+        "lockFallback": "某項內容",
+        "power": "權力鬥爭",
+        "racer": "賽車手升級",
+        "racerFallback": "賽車手",
+        "reputation": "聲望",
+        "storyline": "開啟後續事件",
+        "storylineFallback": "後續事件",
+        "unlock": "已解鎖",
+        "unlockFallback": "某項內容",
+        "xp": "經驗"
+      },
+      "page": {
+        "empty": "本部分僅有劇情，沒有選擇。",
+        "requires": "僅當：{requirements}",
+        "untitled": "無標題"
+      }
+    },
+    "search": {
+      "box": {
+        "placeholder": "搜尋"
+      },
+      "card": {
+        "type": {
+          "building": "建築",
+          "chain": "生產鏈",
+          "item": "物品",
+          "product": "貨物",
+          "quest": "任務",
+          "tech": "科技",
+          "unit": "單位",
+          "ornament": "裝飾"
+        }
+      },
+      "filters": {
+        "all": "全部",
+        "building": "建築",
+        "chain": "生產鏈",
+        "item": "物品",
+        "product": "貨物",
+        "quest": "任務",
+        "tech": "科技",
+        "unit": "單位",
+        "ornament": "裝飾"
+      },
+      "page": {
+        "empty": "找不到結果",
+        "results": "{total, plural, =0 {無結果} =1 {1 個結果} other {# 個結果}}",
+        "title": "搜尋"
+      }
+    },
+    "technologies": {
+      "page": {
+        "effects": {
+          "modifiers": "修正",
+          "targets": "目標",
+          "title": "效果"
+        },
+        "other": {
+          "knowledgeNeeded": "知識",
+          "title": "其他"
+        },
+        "rewards": "獎勵",
+        "unlocks": "解鎖"
+      },
+      "tree": {
+        "discovery": "發現",
+        "effects": "效果",
+        "inspiration": "靈感",
+        "knowledge": "知識",
+        "requirement": "需求",
+        "rewards": "獎勵",
+        "unlocks": "解鎖"
+      }
+    },
+    "units": {
+      "filters": {
+        "regions": "地區",
+        "types": "分類"
+      },
+      "list": {
+        "empty": "找不到結果",
+        "title": "單位"
+      },
+      "page": {
+        "costs": "費用",
+        "maintenance": "維護",
+        "recruited": "招募地點",
+        "stats": {
+          "buildTime": "建造時間",
+          "cargoSlots": "貨艙格",
+          "health": "生命值",
+          "itemSockets": "物品槽",
+          "moduleSlots": "模組槽",
+          "morale": "士氣",
+          "soldiers": "士兵",
+          "speed": "速度",
+          "title": "其他"
+        },
+        "unlocked": "解鎖條件"
+      }
+    }
+  },
+  "hook": {
+    "auth": {
+      "error": {
+        "INVALID_CREDENTIALS": "使用者名稱或密碼錯誤",
+        "OTHER_ERROR": "發生錯誤",
+        "PASSWORD_HAS_SURROUNDING_WHITESPACE": "密碼首尾不能有空格",
+        "PASSWORD_TOO_COMMON": "密碼過於常見",
+        "PASSWORD_TOO_LONG": "密碼過長（最多 {max, plural, =0 {} =1 {1 個字元} other {# 個字元}}）",
+        "PASSWORD_TOO_SHORT": "密碼過短（至少 {min, plural, =0 {} =1 {1 個字元} other {# 個字元}}）",
+        "RATE_LIMITED": "請求過於頻繁。請{seconds, plural, =0 {稍後} =1 {於 1 秒後} other {於 # 秒後}}再試",
+        "USERNAME_HAS_INVALID_CHARACTERS": "使用者名稱包含無效字元",
+        "USERNAME_HAS_SURROUNDING_WHITESPACE": "使用者名稱首尾不能有空格",
+        "USERNAME_TAKEN": "使用者名稱已被使用",
+        "USERNAME_TOO_SHORT": "使用者名稱過短（至少 {min, plural, =0 {} =1 {1 個字元} other {# 個字元}}）",
+        "USER_NOT_FOUND": "使用者不存在"
+      }
+    }
+  },
+  "page": {
+    "building": {
+      "fallback": "建築",
+      "title": "{name} × 建築 × Annohead"
+    },
+    "buildings": {
+      "title": "建築 × Annohead"
+    },
+    "calculator": {
+      "title": "生產鏈計算器 × Annohead"
+    },
+    "chain": {
+      "fallback": "生產鏈",
+      "title": "{name} × 生產鏈 × Annohead"
+    },
+    "chains": {
+      "title": "生產鏈 × Annohead"
+    },
+    "changelog": {
+      "added": "新增",
+      "changed": "變更",
+      "fixed": "修正",
+      "header": "更新日誌",
+      "title": "更新日誌 × Annohead",
+      "updated": "更新於 {updated, date, long} {updated, time, short} UTC"
+    },
+    "item": {
+      "fallback": "物品",
+      "title": "{name} × 物品 × Annohead"
+    },
+    "items": {
+      "title": "物品 × Annohead"
+    },
+    "landing": {
+      "annohead": "Annohead",
+      "changelog": "更新日誌",
+      "description": "Anno 117 資料庫，收錄建築、生產鏈、物品、專家、船長、貨物、任務、科技、單位和裝飾的資訊。",
+      "title": "Anno 117 資料庫 × Annohead",
+      "updated": "更新於 {updated, date, medium}"
+    },
+    "ornament": {
+      "fallback": "裝飾",
+      "title": "{name} × 裝飾 × Annohead"
+    },
+    "ornaments": {
+      "title": "裝飾 × Annohead"
+    },
+    "product": {
+      "fallback": "貨物",
+      "title": "{name} × 貨物 × Annohead"
+    },
+    "products": {
+      "title": "貨物 × Annohead"
+    },
+    "quest": {
+      "fallback": "任務",
+      "title": "{name} × 任務 × Annohead"
+    },
+    "quests": {
+      "title": "任務 × Annohead"
+    },
+    "search": {
+      "title": "搜尋 × Annohead"
+    },
+    "technologies": {
+      "title": "科技 × Annohead"
+    },
+    "technology": {
+      "fallback": "科技",
+      "title": "{name} × 科技 × Annohead"
+    },
+    "unit": {
+      "fallback": "單位",
+      "title": "{name} × 單位 × Annohead"
+    },
+    "units": {
+      "title": "單位 × Annohead"
+    }
+  }
+}

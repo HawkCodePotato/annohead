@@ -1,0 +1,470 @@
+{
+  "annohead": "Annohead",
+  "common": {
+    "dlc": {
+      "CDLC1": "Marvellous Mosaic Pack",
+      "CDLC2": "Blooming Cities Pack",
+      "CDLC3": "Echoes of Kassandra Pack",
+      "DLC01_Prophecies_of_Ash": "Prophecies of Ash",
+      "DLC02_The_Hippodrome": "The Hippodrome",
+      "DLC03_Dawn_of_Delta": "Dawn of the Delta"
+    },
+    "needsFuel": "Needs coal",
+    "region": {
+      "Celtic": "Albion",
+      "Egyptian": "Aegyptus",
+      "Roman": "Latium"
+    }
+  },
+  "component": {
+    "auth": {
+      "profile": {
+        "signOut": "Sign out"
+      },
+      "signIn": {
+        "action": {
+          "signUp": "New user?",
+          "submit": "Sign in"
+        },
+        "field": {
+          "password": {
+            "label": "Password",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Username",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "signUp": {
+        "action": {
+          "signIn": "Already have an account?",
+          "submit": "Sign up"
+        },
+        "field": {
+          "password": {
+            "label": "Password",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Username",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "steam": {
+        "action": {
+          "signIn": "Sign in with Steam"
+        },
+        "error": "Steam sign in failed"
+      }
+    },
+    "buildings": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region",
+        "tiers": "Population tier",
+        "types": "Type"
+      },
+      "list": {
+        "empty": "Nothing found",
+        "title": "Buildings"
+      },
+      "page": {
+        "details": {
+          "buffs": "Need fulfillment",
+          "construction": "Construction costs",
+          "effects": "Area effects",
+          "inputs": "Inputs",
+          "maintenance": "Maintenance",
+          "outputs": "Outputs",
+          "title": "Details",
+          "unlocked": "Unlocked by",
+          "workforce": "Workforce needed"
+        },
+        "other": {
+          "baseProductivity": "Base productivity",
+          "category": "Category",
+          "cycleTime": "Cycle time",
+          "needsFuel": "Needs coal",
+          "radius": "Radius",
+          "streetRadius": "Street radius",
+          "template": "Template",
+          "title": "Other",
+          "transporterRange": "Transporter range"
+        },
+        "phases": {
+          "duration": "Duration",
+          "phase": "Phase",
+          "title": "Phases",
+          "unlock": "Unlock requirements"
+        }
+      }
+    },
+    "chains": {
+      "all": {
+        "empty": "Nothing found",
+        "search": "Filter",
+        "title": "Calculator"
+      },
+      "calculator": {
+        "baseProductivity": "Base productivity",
+        "buildings": "× {required, number, required}",
+        "cycleTime": "Cycle time",
+        "inputs": "Inputs",
+        "output": "Output",
+        "title": "Calculator",
+        "tons": "{tons, number, tons} tons / min"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region",
+        "tiers": "Population tier",
+        "types": "Type"
+      },
+      "list": {
+        "empty": "Nothing found",
+        "title": "Production chains"
+      }
+    },
+    "comments": {
+      "form": {
+        "action": {
+          "submit": "Send"
+        },
+        "field": {
+          "body": {
+            "placeholder": "Say something nice"
+          }
+        }
+      },
+      "list": {
+        "empty": "No comments yet",
+        "more": "Load more",
+        "signIn": "<link>Sign in</link> to join the conversation.",
+        "title": "Comments"
+      }
+    },
+    "items": {
+      "filters": {
+        "dlcs": "DLC",
+        "niches": "Niche",
+        "rarities": "Rarity",
+        "types": "Type"
+      },
+      "list": {
+        "empty": "Nothing found",
+        "title": "Items"
+      },
+      "page": {
+        "boost": {
+          "conditions": "Conditions",
+          "modifiers": "Modifiers",
+          "title": "Boost"
+        },
+        "charioteer": {
+          "initial": "Starting",
+          "potential": "Potential",
+          "title": "Charioteer"
+        },
+        "details": {
+          "modifiers": "Modifiers",
+          "sources": "Sources",
+          "targets": "Targets"
+        },
+        "other": {
+          "title": "Other",
+          "tradePrice": "Trade price",
+          "type": "Type"
+        }
+      }
+    },
+    "layouts": {
+      "main": {
+        "footer": {
+          "copyright": "© {year} Annohead. All rights reserved."
+        },
+        "nav": {
+          "building": "Buildings",
+          "calculator": "Calculator",
+          "chain": "Production chains",
+          "item": "Items",
+          "product": "Goods",
+          "quest": "Quests",
+          "tech": "Technologies",
+          "title": "Database",
+          "unit": "Units",
+          "ornament": "Ornaments"
+        },
+        "title": "Annohead"
+      }
+    },
+    "ornaments": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region",
+        "types": "Type"
+      },
+      "list": {
+        "empty": "Nothing found",
+        "title": "Ornaments"
+      },
+      "page": {
+        "costs": "Costs",
+        "stats": {
+          "title": "Other",
+          "value": "Ornament value"
+        }
+      }
+    },
+    "products": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region",
+        "tiers": "Population tier",
+        "types": "Category"
+      },
+      "list": {
+        "empty": "Nothing found",
+        "title": "Goods"
+      },
+      "page": {
+        "consumed": "Consumed by",
+        "needed": "Needed by",
+        "produced": "Produced by",
+        "tons": "{tons, number, tons} tons / min",
+        "wanted": "Wanted by"
+      }
+    },
+    "quests": {
+      "choice": {
+        "check": "The game checks",
+        "cost": "Costs",
+        "decision": "Decision",
+        "earlier": "Decided by your earlier choices",
+        "end": "End of the questline",
+        "fails": "Otherwise",
+        "holds": "If so",
+        "later": "Shapes what comes later",
+        "nothing": "No lasting effect",
+        "option": "Option {number}",
+        "outcomes": "Outcome",
+        "pick": "Pick an option to see where it leads",
+        "requires": "Requires",
+        "reset": "Reset"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Region"
+      },
+      "list": {
+        "empty": "Nothing found",
+        "title": "Quests"
+      },
+      "outcome": {
+        "duration": "{hours, plural, one {# hour} other {# hours}}",
+        "effect": "Effect",
+        "incident": "Starts an incident",
+        "incidentFallback": "Incident",
+        "lock": "Locked",
+        "lockFallback": "Something",
+        "power": "Power struggle",
+        "racer": "Racer upgrade",
+        "racerFallback": "Racer",
+        "reputation": "Reputation",
+        "storyline": "Starts a follow-up",
+        "storylineFallback": "A follow-up event",
+        "unlock": "Unlocked",
+        "unlockFallback": "Something",
+        "xp": "Experience"
+      },
+      "page": {
+        "empty": "Story only, no choices in this part.",
+        "requires": "Only if: {requirements}",
+        "untitled": "Untitled"
+      }
+    },
+    "search": {
+      "box": {
+        "placeholder": "Search"
+      },
+      "card": {
+        "type": {
+          "building": "Building",
+          "chain": "Production chain",
+          "item": "Item",
+          "product": "Product",
+          "quest": "Quest",
+          "tech": "Technology",
+          "unit": "Unit",
+          "ornament": "Ornament"
+        }
+      },
+      "filters": {
+        "all": "All",
+        "building": "Buildings",
+        "chain": "Production chains",
+        "item": "Items",
+        "product": "Products",
+        "quest": "Quests",
+        "tech": "Technologies",
+        "unit": "Units",
+        "ornament": "Ornaments"
+      },
+      "page": {
+        "empty": "Nothing found",
+        "results": "{total, plural, =0 {No results} =1 {1 result} other {# results}}",
+        "title": "Search"
+      }
+    },
+    "technologies": {
+      "page": {
+        "effects": {
+          "modifiers": "Modifiers",
+          "targets": "Targets",
+          "title": "Effects"
+        },
+        "other": {
+          "knowledgeNeeded": "Knowledge",
+          "title": "Other"
+        },
+        "rewards": "Rewards",
+        "unlocks": "Unlocks"
+      },
+      "tree": {
+        "discovery": "Discovery",
+        "effects": "Effects",
+        "inspiration": "Inspiration",
+        "knowledge": "Knowledge",
+        "requirement": "Requirement",
+        "rewards": "Rewards",
+        "unlocks": "Unlocks"
+      }
+    },
+    "units": {
+      "filters": {
+        "regions": "Region",
+        "types": "Category"
+      },
+      "list": {
+        "empty": "Nothing found",
+        "title": "Units"
+      },
+      "page": {
+        "costs": "Costs",
+        "maintenance": "Maintenance",
+        "recruited": "Recruited at",
+        "stats": {
+          "buildTime": "Build time",
+          "cargoSlots": "Cargo slots",
+          "health": "Health",
+          "itemSockets": "Item sockets",
+          "moduleSlots": "Module slots",
+          "morale": "Morale",
+          "soldiers": "Soldiers",
+          "speed": "Speed",
+          "title": "Other"
+        },
+        "unlocked": "Unlocked by"
+      }
+    }
+  },
+  "hook": {
+    "auth": {
+      "error": {
+        "INVALID_CREDENTIALS": "Invalid credentials",
+        "OTHER_ERROR": "Something went wrong",
+        "PASSWORD_HAS_SURROUNDING_WHITESPACE": "Password has surrounding whitespace",
+        "PASSWORD_TOO_COMMON": "Password is too common",
+        "PASSWORD_TOO_LONG": "Password too long (max {max, plural, =0 {} =1 {1 character} other {# characters}})",
+        "PASSWORD_TOO_SHORT": "Password too short (min {min, plural, =0 {} =1 {1 character} other {# characters}})",
+        "RATE_LIMITED": "Rate limited. Try again after {seconds, plural, =0 {a while} =1 {1 second} other {# seconds}}",
+        "USERNAME_HAS_INVALID_CHARACTERS": "Username has invalid characters",
+        "USERNAME_HAS_SURROUNDING_WHITESPACE": "Username has surrounding whitespace",
+        "USERNAME_TAKEN": "Username in use",
+        "USERNAME_TOO_SHORT": "Username too short (min {min, plural, =0 {} =1 {1 character} other {# characters}})",
+        "USER_NOT_FOUND": "User not found"
+      }
+    }
+  },
+  "page": {
+    "building": {
+      "fallback": "Building",
+      "title": "{name} × Buildings × Annohead"
+    },
+    "buildings": {
+      "title": "Buildings × Annohead"
+    },
+    "calculator": {
+      "title": "Production chain calculator × Annohead"
+    },
+    "chain": {
+      "fallback": "Chain",
+      "title": "{name} × Production chains × Annohead"
+    },
+    "chains": {
+      "title": "Production chains × Annohead"
+    },
+    "changelog": {
+      "added": "Added",
+      "changed": "Changed",
+      "fixed": "Fixed",
+      "header": "Changelog",
+      "title": "Changelog × Annohead",
+      "updated": "Updated {updated, date, long} at {updated, time, short} UTC"
+    },
+    "item": {
+      "fallback": "Item",
+      "title": "{name} × Items × Annohead"
+    },
+    "items": {
+      "title": "Items × Annohead"
+    },
+    "landing": {
+      "annohead": "Annohead",
+      "changelog": "Changelog",
+      "description": "Anno 117 database with information about buildings, production chains, items, specialists, captains, goods, quests, technologies, units, and ornaments.",
+      "title": "Database for Anno 117 × Annohead",
+      "updated": "Updated {updated, date, medium}"
+    },
+    "ornament": {
+      "fallback": "Ornament",
+      "title": "{name} × Ornaments × Annohead"
+    },
+    "ornaments": {
+      "title": "Ornaments × Annohead"
+    },
+    "product": {
+      "fallback": "Product",
+      "title": "{name} × Products × Annohead"
+    },
+    "products": {
+      "title": "Goods × Annohead"
+    },
+    "quest": {
+      "fallback": "Quest",
+      "title": "{name} × Quests × Annohead"
+    },
+    "quests": {
+      "title": "Quests × Annohead"
+    },
+    "search": {
+      "title": "Search × Annohead"
+    },
+    "technologies": {
+      "title": "Technologies × Annohead"
+    },
+    "technology": {
+      "fallback": "Technology",
+      "title": "{name} × Technologies × Annohead"
+    },
+    "unit": {
+      "fallback": "Unit",
+      "title": "{name} × Units × Annohead"
+    },
+    "units": {
+      "title": "Units × Annohead"
+    }
+  }
+}

@@ -1,0 +1,470 @@
+{
+  "annohead": "Annohead",
+  "common": {
+    "dlc": {
+      "CDLC1": "Набор «Чудесная мозаика»",
+      "CDLC2": "Набор «Цветущие города»",
+      "CDLC3": "Набор «Отголоски Кассандры»",
+      "DLC01_Prophecies_of_Ash": "Пророчества пепла",
+      "DLC02_The_Hippodrome": "Ипподром",
+      "DLC03_Dawn_of_Delta": "Заря Великой дельты"
+    },
+    "needsFuel": "Нужен уголь",
+    "region": {
+      "Celtic": "Альбион",
+      "Egyptian": "Эгипт",
+      "Roman": "Лаций"
+    }
+  },
+  "component": {
+    "auth": {
+      "profile": {
+        "signOut": "Выйти"
+      },
+      "signIn": {
+        "action": {
+          "signUp": "Новый пользователь?",
+          "submit": "Войти"
+        },
+        "field": {
+          "password": {
+            "label": "Пароль",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Имя пользователя",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "signUp": {
+        "action": {
+          "signIn": "Уже есть аккаунт?",
+          "submit": "Зарегистрироваться"
+        },
+        "field": {
+          "password": {
+            "label": "Пароль",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Имя пользователя",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "steam": {
+        "action": {
+          "signIn": "Войти через Steam"
+        },
+        "error": "Не удалось войти через Steam"
+      }
+    },
+    "buildings": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Регион",
+        "tiers": "Уровень населения",
+        "types": "Тип"
+      },
+      "list": {
+        "empty": "Ничего не найдено",
+        "title": "Постройки"
+      },
+      "page": {
+        "details": {
+          "buffs": "Удовлетворяемые потребности",
+          "construction": "Стоимость строительства",
+          "effects": "Эффекты по области",
+          "inputs": "Сырье",
+          "maintenance": "Содержание",
+          "outputs": "Продукция",
+          "title": "Подробности",
+          "unlocked": "Разблокируется",
+          "workforce": "Необходимая рабочая сила"
+        },
+        "other": {
+          "baseProductivity": "Базовая продуктивность",
+          "category": "Категория",
+          "cycleTime": "Время цикла",
+          "needsFuel": "Нужен уголь",
+          "radius": "Радиус",
+          "streetRadius": "Радиус по дорогам",
+          "template": "Шаблон",
+          "title": "Прочее",
+          "transporterRange": "Дальность перевозки"
+        },
+        "phases": {
+          "duration": "Длительность",
+          "phase": "Этап",
+          "title": "Этапы",
+          "unlock": "Требования для разблокировки"
+        }
+      }
+    },
+    "chains": {
+      "all": {
+        "empty": "Ничего не найдено",
+        "search": "Фильтр",
+        "title": "Калькулятор"
+      },
+      "calculator": {
+        "baseProductivity": "Базовая продуктивность",
+        "buildings": "× {required, number, required}",
+        "cycleTime": "Время цикла",
+        "inputs": "Сырье",
+        "output": "Продукция",
+        "title": "Калькулятор",
+        "tons": "{tons, number, tons} т / мин"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Регион",
+        "tiers": "Уровень населения",
+        "types": "Тип"
+      },
+      "list": {
+        "empty": "Ничего не найдено",
+        "title": "Производственные цепочки"
+      }
+    },
+    "comments": {
+      "form": {
+        "action": {
+          "submit": "Отправить"
+        },
+        "field": {
+          "body": {
+            "placeholder": "Скажите что-нибудь приятное"
+          }
+        }
+      },
+      "list": {
+        "empty": "Комментариев пока нет",
+        "more": "Загрузить еще",
+        "signIn": "<link>Войдите</link>, чтобы присоединиться к обсуждению.",
+        "title": "Комментарии"
+      }
+    },
+    "items": {
+      "filters": {
+        "dlcs": "DLC",
+        "niches": "Ниша",
+        "rarities": "Редкость",
+        "types": "Тип"
+      },
+      "list": {
+        "empty": "Ничего не найдено",
+        "title": "Объекты"
+      },
+      "page": {
+        "boost": {
+          "conditions": "Условия",
+          "modifiers": "Модификаторы",
+          "title": "Усиление"
+        },
+        "charioteer": {
+          "initial": "Начальные",
+          "potential": "Потенциал",
+          "title": "Колесничий"
+        },
+        "details": {
+          "modifiers": "Модификаторы",
+          "sources": "Источники",
+          "targets": "Цели"
+        },
+        "other": {
+          "title": "Прочее",
+          "tradePrice": "Торговая цена",
+          "type": "Тип"
+        }
+      }
+    },
+    "layouts": {
+      "main": {
+        "footer": {
+          "copyright": "© {year} Annohead. Все права защищены."
+        },
+        "nav": {
+          "building": "Постройки",
+          "calculator": "Калькулятор",
+          "chain": "Производственные цепочки",
+          "item": "Объекты",
+          "product": "Товары",
+          "quest": "Задания",
+          "tech": "Технологии",
+          "title": "База данных",
+          "unit": "Отряды",
+          "ornament": "Элементы декора"
+        },
+        "title": "Annohead"
+      }
+    },
+    "ornaments": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Регион",
+        "types": "Тип"
+      },
+      "list": {
+        "empty": "Ничего не найдено",
+        "title": "Элементы декора"
+      },
+      "page": {
+        "costs": "Стоимость",
+        "stats": {
+          "title": "Прочее",
+          "value": "Ценность декора"
+        }
+      }
+    },
+    "products": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Регион",
+        "tiers": "Уровень населения",
+        "types": "Категория"
+      },
+      "list": {
+        "empty": "Ничего не найдено",
+        "title": "Товары"
+      },
+      "page": {
+        "consumed": "Потребляют",
+        "needed": "Нужен для",
+        "produced": "Производят",
+        "tons": "{tons, number, tons} т / мин",
+        "wanted": "Желают"
+      }
+    },
+    "quests": {
+      "choice": {
+        "check": "Игра проверяет",
+        "cost": "Стоимость",
+        "decision": "Решение",
+        "earlier": "Зависит от ваших прежних решений",
+        "end": "Конец цепочки заданий",
+        "fails": "Иначе",
+        "holds": "Если да",
+        "later": "Влияет на дальнейшие события",
+        "nothing": "Без долгосрочных последствий",
+        "option": "Вариант {number}",
+        "outcomes": "Результат",
+        "pick": "Выберите вариант, чтобы увидеть, к чему он ведёт",
+        "requires": "Требуется",
+        "reset": "Сбросить"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Регион"
+      },
+      "list": {
+        "empty": "Ничего не найдено",
+        "title": "Задания"
+      },
+      "outcome": {
+        "duration": "{hours, plural, one {# час} few {# часа} many {# часов} other {# часа}}",
+        "effect": "Эффект",
+        "incident": "Вызывает инцидент",
+        "incidentFallback": "Инцидент",
+        "lock": "Заблокировано",
+        "lockFallback": "Что-то",
+        "power": "Борьба за власть",
+        "racer": "Улучшение колесничего",
+        "racerFallback": "Колесничий",
+        "reputation": "Репутация",
+        "storyline": "Запускает продолжение",
+        "storylineFallback": "Последующее событие",
+        "unlock": "Разблокировано",
+        "unlockFallback": "Что-то",
+        "xp": "Опыт"
+      },
+      "page": {
+        "empty": "Только сюжет, в этой части нет выбора.",
+        "requires": "Только если: {requirements}",
+        "untitled": "Без названия"
+      }
+    },
+    "search": {
+      "box": {
+        "placeholder": "Поиск"
+      },
+      "card": {
+        "type": {
+          "building": "Постройка",
+          "chain": "Производственная цепочка",
+          "item": "Объект",
+          "product": "Товар",
+          "quest": "Задание",
+          "tech": "Технология",
+          "unit": "Отряд",
+          "ornament": "Декор"
+        }
+      },
+      "filters": {
+        "all": "Все",
+        "building": "Постройки",
+        "chain": "Производственные цепочки",
+        "item": "Объекты",
+        "product": "Товары",
+        "quest": "Задания",
+        "tech": "Технологии",
+        "unit": "Отряды",
+        "ornament": "Элементы декора"
+      },
+      "page": {
+        "empty": "Ничего не найдено",
+        "results": "{total, plural, =0 {Нет результатов} =1 {1 результат} one {# результат} few {# результата} many {# результатов} other {# результата}}",
+        "title": "Поиск"
+      }
+    },
+    "technologies": {
+      "page": {
+        "effects": {
+          "modifiers": "Модификаторы",
+          "targets": "Цели",
+          "title": "Эффекты"
+        },
+        "other": {
+          "knowledgeNeeded": "Знания",
+          "title": "Прочее"
+        },
+        "rewards": "Награды",
+        "unlocks": "Разблокирует"
+      },
+      "tree": {
+        "discovery": "Открытие",
+        "effects": "Эффекты",
+        "inspiration": "Вдохновение",
+        "knowledge": "Знания",
+        "requirement": "Требование",
+        "rewards": "Награды",
+        "unlocks": "Разблокирует"
+      }
+    },
+    "units": {
+      "filters": {
+        "regions": "Регион",
+        "types": "Категория"
+      },
+      "list": {
+        "empty": "Ничего не найдено",
+        "title": "Отряды"
+      },
+      "page": {
+        "costs": "Стоимость",
+        "maintenance": "Содержание",
+        "recruited": "Набор в",
+        "stats": {
+          "buildTime": "Время постройки",
+          "cargoSlots": "Грузовые отсеки",
+          "health": "Прочность",
+          "itemSockets": "Ячейки предметов",
+          "moduleSlots": "Ячейки модулей",
+          "morale": "Боевой дух",
+          "soldiers": "Солдаты",
+          "speed": "Скорость",
+          "title": "Прочее"
+        },
+        "unlocked": "Разблокируется"
+      }
+    }
+  },
+  "hook": {
+    "auth": {
+      "error": {
+        "INVALID_CREDENTIALS": "Неверные учетные данные",
+        "OTHER_ERROR": "Что-то пошло не так",
+        "PASSWORD_HAS_SURROUNDING_WHITESPACE": "Пароль начинается или заканчивается пробелом",
+        "PASSWORD_TOO_COMMON": "Слишком распространенный пароль",
+        "PASSWORD_TOO_LONG": "Пароль слишком длинный (макс. {max, plural, =0 {} =1 {1 символ} one {# символ} few {# символа} many {# символов} other {# символа}})",
+        "PASSWORD_TOO_SHORT": "Пароль слишком короткий (мин. {min, plural, =0 {} =1 {1 символ} one {# символ} few {# символа} many {# символов} other {# символа}})",
+        "RATE_LIMITED": "Слишком много попыток. Повторите через {seconds, plural, =0 {некоторое время} =1 {1 секунду} one {# секунду} few {# секунды} many {# секунд} other {# секунды}}",
+        "USERNAME_HAS_INVALID_CHARACTERS": "Имя пользователя содержит недопустимые символы",
+        "USERNAME_HAS_SURROUNDING_WHITESPACE": "Имя пользователя начинается или заканчивается пробелом",
+        "USERNAME_TAKEN": "Имя пользователя занято",
+        "USERNAME_TOO_SHORT": "Имя пользователя слишком короткое (мин. {min, plural, =0 {} =1 {1 символ} one {# символ} few {# символа} many {# символов} other {# символа}})",
+        "USER_NOT_FOUND": "Пользователь не найден"
+      }
+    }
+  },
+  "page": {
+    "building": {
+      "fallback": "Постройка",
+      "title": "{name} × Постройки × Annohead"
+    },
+    "buildings": {
+      "title": "Постройки × Annohead"
+    },
+    "calculator": {
+      "title": "Калькулятор производственных цепочек × Annohead"
+    },
+    "chain": {
+      "fallback": "Цепочка",
+      "title": "{name} × Производственные цепочки × Annohead"
+    },
+    "chains": {
+      "title": "Производственные цепочки × Annohead"
+    },
+    "changelog": {
+      "added": "Добавлено",
+      "changed": "Изменено",
+      "fixed": "Исправлено",
+      "header": "Список изменений",
+      "title": "Список изменений × Annohead",
+      "updated": "Обновлено {updated, date, long} в {updated, time, short} UTC"
+    },
+    "item": {
+      "fallback": "Объект",
+      "title": "{name} × Объекты × Annohead"
+    },
+    "items": {
+      "title": "Объекты × Annohead"
+    },
+    "landing": {
+      "annohead": "Annohead",
+      "changelog": "Список изменений",
+      "description": "База данных Anno 117 с информацией о постройках, производственных цепочках, объектах, специалистах, капитанах, товарах, заданиях, технологиях, отрядах и элементах декора.",
+      "title": "База данных Anno 117 × Annohead",
+      "updated": "Обновлено {updated, date, medium}"
+    },
+    "ornament": {
+      "fallback": "Декор",
+      "title": "{name} × Элементы декора × Annohead"
+    },
+    "ornaments": {
+      "title": "Элементы декора × Annohead"
+    },
+    "product": {
+      "fallback": "Товар",
+      "title": "{name} × Товары × Annohead"
+    },
+    "products": {
+      "title": "Товары × Annohead"
+    },
+    "quest": {
+      "fallback": "Задание",
+      "title": "{name} × Задания × Annohead"
+    },
+    "quests": {
+      "title": "Задания × Annohead"
+    },
+    "search": {
+      "title": "Поиск × Annohead"
+    },
+    "technologies": {
+      "title": "Технологии × Annohead"
+    },
+    "technology": {
+      "fallback": "Технология",
+      "title": "{name} × Технологии × Annohead"
+    },
+    "unit": {
+      "fallback": "Отряд",
+      "title": "{name} × Отряды × Annohead"
+    },
+    "units": {
+      "title": "Отряды × Annohead"
+    }
+  }
+}

@@ -8,5 +8,5 @@
     "target": "esnext",
     "types": ["bun"]
   },
-  "include": ["src"]
+  "include": ["src", "*.ts"]
 }

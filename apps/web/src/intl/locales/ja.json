@@ -1,0 +1,470 @@
+{
+  "annohead": "Annohead",
+  "common": {
+    "dlc": {
+      "CDLC1": "珠玉のモザイクパック",
+      "CDLC2": "咲き誇る都市パック",
+      "CDLC3": "カサンドラの響きパック",
+      "DLC01_Prophecies_of_Ash": "灰の予言",
+      "DLC02_The_Hippodrome": "競馬場",
+      "DLC03_Dawn_of_Delta": "デルタの夜明け"
+    },
+    "needsFuel": "石炭が必要",
+    "region": {
+      "Celtic": "アルビオン",
+      "Egyptian": "アイギュプト",
+      "Roman": "ラティウム"
+    }
+  },
+  "component": {
+    "auth": {
+      "profile": {
+        "signOut": "ログアウト"
+      },
+      "signIn": {
+        "action": {
+          "signUp": "初めての方はこちら",
+          "submit": "サインイン"
+        },
+        "field": {
+          "password": {
+            "label": "パスワード",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "ユーザー名",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "signUp": {
+        "action": {
+          "signIn": "アカウントをお持ちの方",
+          "submit": "新規登録"
+        },
+        "field": {
+          "password": {
+            "label": "パスワード",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "ユーザー名",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "steam": {
+        "action": {
+          "signIn": "Steamでサインイン"
+        },
+        "error": "Steamでのサインインに失敗しました"
+      }
+    },
+    "buildings": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地域",
+        "tiers": "住民階層",
+        "types": "タイプ"
+      },
+      "list": {
+        "empty": "見つかりませんでした",
+        "title": "建物"
+      },
+      "page": {
+        "details": {
+          "buffs": "需要の充足",
+          "construction": "建設コスト",
+          "effects": "範囲効果",
+          "inputs": "投入",
+          "maintenance": "維持費",
+          "outputs": "産出",
+          "title": "詳細",
+          "unlocked": "アンロック条件",
+          "workforce": "必要な労働力"
+        },
+        "other": {
+          "baseProductivity": "基本生産性",
+          "category": "カテゴリー",
+          "cycleTime": "サイクル時間",
+          "needsFuel": "石炭が必要",
+          "radius": "範囲",
+          "streetRadius": "道路範囲",
+          "template": "テンプレート",
+          "title": "その他",
+          "transporterRange": "輸送範囲"
+        },
+        "phases": {
+          "duration": "持続時間",
+          "phase": "フェーズ",
+          "title": "フェーズ",
+          "unlock": "アンロック要件"
+        }
+      }
+    },
+    "chains": {
+      "all": {
+        "empty": "見つかりませんでした",
+        "search": "絞り込み",
+        "title": "計算機"
+      },
+      "calculator": {
+        "baseProductivity": "基本生産性",
+        "buildings": "× {required, number, required}",
+        "cycleTime": "サイクル時間",
+        "inputs": "投入",
+        "output": "産出",
+        "title": "計算機",
+        "tons": "{tons, number, tons} トン/分"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地域",
+        "tiers": "住民階層",
+        "types": "タイプ"
+      },
+      "list": {
+        "empty": "見つかりませんでした",
+        "title": "生産チェーン"
+      }
+    },
+    "comments": {
+      "form": {
+        "action": {
+          "submit": "送信"
+        },
+        "field": {
+          "body": {
+            "placeholder": "優しい言葉をどうぞ"
+          }
+        }
+      },
+      "list": {
+        "empty": "まだコメントはありません",
+        "more": "さらに読み込む",
+        "signIn": "<link>サインイン</link>して会話に参加しましょう。",
+        "title": "コメント"
+      }
+    },
+    "items": {
+      "filters": {
+        "dlcs": "DLC",
+        "niches": "ニッチ",
+        "rarities": "レアリティ",
+        "types": "タイプ"
+      },
+      "list": {
+        "empty": "見つかりませんでした",
+        "title": "アイテム"
+      },
+      "page": {
+        "boost": {
+          "conditions": "条件",
+          "modifiers": "補正",
+          "title": "ブースト"
+        },
+        "charioteer": {
+          "initial": "初期値",
+          "potential": "潜在能力",
+          "title": "御者"
+        },
+        "details": {
+          "modifiers": "補正",
+          "sources": "入手先",
+          "targets": "対象"
+        },
+        "other": {
+          "title": "その他",
+          "tradePrice": "取引価格",
+          "type": "タイプ"
+        }
+      }
+    },
+    "layouts": {
+      "main": {
+        "footer": {
+          "copyright": "© {year} Annohead. 無断転載を禁じます。"
+        },
+        "nav": {
+          "building": "建物",
+          "calculator": "計算機",
+          "chain": "生産チェーン",
+          "item": "アイテム",
+          "product": "品物",
+          "quest": "クエスト",
+          "tech": "技術",
+          "title": "データベース",
+          "unit": "ユニット",
+          "ornament": "装飾"
+        },
+        "title": "Annohead"
+      }
+    },
+    "ornaments": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地域",
+        "types": "タイプ"
+      },
+      "list": {
+        "empty": "見つかりませんでした",
+        "title": "装飾"
+      },
+      "page": {
+        "costs": "コスト",
+        "stats": {
+          "title": "その他",
+          "value": "装飾値"
+        }
+      }
+    },
+    "products": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地域",
+        "tiers": "住民階層",
+        "types": "カテゴリー"
+      },
+      "list": {
+        "empty": "見つかりませんでした",
+        "title": "品物"
+      },
+      "page": {
+        "consumed": "消費元",
+        "needed": "使用先",
+        "produced": "生産元",
+        "tons": "{tons, number, tons} トン/分",
+        "wanted": "需要元"
+      }
+    },
+    "quests": {
+      "choice": {
+        "check": "ゲームの判定",
+        "cost": "コスト",
+        "decision": "決断",
+        "earlier": "これまでの選択によって決まります",
+        "end": "クエストラインの終わり",
+        "fails": "それ以外",
+        "holds": "該当する場合",
+        "later": "この先の展開に影響します",
+        "nothing": "持続効果なし",
+        "option": "選択肢 {number}",
+        "outcomes": "結果",
+        "pick": "選択肢を選ぶと、その先の展開が表示されます",
+        "requires": "必要条件",
+        "reset": "リセット"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "地域"
+      },
+      "list": {
+        "empty": "見つかりませんでした",
+        "title": "クエスト"
+      },
+      "outcome": {
+        "duration": "{hours, plural, other {#時間}}",
+        "effect": "効果",
+        "incident": "事件が発生",
+        "incidentFallback": "事件",
+        "lock": "ロック",
+        "lockFallback": "何か",
+        "power": "権力闘争",
+        "racer": "競走馬の強化",
+        "racerFallback": "競走馬",
+        "reputation": "評判",
+        "storyline": "続きのイベントが発生",
+        "storylineFallback": "続きのイベント",
+        "unlock": "アンロック",
+        "unlockFallback": "何か",
+        "xp": "経験値"
+      },
+      "page": {
+        "empty": "ストーリーのみ。このパートに選択肢はありません。",
+        "requires": "条件: {requirements}",
+        "untitled": "無題"
+      }
+    },
+    "search": {
+      "box": {
+        "placeholder": "検索"
+      },
+      "card": {
+        "type": {
+          "building": "建物",
+          "chain": "生産チェーン",
+          "item": "アイテム",
+          "product": "品物",
+          "quest": "クエスト",
+          "tech": "技術",
+          "unit": "ユニット",
+          "ornament": "装飾品"
+        }
+      },
+      "filters": {
+        "all": "すべて",
+        "building": "建物",
+        "chain": "生産チェーン",
+        "item": "アイテム",
+        "product": "品物",
+        "quest": "クエスト",
+        "tech": "技術",
+        "unit": "ユニット",
+        "ornament": "装飾"
+      },
+      "page": {
+        "empty": "見つかりませんでした",
+        "results": "{total, plural, =0 {結果なし} =1 {1件} other {#件}}",
+        "title": "検索"
+      }
+    },
+    "technologies": {
+      "page": {
+        "effects": {
+          "modifiers": "補正",
+          "targets": "対象",
+          "title": "効果"
+        },
+        "other": {
+          "knowledgeNeeded": "知識",
+          "title": "その他"
+        },
+        "rewards": "報酬",
+        "unlocks": "アンロック"
+      },
+      "tree": {
+        "discovery": "発見",
+        "effects": "効果",
+        "inspiration": "インスピレーション",
+        "knowledge": "知識",
+        "requirement": "要件",
+        "rewards": "報酬",
+        "unlocks": "アンロック"
+      }
+    },
+    "units": {
+      "filters": {
+        "regions": "地域",
+        "types": "カテゴリー"
+      },
+      "list": {
+        "empty": "見つかりませんでした",
+        "title": "ユニット"
+      },
+      "page": {
+        "costs": "コスト",
+        "maintenance": "維持費",
+        "recruited": "募集場所",
+        "stats": {
+          "buildTime": "建造時間",
+          "cargoSlots": "積荷スロット",
+          "health": "耐久力",
+          "itemSockets": "アイテムスロット",
+          "moduleSlots": "モジュールスロット",
+          "morale": "士気",
+          "soldiers": "兵士",
+          "speed": "速度",
+          "title": "その他"
+        },
+        "unlocked": "アンロック条件"
+      }
+    }
+  },
+  "hook": {
+    "auth": {
+      "error": {
+        "INVALID_CREDENTIALS": "認証情報が正しくありません",
+        "OTHER_ERROR": "エラーが発生しました",
+        "PASSWORD_HAS_SURROUNDING_WHITESPACE": "パスワードの前後に空白があります",
+        "PASSWORD_TOO_COMMON": "よく使われるパスワードです",
+        "PASSWORD_TOO_LONG": "パスワードが長すぎます（最大{max, plural, =0 {} =1 {1文字} other {#文字}}）",
+        "PASSWORD_TOO_SHORT": "パスワードが短すぎます（最小{min, plural, =0 {} =1 {1文字} other {#文字}}）",
+        "RATE_LIMITED": "リクエストが多すぎます。{seconds, plural, =0 {しばらく} =1 {1秒} other {#秒}}後に再度お試しください",
+        "USERNAME_HAS_INVALID_CHARACTERS": "ユーザー名に使用できない文字が含まれています",
+        "USERNAME_HAS_SURROUNDING_WHITESPACE": "ユーザー名の前後に空白があります",
+        "USERNAME_TAKEN": "このユーザー名は使用されています",
+        "USERNAME_TOO_SHORT": "ユーザー名が短すぎます（最小{min, plural, =0 {} =1 {1文字} other {#文字}}）",
+        "USER_NOT_FOUND": "ユーザーが見つかりません"
+      }
+    }
+  },
+  "page": {
+    "building": {
+      "fallback": "建物",
+      "title": "{name} × 建物 × Annohead"
+    },
+    "buildings": {
+      "title": "建物 × Annohead"
+    },
+    "calculator": {
+      "title": "生産チェーン計算機 × Annohead"
+    },
+    "chain": {
+      "fallback": "チェーン",
+      "title": "{name} × 生産チェーン × Annohead"
+    },
+    "chains": {
+      "title": "生産チェーン × Annohead"
+    },
+    "changelog": {
+      "added": "追加",
+      "changed": "変更",
+      "fixed": "修正",
+      "header": "更新履歴",
+      "title": "更新履歴 × Annohead",
+      "updated": "{updated, date, long} {updated, time, short} UTC 更新"
+    },
+    "item": {
+      "fallback": "アイテム",
+      "title": "{name} × アイテム × Annohead"
+    },
+    "items": {
+      "title": "アイテム × Annohead"
+    },
+    "landing": {
+      "annohead": "Annohead",
+      "changelog": "更新履歴",
+      "description": "建物、生産チェーン、アイテム、専門家、船長、品物、クエスト、技術、ユニット、装飾の情報を掲載したAnno 117データベース。",
+      "title": "Anno 117 データベース × Annohead",
+      "updated": "{updated, date, medium} 更新"
+    },
+    "ornament": {
+      "fallback": "装飾品",
+      "title": "{name} × 装飾 × Annohead"
+    },
+    "ornaments": {
+      "title": "装飾 × Annohead"
+    },
+    "product": {
+      "fallback": "品物",
+      "title": "{name} × 品物 × Annohead"
+    },
+    "products": {
+      "title": "品物 × Annohead"
+    },
+    "quest": {
+      "fallback": "クエスト",
+      "title": "{name} × クエスト × Annohead"
+    },
+    "quests": {
+      "title": "クエスト × Annohead"
+    },
+    "search": {
+      "title": "検索 × Annohead"
+    },
+    "technologies": {
+      "title": "技術 × Annohead"
+    },
+    "technology": {
+      "fallback": "技術",
+      "title": "{name} × 技術 × Annohead"
+    },
+    "unit": {
+      "fallback": "ユニット",
+      "title": "{name} × ユニット × Annohead"
+    },
+    "units": {
+      "title": "ユニット × Annohead"
+    }
+  }
+}

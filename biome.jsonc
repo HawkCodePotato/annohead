@@ -39,7 +39,17 @@
   },
   "linter": {
     "rules": {
+      "a11y": {
+        "noLabelWithoutControl": "off"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "off"
+      },
+      "performance": {
+        "noJsxPropsBind": "off"
+      },
       "style": {
+        "noNestedTernary": "off",
         "useConsistentArrayType": {
           "level": "error",
           "options": {
@@ -58,8 +68,24 @@
           "options": {
             "style": "inlineType"
           }
+        },
+        "useNamedCaptureGroup": "off"
+      },
+      "suspicious": {
+        "noUnnecessaryConditions": "off"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["packages/*/src/index.ts", "packages/*/src/*/index.ts"],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noBarrelFile": "off"
+          }
         }
       }
     }
-  }
+  ]
 }

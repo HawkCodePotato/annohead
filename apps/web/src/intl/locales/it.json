@@ -1,0 +1,470 @@
+{
+  "annohead": "Annohead",
+  "common": {
+    "dlc": {
+      "CDLC1": "Pacchetto Mosaico incantevole",
+      "CDLC2": "Pacchetto città fiorenti",
+      "CDLC3": "Pacchetto Echi di Kassandra",
+      "DLC01_Prophecies_of_Ash": "Profezie cineree",
+      "DLC02_The_Hippodrome": "L'Ippodromo",
+      "DLC03_Dawn_of_Delta": "Alba sul delta"
+    },
+    "needsFuel": "Richiede carbone",
+    "region": {
+      "Celtic": "Albion",
+      "Egyptian": "Aegyptus",
+      "Roman": "Latium"
+    }
+  },
+  "component": {
+    "auth": {
+      "profile": {
+        "signOut": "Esci"
+      },
+      "signIn": {
+        "action": {
+          "signUp": "Nuovo utente?",
+          "submit": "Accedi"
+        },
+        "field": {
+          "password": {
+            "label": "Password",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Nome utente",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "signUp": {
+        "action": {
+          "signIn": "Hai già un account?",
+          "submit": "Registrati"
+        },
+        "field": {
+          "password": {
+            "label": "Password",
+            "placeholder": "Sup3rS3cur3P@ssw0rd"
+          },
+          "username": {
+            "label": "Nome utente",
+            "placeholder": "mildpanda"
+          }
+        }
+      },
+      "steam": {
+        "action": {
+          "signIn": "Accedi con Steam"
+        },
+        "error": "Accesso con Steam non riuscito"
+      }
+    },
+    "buildings": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Regione",
+        "tiers": "Livello di popolazione",
+        "types": "Tipo"
+      },
+      "list": {
+        "empty": "Nessun risultato",
+        "title": "Edifici"
+      },
+      "page": {
+        "details": {
+          "buffs": "Bisogni soddisfatti",
+          "construction": "Costi di costruzione",
+          "effects": "Effetti ad area",
+          "inputs": "Materie prime",
+          "maintenance": "Manutenzione",
+          "outputs": "Produzione",
+          "title": "Dettagli",
+          "unlocked": "Sbloccato da",
+          "workforce": "Manodopera richiesta"
+        },
+        "other": {
+          "baseProductivity": "Produttività base",
+          "category": "Categoria",
+          "cycleTime": "Durata del ciclo",
+          "needsFuel": "Richiede carbone",
+          "radius": "Raggio",
+          "streetRadius": "Raggio stradale",
+          "template": "Modello",
+          "title": "Altro",
+          "transporterRange": "Portata dei trasportatori"
+        },
+        "phases": {
+          "duration": "Durata",
+          "phase": "Fase",
+          "title": "Fasi",
+          "unlock": "Requisiti di sblocco"
+        }
+      }
+    },
+    "chains": {
+      "all": {
+        "empty": "Nessun risultato",
+        "search": "Filtra",
+        "title": "Calcolatore"
+      },
+      "calculator": {
+        "baseProductivity": "Produttività base",
+        "buildings": "× {required, number, required}",
+        "cycleTime": "Durata del ciclo",
+        "inputs": "Materie prime",
+        "output": "Produzione",
+        "title": "Calcolatore",
+        "tons": "{tons, number, tons} t / min"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Regione",
+        "tiers": "Livello di popolazione",
+        "types": "Tipo"
+      },
+      "list": {
+        "empty": "Nessun risultato",
+        "title": "Catene di produzione"
+      }
+    },
+    "comments": {
+      "form": {
+        "action": {
+          "submit": "Invia"
+        },
+        "field": {
+          "body": {
+            "placeholder": "Scrivi qualcosa di carino"
+          }
+        }
+      },
+      "list": {
+        "empty": "Ancora nessun commento",
+        "more": "Carica altri",
+        "signIn": "<link>Accedi</link> per partecipare alla conversazione.",
+        "title": "Commenti"
+      }
+    },
+    "items": {
+      "filters": {
+        "dlcs": "DLC",
+        "niches": "Ambito",
+        "rarities": "Rarità",
+        "types": "Tipo"
+      },
+      "list": {
+        "empty": "Nessun risultato",
+        "title": "Oggetti"
+      },
+      "page": {
+        "boost": {
+          "conditions": "Condizioni",
+          "modifiers": "Modificatori",
+          "title": "Potenziamento"
+        },
+        "charioteer": {
+          "initial": "Iniziale",
+          "potential": "Potenziale",
+          "title": "Auriga"
+        },
+        "details": {
+          "modifiers": "Modificatori",
+          "sources": "Fonti",
+          "targets": "Bersagli"
+        },
+        "other": {
+          "title": "Altro",
+          "tradePrice": "Prezzo di scambio",
+          "type": "Tipo"
+        }
+      }
+    },
+    "layouts": {
+      "main": {
+        "footer": {
+          "copyright": "© {year} Annohead. Tutti i diritti riservati."
+        },
+        "nav": {
+          "building": "Edifici",
+          "calculator": "Calcolatore",
+          "chain": "Catene di produzione",
+          "item": "Oggetti",
+          "product": "Merci",
+          "quest": "Missioni",
+          "tech": "Tecnologie",
+          "title": "Database",
+          "unit": "Unità",
+          "ornament": "Ornamenti"
+        },
+        "title": "Annohead"
+      }
+    },
+    "ornaments": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Regione",
+        "types": "Tipo"
+      },
+      "list": {
+        "empty": "Nessun risultato",
+        "title": "Ornamenti"
+      },
+      "page": {
+        "costs": "Costi",
+        "stats": {
+          "title": "Altro",
+          "value": "Valore ornamentale"
+        }
+      }
+    },
+    "products": {
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Regione",
+        "tiers": "Livello di popolazione",
+        "types": "Categoria"
+      },
+      "list": {
+        "empty": "Nessun risultato",
+        "title": "Merci"
+      },
+      "page": {
+        "consumed": "Consumato da",
+        "needed": "Richiesto da",
+        "produced": "Prodotto da",
+        "tons": "{tons, number, tons} t / min",
+        "wanted": "Desiderato da"
+      }
+    },
+    "quests": {
+      "choice": {
+        "check": "Il gioco verifica",
+        "cost": "Costi",
+        "decision": "Decisione",
+        "earlier": "Dipende dalle tue scelte precedenti",
+        "end": "Fine della serie di missioni",
+        "fails": "Altrimenti",
+        "holds": "Se sì",
+        "later": "Influisce su ciò che verrà",
+        "nothing": "Nessun effetto duraturo",
+        "option": "Opzione {number}",
+        "outcomes": "Esito",
+        "pick": "Scegli un'opzione per vedere dove porta",
+        "requires": "Richiede",
+        "reset": "Ripristina"
+      },
+      "filters": {
+        "dlcs": "DLC",
+        "regions": "Regione"
+      },
+      "list": {
+        "empty": "Nessun risultato",
+        "title": "Missioni"
+      },
+      "outcome": {
+        "duration": "{hours, plural, one {# ora} many {# ore} other {# ore}}",
+        "effect": "Effetto",
+        "incident": "Avvia un incidente",
+        "incidentFallback": "Incidente",
+        "lock": "Bloccato",
+        "lockFallback": "Qualcosa",
+        "power": "Lotta di potere",
+        "racer": "Potenziamento auriga",
+        "racerFallback": "Auriga",
+        "reputation": "Reputazione",
+        "storyline": "Avvia un seguito",
+        "storylineFallback": "Un evento successivo",
+        "unlock": "Sbloccato",
+        "unlockFallback": "Qualcosa",
+        "xp": "Esperienza"
+      },
+      "page": {
+        "empty": "Solo trama, nessuna scelta in questa parte.",
+        "requires": "Solo se: {requirements}",
+        "untitled": "Senza titolo"
+      }
+    },
+    "search": {
+      "box": {
+        "placeholder": "Cerca"
+      },
+      "card": {
+        "type": {
+          "building": "Edificio",
+          "chain": "Catena di produzione",
+          "item": "Oggetto",
+          "product": "Merce",
+          "quest": "Missione",
+          "tech": "Tecnologia",
+          "unit": "Unità",
+          "ornament": "Ornamento"
+        }
+      },
+      "filters": {
+        "all": "Tutto",
+        "building": "Edifici",
+        "chain": "Catene di produzione",
+        "item": "Oggetti",
+        "product": "Merci",
+        "quest": "Missioni",
+        "tech": "Tecnologie",
+        "unit": "Unità",
+        "ornament": "Ornamenti"
+      },
+      "page": {
+        "empty": "Nessun risultato",
+        "results": "{total, plural, =0 {Nessun risultato} =1 {1 risultato} one {# risultato} many {# risultati} other {# risultati}}",
+        "title": "Cerca"
+      }
+    },
+    "technologies": {
+      "page": {
+        "effects": {
+          "modifiers": "Modificatori",
+          "targets": "Bersagli",
+          "title": "Effetti"
+        },
+        "other": {
+          "knowledgeNeeded": "Conoscenza",
+          "title": "Altro"
+        },
+        "rewards": "Ricompense",
+        "unlocks": "Sblocca"
+      },
+      "tree": {
+        "discovery": "Scoperta",
+        "effects": "Effetti",
+        "inspiration": "Ispirazione",
+        "knowledge": "Conoscenza",
+        "requirement": "Requisito",
+        "rewards": "Ricompense",
+        "unlocks": "Sblocca"
+      }
+    },
+    "units": {
+      "filters": {
+        "regions": "Regione",
+        "types": "Categoria"
+      },
+      "list": {
+        "empty": "Nessun risultato",
+        "title": "Unità"
+      },
+      "page": {
+        "costs": "Costi",
+        "maintenance": "Manutenzione",
+        "recruited": "Reclutato in",
+        "stats": {
+          "buildTime": "Tempo di costruzione",
+          "cargoSlots": "Slot di carico",
+          "health": "Salute",
+          "itemSockets": "Slot oggetti",
+          "moduleSlots": "Slot moduli",
+          "morale": "Morale",
+          "soldiers": "Soldati",
+          "speed": "Velocità",
+          "title": "Altro"
+        },
+        "unlocked": "Sbloccato da"
+      }
+    }
+  },
+  "hook": {
+    "auth": {
+      "error": {
+        "INVALID_CREDENTIALS": "Credenziali non valide",
+        "OTHER_ERROR": "Qualcosa è andato storto",
+        "PASSWORD_HAS_SURROUNDING_WHITESPACE": "La password inizia o finisce con uno spazio",
+        "PASSWORD_TOO_COMMON": "Password troppo comune",
+        "PASSWORD_TOO_LONG": "Password troppo lunga (max {max, plural, =0 {} =1 {1 carattere} one {# carattere} many {# caratteri} other {# caratteri}})",
+        "PASSWORD_TOO_SHORT": "Password troppo corta (min {min, plural, =0 {} =1 {1 carattere} one {# carattere} many {# caratteri} other {# caratteri}})",
+        "RATE_LIMITED": "Troppi tentativi. Riprova tra {seconds, plural, =0 {un po’} =1 {1 secondo} one {# secondo} many {# secondi} other {# secondi}}",
+        "USERNAME_HAS_INVALID_CHARACTERS": "Il nome utente contiene caratteri non validi",
+        "USERNAME_HAS_SURROUNDING_WHITESPACE": "Il nome utente inizia o finisce con uno spazio",
+        "USERNAME_TAKEN": "Nome utente già in uso",
+        "USERNAME_TOO_SHORT": "Nome utente troppo corto (min {min, plural, =0 {} =1 {1 carattere} one {# carattere} many {# caratteri} other {# caratteri}})",
+        "USER_NOT_FOUND": "Utente non trovato"
+      }
+    }
+  },
+  "page": {
+    "building": {
+      "fallback": "Edificio",
+      "title": "{name} × Edifici × Annohead"
+    },
+    "buildings": {
+      "title": "Edifici × Annohead"
+    },
+    "calculator": {
+      "title": "Calcolatore di catene di produzione × Annohead"
+    },
+    "chain": {
+      "fallback": "Catena",
+      "title": "{name} × Catene di produzione × Annohead"
+    },
+    "chains": {
+      "title": "Catene di produzione × Annohead"
+    },
+    "changelog": {
+      "added": "Aggiunte",
+      "changed": "Modifiche",
+      "fixed": "Correzioni",
+      "header": "Registro delle modifiche",
+      "title": "Registro delle modifiche × Annohead",
+      "updated": "Aggiornato il {updated, date, long} alle {updated, time, short} UTC"
+    },
+    "item": {
+      "fallback": "Oggetto",
+      "title": "{name} × Oggetti × Annohead"
+    },
+    "items": {
+      "title": "Oggetti × Annohead"
+    },
+    "landing": {
+      "annohead": "Annohead",
+      "changelog": "Registro delle modifiche",
+      "description": "Database di Anno 117 con informazioni su edifici, catene di produzione, oggetti, specialisti, capitani, merci, missioni, tecnologie, unità e ornamenti.",
+      "title": "Database per Anno 117 × Annohead",
+      "updated": "Aggiornato il {updated, date, medium}"
+    },
+    "ornament": {
+      "fallback": "Ornamento",
+      "title": "{name} × Ornamenti × Annohead"
+    },
+    "ornaments": {
+      "title": "Ornamenti × Annohead"
+    },
+    "product": {
+      "fallback": "Merce",
+      "title": "{name} × Merci × Annohead"
+    },
+    "products": {
+      "title": "Merci × Annohead"
+    },
+    "quest": {
+      "fallback": "Missione",
+      "title": "{name} × Missioni × Annohead"
+    },
+    "quests": {
+      "title": "Missioni × Annohead"
+    },
+    "search": {
+      "title": "Cerca × Annohead"
+    },
+    "technologies": {
+      "title": "Tecnologie × Annohead"
+    },
+    "technology": {
+      "fallback": "Tecnologia",
+      "title": "{name} × Tecnologie × Annohead"
+    },
+    "unit": {
+      "fallback": "Unità",
+      "title": "{name} × Unità × Annohead"
+    },
+    "units": {
+      "title": "Unità × Annohead"
+    }
+  }
+}
