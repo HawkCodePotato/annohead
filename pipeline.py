@@ -267,14 +267,14 @@ def atomic_site_db(languages: str, include_icons: bool) -> None:
         raise
 
 
-def build_icons() -> None:
+def build_icons(icon_size: int) -> None:
     if not any(EXTRACTED.rglob("*.dds")):
         raise RuntimeError("No extracted DDS files found. Run extract/refresh with --icons first.")
     staging = DATA / f".cdn-{os.getpid()}.tmp"
     if staging.exists():
         shutil.rmtree(staging)
     try:
-        run(EXTRACTOR / "publish.py", EXTRACTED, SOURCE_DB, staging)
+        run(EXTRACTOR / "publish.py", EXTRACTED, SOURCE_DB, staging, icon_size)
         if not any(staging.rglob("*.png")):
             raise RuntimeError("Icon conversion produced no PNG files")
         replace_generated_directory(staging, CDN)
@@ -354,13 +354,13 @@ def write_build_manifest(languages: str, include_icons: bool) -> None:
     )
 
 
-def build(languages: str, include_icons: bool) -> None:
+def build(languages: str, include_icons: bool, icon_size: int) -> None:
     required = EXTRACTED / "data/base/config/export/assets.xml"
     if not required.exists():
         raise RuntimeError("No extracted game data found. Run the extract or refresh command first.")
     atomic_source_db()
     if include_icons:
-        build_icons()
+        build_icons(icon_size)
     atomic_site_db(languages, include_icons)
     validate()
     write_build_manifest(languages, include_icons)
@@ -374,9 +374,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--icons",
         action="store_true",
-        help="Also extract DDS files and create the full local 256px PNG tree (large)",
+        help="Also extract DDS files and create the full local PNG tree (large)",
     )
-    return parser.parse_args()
+    parser.add_argument(
+        "--icon-size", type=int, default=256, help="Maximum width/height in pixels of PNGs built by --icons"
+    )
+    args = parser.parse_args()
+    if args.icon_size < 1:
+        parser.error("--icon-size must be a positive integer")
+    return args
 
 
 def main() -> None:
@@ -384,7 +390,7 @@ def main() -> None:
     if args.command in ("extract", "refresh"):
         extract(resolve_maindata(args.maindata), args.icons)
     if args.command in ("build", "refresh"):
-        build(args.langs, args.icons)
+        build(args.langs, args.icons, args.icon_size)
     elif args.command == "validate":
         validate()
 

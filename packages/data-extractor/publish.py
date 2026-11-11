@@ -1,7 +1,7 @@
-"""Resize every asset icon to a 256px PNG at the game's own icon path, ready for the CDN.
+"""Resize every asset icon to a PNG (256px by default) at the game's own icon path, ready for the CDN.
 
 `data/ui/fhd/base/icon_content/x.png` in the game data -> `<cdn_dir>/data/ui/fhd/base/icon_content/x.png`.
-Usage: python3 publish.py <extracted_dir> <source.sqlite> <cdn_dir>
+Usage: python3 publish.py <extracted_dir> <source.sqlite> <cdn_dir> [size]
 Then:  rclone sync <cdn_dir> <R2_REMOTE>   (see package.json "publish")
 """
 
@@ -29,8 +29,8 @@ def source_file(extracted: Path, icon_path: str):
     return cand if cand.exists() else None
 
 
-def main(extracted, source_db, out):
-    extracted, out = Path(extracted), Path(out)
+def main(extracted, source_db, out, size=SIZE):
+    extracted, out, size = Path(extracted), Path(out), int(size)
     out.mkdir(parents=True, exist_ok=True)
     icons = {
         r[0]
@@ -51,7 +51,7 @@ def main(extracted, source_db, out):
             continue
         with Image.open(src) as im:
             im = im.convert("RGBA")
-            im.thumbnail((SIZE, SIZE), Image.LANCZOS, reducing_gap=2.0)
+            im.thumbnail((size, size), Image.LANCZOS, reducing_gap=2.0)
             im.save(dst, "PNG", optimize=True)
         done += 1
     total = sum(f.stat().st_size for f in out.rglob("*.png")) / 1e6
@@ -61,4 +61,4 @@ def main(extracted, source_db, out):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:4])
+    main(*sys.argv[1:5])

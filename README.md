@@ -59,7 +59,7 @@ python pipeline.py refresh --icons
 ```
 
 That command extracts the relevant DDS files and creates a local 256px PNG tree
-under `data/cdn`. It still does not upload anything. Prefer uploading or copying
+under `data/cdn`. Add `--icon-size 128` (or any other pixel size) to make them smaller. It still does not upload anything. Prefer uploading or copying
 only the subset your site references; do not point the old `rclone sync` command
 at a shared CDN because sync may remove unrelated remote files.
 
